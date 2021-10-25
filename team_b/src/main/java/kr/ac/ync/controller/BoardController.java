@@ -39,7 +39,7 @@ public class BoardController {
 	
 	@GetMapping("/login")
     public String login(){
-
+		
         return "login";
     }
 
