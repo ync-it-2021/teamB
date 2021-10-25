@@ -30,6 +30,12 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService service;
+	
+	@GetMapping("/shop")
+    public String main(){
+
+        return "index";
+    }
 
 	@GetMapping("/register")
 	@PreAuthorize("isAuthenticated()")
