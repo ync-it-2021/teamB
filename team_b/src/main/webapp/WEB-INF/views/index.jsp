@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-
+<%@include file="includes/shopHeader.jsp"%>
 
 <head>
     <meta charset="UTF-8">
@@ -32,15 +32,14 @@
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
-    </div>
-
+    </div> 
     <!-- Header Section Begin -->
-    <header class="header">
+    <!-- <header class="header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html">
+                        <a href="./index.jsp">
                             <img src="/resources/img/logo.png" alt="">
                         </a>
                     </div>
@@ -49,23 +48,23 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="./blog.html">뉴스</a></li>
-                                <li><a href="./categories.html">카테고리 <span class="arrow_carrot-down"></span></a>
+                                <li class="active"><a href="./blog.jsp">뉴스</a></li>
+                                <li><a href="./categories.jsp">카테고리 <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
-                                        <li><a href="./categories.html">카테고리</a></li>
-                                        <li><a href="./anime-details.html">Anime Details</a></li>
-                                        <li><a href="./anime-watching.html">Anime Watching</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                        <li><a href="./signup.html">Sign Up</a></li>
-                                        <li><a href="./login.html">Login</a></li>
+                                        <li><a href="./categories.jsp">카테고리</a></li>
+                                        <li><a href="./anime-details.jsp">Anime Details</a></li>
+                                        <li><a href="./anime-watching.jsp">Anime Watching</a></li>
+                                        <li><a href="./blog-details.jsp">Blog Details</a></li>
+                                        <li><a href="./signup.jsp">Sign Up</a></li>
+                                        <li><a href="./login.jsp">Login</a></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="./blog.html">고객센터<span class="arrow_carrot-down"></span></a>
+                                    <a href="./blog.jsp">고객센터<span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
-                                        <li><a href="./categories.html">자주하는 질문</a></li>
-                                        <li><a href="./anime-details.html">공지사항</a></li>
-                                        <li><a href="./anime-details.html">1대1 문의</a></li>
+                                        <li><a href="./categories.jsp">자주하는 질문</a></li>
+                                        <li><a href="./anime-details.jsp">공지사항</a></li>
+                                        <li><a href="./anime-details.jsp">1대1 문의</a></li>
                                     </ul>
                                 </li>
                                     <li><a href="#">프로젝트 소개</a></li>
@@ -77,14 +76,14 @@
                     <div class="header__right">
                         <a href="#" class=""><span class="icon_cart_alt"></span></a>
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="./login.html"><span class="icon_profile"></span></a>
+                        <a href="./login.jsp"><span class="icon_profile"></span></a>
                     </div>
                 </div>
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
-    </header>
-    <!-- Header End -->
+    </header> -->
+     <!-- Header End -->
 
     <!-- Hero Section Begin -->
     <section class="hero">
@@ -95,7 +94,7 @@
                         <div class="col-lg-6">
                             <div class="hero__text">
                                 <div class="label">액션</div>
-                                <h2>페이트 스테이 나이트: <br>언리미티드 블레이드 워크스</h2>
+                                <h2>Fate: <br>UBW</h2>
                                 <a href="#"><span><del>45,000 KRW</del>
                                     25,000 KRw</span> <i class="fa fa-angle-right"></i></a>
                             </div>
@@ -157,7 +156,7 @@
                         <div class="row">
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <a href="./anime-details.html">
+                                    <a href="./anime-details.jsp">
                                     <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-1.jpg">
                                         <div class="view"><del>45,000 KRW</del><h5 style="color:WHITE">25,000 KRW</h5></div>
                                     </div>
@@ -167,13 +166,13 @@
                                             <li>Active</li>
                                             <li>Movie</li>
                                         </ul>
-                                        <h5><a href="./anime-details.html">진짜 졸라 재밌어보이는 게임이름 : 흑우 에디션</a></h5>
+                                        <h5><a href="./anime-details.jsp">GAME NAMES1</a></h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <a href="./anime-details.html">
+                                    <a href="./anime-details.jsp">
                                     <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-2.jpg">
                                         <div class="view"><del>35,000 KRW</del><h5 style="color:WHITE">15,000 KRW</h5></div>
                                     </div>
@@ -183,13 +182,13 @@
                                             <li>Active</li>
                                             <li>Movie</li>
                                         </ul>
-                                        <h5><a href="#">이게 뭐라고 일케 재밌냐 : GOTY 에디션</a></h5>
+                                        <h5><a href="#">FUNNY : GOTY EDITION</a></h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <a href="./anime-details.html">
+                                    <a href="./anime-details.jsp">
                                     <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-3.jpg">
                                         <div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div>
                                     </div>
@@ -205,7 +204,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <a href="./anime-details.html">
+                                    <a href="./anime-details.jsp">
                                     <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-4.jpg">
                                         <div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div>
                                     </div>
@@ -221,7 +220,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <a href="./anime-details.html">
+                                    <a href="./anime-details.jsp">
                                     <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-5.jpg">
                                         <div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div>
                                     </div>
@@ -237,7 +236,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                <a href="./anime-details.html">
+                                <a href="./anime-details.jsp">
                                     <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-6.jpg">
                                         <div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div>
                                     </div>
@@ -695,38 +694,7 @@
 </section>
 <!-- Product Section End -->
 
-<!-- Footer Section Begin -->
-<footer class="footer">
-    <div class="page-up">
-        <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="footer__logo">
-                    <a href="./index.html"><img src="/resources/img/logo.png" alt=""></a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="footer__nav">
-                    <ul>
-                        <li class="active"><a href="./index.html">홈</a></li>
-                        <li><a href="./categories.html">뉴스</a></li>
-                        <li><a href="./blog.html">고객센터</a></li>
-                        <li><a href="#">프로젝트 소개]</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                  MADE BY TEAM B
-                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-
-              </div>
-          </div>
-      </div>
-  </footer>
-  <!-- Footer Section End -->
+<%@include file="includes/shopFooter.jsp"%>
 
   <!-- Search model Begin -->
   <div class="search-model">
