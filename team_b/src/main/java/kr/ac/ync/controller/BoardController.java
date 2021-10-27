@@ -17,6 +17,7 @@ import kr.ac.ync.domain.BoardVO;
 import kr.ac.ync.domain.Criteria;
 import kr.ac.ync.domain.PageDTO;
 import kr.ac.ync.service.BoardService;
+import kr.ac.ync.service.GameInfoService;
 import kr.ac.ync.util.UploadUtils;
 import lombok.extern.log4j.Log4j;
 
@@ -41,6 +42,12 @@ public class BoardController {
     public String login(){
 		
         return "login";
+    }
+	
+	@GetMapping("/signup")
+    public String signup(){
+		
+        return "signup";
     }
 
 	@GetMapping("/register")
