@@ -1,8 +1,8 @@
 package kr.ac.ync.domain;
 
-import java.util.Date;
-import java.util.List;
+import lombok.Data;
 
+@Data
 public class GameInfoVO {
 	private int game_num ;
 	private String title;
@@ -14,8 +14,16 @@ public class GameInfoVO {
 	private int price;
 	private int sale_price;
 	private int sale_enabled;
+	
+	private String file_1;
+	private String file_2;
+	private String file_3;
+	
 	private int genre_id;
 	private int size_id;
 	private int rec_id;
+	
+	private String genre_name;
+	private String size_name;
 
 }

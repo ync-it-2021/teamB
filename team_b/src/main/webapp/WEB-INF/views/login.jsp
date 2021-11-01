@@ -10,7 +10,6 @@
     <meta name="keywords" content="Anime, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project B</title>
 
 </head>
 
@@ -58,7 +57,7 @@
                 <div class="col-lg-6">
                     <div class="login__register">
                         <h3>계정이 없으십니까?</h3>
-                        <a href="signup.html" class="primary-btn">회원 가입</a>
+                        <a href="/board/signup" class="primary-btn">회원 가입</a>
                     </div>
                 </div>
             </div>

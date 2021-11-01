@@ -32,10 +32,13 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 	
-	@GetMapping("/shop")
-    public String main(){
-
-        return "index";
+	@Autowired
+	private GameInfoService gs;
+	
+	@GetMapping("/index")
+    public void shop(Model model){
+		log.info("index");
+		model.addAttribute("games", gs.getGamesList());
     }
 	
 	@GetMapping("/login")

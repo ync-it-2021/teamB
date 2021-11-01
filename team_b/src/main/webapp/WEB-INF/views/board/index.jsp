@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="zxx">
 
-<%@include file="includes/shopHeader.jsp"%>
+<%@include file="../includes/shopHeader.jsp"%>
 
 <head>
     <meta charset="UTF-8">
@@ -14,6 +16,7 @@
 </head>
 
 <body>
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -87,105 +90,30 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="row">
+                        <c:forEach items="${games}" var="games">
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <div class="product__item">
-                                    <a href="./anime-details.jsp">
+                                    <a href="..views/anime-details.jsp">
                                     <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-1.jpg">
-                                        <div class="view"><del>45,000 KRW</del><h5 style="color:WHITE">25,000 KRW</h5></div>
+                                        <div class="view"><del><c:out value="${games.price}" /> KRW</del>
+                                        					<h5 style="color:WHITE"><c:out value="${games.sale_price}" /> KRW</h5></div>
                                     </div>
                                     </a>
                                     <div class="product__item__text">
                                         <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
+                                            <li><c:out value="${games.genre_name}" /></li>
+                                            <li><c:out value="${games.size_name}" /></li>
                                         </ul>
-                                        <h5><a href="./anime-details.jsp">GAME NAMES1</a></h5>
+                                        <h5><a href="../anime-details.jsp"><c:out value="${games.title}" /></a></h5>
                                     </div>
                                 </div>
+                                
                             </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <a href="./anime-details.jsp">
-                                    <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-2.jpg">
-                                        <div class="view"><del>35,000 KRW</del><h5 style="color:WHITE">15,000 KRW</h5></div>
-                                    </div>
-                                    </a>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">FUNNY : GOTY EDITION</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <a href="./anime-details.jsp">
-                                    <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-3.jpg">
-                                        <div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div>
-                                    </div>
-                                    </a>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Shingeki no Kyojin Season 3 Part 2</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <a href="./anime-details.jsp">
-                                    <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-4.jpg">
-                                        <div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div>
-                                    </div>
-                                    </a>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Fullmetal Alchemist: Brotherhood</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <a href="./anime-details.jsp">
-                                    <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-5.jpg">
-                                        <div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div>
-                                    </div>
-                                    </a>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Shiratorizawa Gakuen Koukou</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                <a href="./anime-details.jsp">
-                                    <div class="product__item__pic set-bg" data-setbg="/resources/img/trending/trend-6.jpg">
-                                        <div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div>
-                                    </div>
-                                </a>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Code Geass: Hangyaku no Lelouch R2</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                          </c:forEach>
+                          </div>
+                           
                     <div class="popular__product">
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-8">
@@ -410,119 +338,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="live__product">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                                <div class="section-title">
-                                    <h4>Live Action</h4>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="#" class="primary-btn">View All <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="/resources/img/live/live-1.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Shouwa Genroku Rakugo Shinjuu</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="/resources/img/live/live-2.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Mushishi Zoku Shou 2nd Season</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="/resources/img/live/live-3.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Mushishi Zoku Shou: Suzu no Shizuku</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="/resources/img/live/live-4.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="/resources/img/live/live-5.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Fate/stay night Movie: Heaven's Feel - II. Lost</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="/resources/img/live/live-6.jpg">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Kizumonogatari II: Nekketsu-hen</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
+                
+                <!-- 현재 할인중 탭 끝 -->
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="product__sidebar">
                         <div class="product__sidebar__view">
@@ -628,7 +446,7 @@
 </section>
 <!-- Product Section End -->
 
-<%@include file="includes/shopFooter.jsp"%>
+<%@include file="../includes/shopFooter.jsp"%>
 
   <!-- Search model Begin -->
   <div class="search-model">
