@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html lang="zxx">
 
 <%@include file="includes/shopHeader.jsp"%>
@@ -40,13 +42,13 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>로그인</h3>
-                        <form action="#">
+                        <form method="post" action="loginAction.jsp">
                             <div class="input__item">
-                                <input type="text" placeholder="account">
+                                <input type="text" placeholder="account" name="userid">
                                 <span class="icon_mail"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="password">
+                                <input type="text" placeholder="password" name="userpw">
                                 <span class="icon_lock"></span>
                             </div>
                             <button type="submit" class="site-btn">로그인</button>
@@ -57,7 +59,7 @@
                 <div class="col-lg-6">
                     <div class="login__register">
                         <h3>계정이 없으십니까?</h3>
-                        <a href="/board/signup" class="primary-btn">회원 가입</a>
+                        <a href="/user/register" class="primary-btn">회원 가입</a>
                     </div>
                 </div>
             </div>

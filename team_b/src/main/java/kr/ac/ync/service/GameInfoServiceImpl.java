@@ -20,7 +20,7 @@ public class GameInfoServiceImpl implements GameInfoService {
 	// BoardMappers는 interface 인데 객체로 주입받았다?
 	// Java Proxy 기법을 활용해 Mybatis는 MapperProxy라는 InvocationHandler 구현체를 이용하여
 	// 인터페이스의 구현체를 동적으로 생성
-	@Autowired
+	//@Autowired
 	private GameInfoMapper mapper;
 
 	 @Override
@@ -30,5 +30,12 @@ public class GameInfoServiceImpl implements GameInfoService {
 		
 		 return mapper.getGamesList();
 	 }
+
+	@Override
+	public GameInfoVO getDetail(Long game_num) {
+		log.info("get......" + game_num);
+
+		return mapper.getDetail(game_num);
+	}
 
 }

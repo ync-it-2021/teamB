@@ -5,25 +5,21 @@
 
 	<select id="getGamesList" resultType="kr.ac.ync.domain.GameInfoVO">
 	<![CDATA[
-		SELECT * FROM game_info WHERE game_num > 0
-		]]>
-	</select>
-	
-		<select id="getGenre" resultType="kr.ac.ync.domain.GameInfoVO">
-	<![CDATA[
-				select * 
-			from game_info, genre, size_spec
-			where game_info.genre_id = genre.genre_id
-		]]>
-	</select>
-	
-		<select id="getSize" resultType="kr.ac.ync.domain.GameInfoVO">
-	<![CDATA[
 		select * 
 			from game_info, genre, size_spec
-			where game_info.size_id = size_spec.size_id
+			where game_info.genre_id = genre.genre_id
+            and game_info.size_id = size_spec.size_id
 		]]>
 	</select>
+	
+	 	<select id="getDetail" resultType="kr.ac.ync.domain.GameInfoVO">
+		select * 
+				from game_info, genre, size_spec 
+				where game_num = #{game_num}
+				and game_info.genre_id = genre.genre_id
+				and game_info.size_id = size_spec.size_id
+		
+	</select> 
 	
 
 	<!--  <select id="read" resultType="kr.ac.ync.domain.BoardVO">

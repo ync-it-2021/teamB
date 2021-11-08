@@ -49,34 +49,34 @@
 				<div class="col-lg-8">
 					<div class="login__form">
 						<h3>회원 가입</h3>
-						<form action="#">
+						<form action="#{path}/user/register" method="post">
 
 							<div class="input__item">
-								<input type="text" placeholder="이름"> <span
+								<input type="text" placeholder="이름" name="userName"> <span
 									class="icon_profile"></span>
 							</div>
 
 							<div class="input__item">
 
 								<span class="icon_id_alt"></span> <input type="text"
-									placeholder="아이디">
-								<button type="submit" class="site-btn ">중복확인</button>
+									placeholder="아이디" name="userid">
+								<!--  <button type="submit" class="site-btn ">중복확인</button>-->
 							</div>
 
 							<div class="input__item">
-								<input type="text" placeholder="비밀번호"> <span
+								<input type="password" placeholder="비밀번호" name="userpw"> <span
 									class="icon_lock"></span>
 							</div>
 							<div class="input__item">
-								<input type="text" placeholder="비밀번호 확인"> <span
+								<input type="password" placeholder="비밀번호 확인"> <span
 									class="icon_lock-open"></span>
 							</div>
 							<div class="input__item">
-								<input type="text" placeholder="이메일"> <span
+								<input type="text" placeholder="이메일" name="userMail"> <span
 									class="icon_mail"></span>
 							</div>
 							<div class="input__item">
-								<input type="text" placeholder="전화번호"> <span
+								<input type="text" placeholder="전화번호" name="userPhone"> <span
 									class="icon_phone"></span>
 							</div>
 							<div>

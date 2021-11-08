@@ -37,7 +37,7 @@
 			</div>
 			<h2>403 - Access is Denied</h2>
 			<p>권한이 없습니다.</p>
-			<a href="#">Go To Homepage</a>
+			<a href="/board/index">Go To Homepage</a>
 		</div>
 	</div>
 

@@ -8,4 +8,7 @@ public interface GameInfoMapper {
 	
 	//@Select("select * from game_info where game_num > 0")
 	public List<GameInfoVO> getGamesList();
+	
+	public GameInfoVO getDetail(Long game_num);
+
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import kr.ac.ync.domain.BoardVO;
 import kr.ac.ync.domain.Criteria;
+import kr.ac.ync.domain.GameInfoVO;
 import kr.ac.ync.mapper.BoardMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;

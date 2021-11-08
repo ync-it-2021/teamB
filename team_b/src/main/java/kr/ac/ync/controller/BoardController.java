@@ -1,5 +1,8 @@
 package kr.ac.ync.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -9,12 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.ac.ync.domain.BoardVO;
 import kr.ac.ync.domain.Criteria;
+import kr.ac.ync.domain.MemberVO;
 import kr.ac.ync.domain.PageDTO;
 import kr.ac.ync.service.BoardService;
 import kr.ac.ync.service.GameInfoService;
@@ -41,16 +46,22 @@ public class BoardController {
 		model.addAttribute("games", gs.getGamesList());
     }
 	
-	@GetMapping("/login")
-    public String login(){
-		
-        return "login";
-    }
+	@GetMapping("/detail")
+	public void getDetail(@RequestParam("game_num") Long game_num, Model model) {
+		log.info("/detail");
+		model.addAttribute("games", gs.getDetail(game_num));
+	}
+	
 	
 	@GetMapping("/signup")
     public String signup(){
 		
         return "signup";
+    }
+	@GetMapping("/login")
+    public String login(){
+		
+        return "login";
     }
 
 	@GetMapping("/register")
@@ -111,7 +122,7 @@ public class BoardController {
 		log.info("/get or modify");
 		model.addAttribute("board", service.get(bno));
 	}
-
+	
 	@PostMapping("/modify")
 	@PreAuthorize("principal.username == #board.writer")
 	public String modify(MultipartFile[] uploadFile, BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {

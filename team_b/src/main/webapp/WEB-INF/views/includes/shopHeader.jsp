@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="/board/shop">
+                        <a href="/board/index">
                             <img src="/resources/img/logo.png" alt="">
                         </a>
                     </div>

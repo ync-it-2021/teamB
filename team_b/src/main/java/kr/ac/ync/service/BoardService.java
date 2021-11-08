@@ -4,6 +4,7 @@ import java.util.List;
 
 import kr.ac.ync.domain.BoardVO;
 import kr.ac.ync.domain.Criteria;
+import kr.ac.ync.domain.GameInfoVO;
 
 public interface BoardService {
 	
