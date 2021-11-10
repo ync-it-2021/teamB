@@ -13,6 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+
 <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
 <!-- Bootstrap Core CSS -->
@@ -45,6 +46,7 @@
 				<div class="login-panel panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Please Sign In</h3>
+						<h2><c:out value="${error }"/></h2>
 					</div>
 					<div class="panel-body">
 						<form role="form" method='post' action="/login">
@@ -65,7 +67,7 @@
 								<!-- Change this to a button or input when using this as a form -->
 								<a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
 							</fieldset>
-							<input type="hidden" name="${_csrf.parameterName}"
+							<input type="text" name="${_csrf.parameterName}"
 								value="${_csrf.token}" />
 						</form>
 

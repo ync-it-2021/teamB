@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>      
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -69,7 +70,19 @@
                         <a href="#" class=""><span class="icon_cart_alt"></span></a>
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
                         <a href="/board/login"><span class="icon_profile"></span></a>
-                    </div>
+
+						<sec:authorize access="isAuthenticated()">
+
+							<li><a href="/customLogout"><i
+									class="fa fa-sign-out fa-fw"></i></a></li>
+						</sec:authorize>
+
+						<sec:authorize access="isAnonymous()">
+
+							<li><a href="/customLogin"><i
+									class="fa fa-sign-out fa-fw"></i></a></li>
+						</sec:authorize>
+					</div>
                 </div>
             </div>
             <div id="mobile-menu-wrap"></div>

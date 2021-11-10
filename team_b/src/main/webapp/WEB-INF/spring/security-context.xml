@@ -9,9 +9,10 @@
 	<bean id="customAccessDenied" class="kr.ac.ync.security.CustomAccessDeniedHandler"></bean>
 	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	<bean id="customUserDetailsService"	class="kr.ac.ync.security.CustomUserDetailsService"></bean>
+	<bean id="customLoginSuccess" class="kr.ac.ync.security.CustomLoginSuccessHandler"></bean>
 	
 	<security:http>
-		<security:form-login login-page="/customLogin" />
+		<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess" />
 		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800" />
 		<security:logout logout-url="/customLogout"	invalidate-session="true" delete-cookies="remember-me,JSESSION_ID" />
 		<security:access-denied-handler ref="customAccessDenied" />
@@ -19,7 +20,7 @@
 	
 	<security:authentication-manager>
 		<security:authentication-provider user-service-ref="customUserDetailsService">
-			<security:password-encoder ref="bcryptPasswordEncoder" />
+			 <security:password-encoder ref="bcryptPasswordEncoder" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 	

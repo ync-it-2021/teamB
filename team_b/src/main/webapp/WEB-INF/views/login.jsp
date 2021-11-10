@@ -28,6 +28,7 @@
                 <div class="col-lg-12 text-center">
                     <div class="normal__breadcrumb__text">
                         <h2>로그인</h2>
+                        
                     </div>
                 </div>
             </div>

@@ -41,11 +41,11 @@
             <textarea class="form-control" rows="3" name='content'></textarea>
           </div>
 			
-          <!-- <div class="form-group">
+         <!--<div class="form-group">
             <label>Writer</label> <input class="form-control" name='writer'>
           </div> -->
           
-          <div class="form-group">
+           <div class="form-group">
             <label>Writer</label> <input class="form-control" name='writer' 
                 value='<sec:authentication property="principal.username"/>' readonly="readonly">
           </div>

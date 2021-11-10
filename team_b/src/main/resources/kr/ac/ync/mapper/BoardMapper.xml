@@ -32,7 +32,7 @@
  
 	<insert id="insert">
 		INSERT INTO tbl_board (bno, title, content, writer, file_1, file_2, file_3)
-		VALUES (seq_board.nextval, #{title}, #{content}, #{writer}, #{file_1}, #{file_2}, #{file_3})
+		VALUES (seq_board.nextval, #{title}, #{content}, #{writer}, #{file_1,jdbcType=VARCHAR}, #{file_2}, #{file_3})
 	</insert>
 
 	<insert id="insertSelectKey">
