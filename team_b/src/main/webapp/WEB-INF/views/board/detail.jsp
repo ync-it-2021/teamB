@@ -2,7 +2,21 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%
+pageContext.setAttribute("CR", "\r");
+pageContext.setAttribute("LF", "\n");
+pageContext.setAttribute("CRLF", "\r\n");
+pageContext.setAttribute("SP", "&nbsp;");
+pageContext.setAttribute("BR", "<br/>");
+%>
+
+<!-- jstl로 변환처리 -->
+<c:set var="cmt" value="${fn:replace(coment.coment,CRLF, BR)}" />
+<c:set var="cmt" value="${fn:replace(cmt,CR, BR)}" />
+<c:set var="cmt" value="${fn:replace(cmt,CR, BR)}" />
+<c:set var="cmt" value="${fn:replace(cmt,' ',SP)}" />
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -44,7 +58,7 @@
 		<div class="container">
 			<div class="anime__details__content">
 				<div class="row">
-					<div class="col-lg-3">
+					<div class="col-lg-3"> 
 							<c:set var="t" value="file_1" />
 							<c:if test="${not empty games[t]}">
 								<div class="anime__details__pic set-bg" data-setbg="/resources/upload/${games[t]}">
@@ -54,7 +68,6 @@
 								</script>
 							</c:if>
 					</div>
-				</div>
 				<div class="col-lg-9">
 					<div class="anime__details__text">
 						<div class="anime__details__title">
@@ -92,6 +105,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-8 col-md-8">
@@ -239,6 +253,7 @@
         </div> -->
 					</div>
 				</div>
+			</div>
 			</div>
 	</section>
 	<!-- Anime Section End -->
