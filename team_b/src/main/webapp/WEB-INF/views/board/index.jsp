@@ -458,6 +458,7 @@ pageContext.setAttribute("BR", "<br/>");
 									</div>
 								</div>
 							</div>
+							</div>
 				<!-- 현재 할인중 탭 끝 프로모션 시작-->
 					<div class="col-lg-4 col-md-6 col-sm-8">
 						<div class="product__sidebar">
@@ -596,8 +597,6 @@ pageContext.setAttribute("BR", "<br/>");
 						</div>
 					</div>
 			</div>
-		</div>
-		</div>
 		</div>
 	</section>
 	<!-- Product Section End -->
