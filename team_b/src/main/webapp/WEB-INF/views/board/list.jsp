@@ -27,23 +27,35 @@
 					<thead>
 						<tr>
 							<th>#번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일</th>
-							<th>수정일</th>
+							<th>타이틀</th>
+							<th>한국어 지원</th>
+							<th>개발사</th>
+							<th>유통사</th>
+							<th>플랫폼</th>
+							<th>정상가</th>
+							<th>할인가</th>
+							<th>할인적용</th>
+							<th>출시일</th>
+							<th>장르</th>
+							<th>플레이 지원</th>
 						</tr>
 					</thead>
 
-					<c:forEach items="${list}" var="board">
+					<c:forEach items="${games}" var="games">
 						<tr>
-							<td><c:out value="${board.bno}" /></td>
+							<td><c:out value="${games.game_num}" /></td>
 							<%-- <td><a href='/board/get?bno=<c:out value="${board.bno}"/>'><c:out value="${board.title}"/></a></td> --%>
-							<td><a class='move' href='<c:out value="${board.bno}"/>'><c:out value="${board.title}" />
-							<b>[<c:out value="${board.replyCnt}" />]</b></a> 
-							</td>
-							<td><c:out value="${board.writer}" /></td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate}" /></td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate}" /></td>
+							<td><a href='detail?game_num=<c:out value="${games.game_num}"/>'><c:out value="${games.title}" /></a></td>
+							<td><c:out value="${games.korean}" /></td>
+							<td><c:out value="${games.dev}" /></td>
+							<td><c:out value="${games.publisher}" /></td>
+							<td><c:out value="${games.platform}" /></td>
+							<td><c:out value="${games.price}" /></td>
+							<td><c:out value="${games.sale_price}" /></td>
+							<td><c:out value="${games.sale_enabled}" /></td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${games.relase_date}" /></td>
+							<td><c:out value="${games.genre_name}" /></td>
+							<td><c:out value="${games.size_name}" /></td>
 						</tr>
 					</c:forEach>
 					

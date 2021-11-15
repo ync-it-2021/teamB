@@ -33,11 +33,46 @@
 	        <input type="hidden" name="file_3" value="">
 	        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
           <div class="form-group">
-            <label>Title</label> <input class="form-control" name='title'>
+            <label>게임 제목</label> <input class="form-control" name='title'>
+          </div>
+          
+                    <div class="form-group">
+            <label>개발사</label> <input class="form-control" name='dev'>
+          </div>
+          
+                    <div class="form-group">
+            <label>유통사</label> <input class="form-control" name='publisher'>
+          </div>
+          
+                    <div class="form-group">
+            <label>한국어 지원</label> <input class="form-control" name='korean'>
+          </div>
+          
+                    <div class="form-group">
+            <label>플랫폼</label> <input class="form-control" name='platform'>
+          </div>
+          
+                    <div class="form-group">
+            <label>정상가</label> <input class="form-control" name='price'>
+          </div>
+          
+                    <div class="form-group">
+            <label>할인가</label> <input class="form-control" name='title'>
+          </div>
+          
+                    <div class="form-group">
+            <label>세일 적용</label> <input class="form-control" name='title'>
+          </div>
+          
+                    <div class="form-group">
+            <label>장르</label> <input class="form-control" name='genre_name'>
+          </div>
+                    <div class="form-group">
+            <label>플레이 지원</label> <input class="form-control" name='size_name'>
           </div>
 
           <div class="form-group">
-            <label>Text area</label>
+            <label>상세 설명</label>
             <textarea class="form-control" rows="3" name='content'></textarea>
           </div>
 			
@@ -45,10 +80,10 @@
             <label>Writer</label> <input class="form-control" name='writer'>
           </div> -->
           
-           <div class="form-group">
-            <label>Writer</label> <input class="form-control" name='writer' 
+           <!--<div class="form-group">
+            <label>게시자</label> <input class="form-control" name='writer' 
                 value='<sec:authentication property="principal.username"/>' readonly="readonly">
-          </div>
+          </div> -->
           
           <div class="form-group">
             <label>이미지 등록 1</label> <input type="file" class="form-control" name='uploadFile'>

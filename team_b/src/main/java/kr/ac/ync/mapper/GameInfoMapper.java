@@ -11,4 +11,8 @@ public interface GameInfoMapper {
 	
 	public GameInfoVO getDetail(Long game_num);
 
+	public void insert(GameInfoVO games);
+	
+	public Integer insertSelectKey(GameInfoVO games);
+
 }

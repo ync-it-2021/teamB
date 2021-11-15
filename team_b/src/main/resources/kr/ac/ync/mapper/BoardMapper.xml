@@ -32,7 +32,7 @@
  
 	<insert id="insert">
 		INSERT INTO tbl_board (bno, title, content, writer, file_1, file_2, file_3)
-		VALUES (seq_board.nextval, #{title}, #{content}, #{writer}, #{file_1,jdbcType=VARCHAR}, #{file_2}, #{file_3})
+		VALUES (seq_board.nextval, #{title}, #{content}, #{writer}, #{file_1, jdbcType=VARCHAR}, #{file_2, jdbcType=VARCHAR}, #{file_3, jdbcType=VARCHAR})
 	</insert>
 
 	<insert id="insertSelectKey">
@@ -42,8 +42,8 @@
 			select seq_board.nextval from dual
 		</selectKey>
 
-		INSERT INTO tbl_board (bno,title,content, writer, file_1, file_2, file_3)
-		VALUES (#{bno},	#{title}, #{content}, #{writer}, #{file_1}, #{file_2}, #{file_3})
+		INSERT INTO tbl_board (bno, title,content, writer, file_1, file_2, file_3)
+		VALUES (#{bno},	#{title}, #{content}, #{writer}, #{file_1, jdbcType=VARCHAR}, #{file_2, jdbcType=VARCHAR}, #{file_3, jdbcType=VARCHAR})
 	</insert>
 
 	<select id="read" resultType="kr.ac.ync.domain.BoardVO">

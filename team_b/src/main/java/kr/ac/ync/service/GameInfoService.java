@@ -8,4 +8,7 @@ public interface GameInfoService {
 	public List<GameInfoVO> getGamesList();
 	
 	public GameInfoVO getDetail(Long game_num);
+	
+	// 글 등록
+	public void registerGame(GameInfoVO games);
 }

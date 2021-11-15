@@ -38,4 +38,11 @@ public class GameInfoServiceImpl implements GameInfoService {
 		return mapper.getDetail(game_num);
 	}
 
+	@Override
+	public void registerGame(GameInfoVO games) {
+		log.info("registerGAmes......" + games);
+
+		mapper.insertSelectKey(games);
+	}
+
 }

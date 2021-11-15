@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.ac.ync.domain.BoardVO;
 import kr.ac.ync.domain.Criteria;
+import kr.ac.ync.domain.GameInfoVO;
 import kr.ac.ync.domain.MemberVO;
 import kr.ac.ync.domain.PageDTO;
 import kr.ac.ync.service.BoardService;
@@ -80,47 +81,80 @@ public class BoardController {
 		int total = service.getTotal(cri);
 		log.info("total: " + total);
 		model.addAttribute("list", service.getListWithPaging(cri));
+		model.addAttribute("games", gs.getGamesList());
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 
 	}
 	
+//	// 글 등록
+//	// file upload가 추가된 게시판 등록
+//	@PostMapping("/register")
+//	@PreAuthorize("isAuthenticated()")
+//	public String register(MultipartFile[] uploadFile, BoardVO board, RedirectAttributes rttr) {
+//		
+//		int index = 0;
+//		for (MultipartFile multipartFile : uploadFile) {
+//			if(multipartFile.getSize() > 0) {
+//				switch (index) {
+//				case 0:
+//					board.setFile_1(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+//					break;
+//				case 1:
+//					board.setFile_2(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+//					break;
+//				default:
+//					board.setFile_3(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+//					break;
+//				}
+//			}
+//			index++;
+//		}
+//		
+//		log.info("register: " + board);
+//		service.register(board);
+//		rttr.addFlashAttribute("result", board.getBno());
+//
+//		return "redirect:/board/list";
+//	}
+	
 	// 글 등록
-		// file upload가 추가된 게시판 등록
-		@PostMapping("/register")
-		@PreAuthorize("isAuthenticated()")
-		public String register(MultipartFile[] uploadFile, BoardVO board, RedirectAttributes rttr) {
-			
-			int index = 0;
-			for (MultipartFile multipartFile : uploadFile) {
-				if(multipartFile.getSize() > 0) {
-					switch (index) {
-					case 0:
-						board.setFile_1(UploadUtils.uploadFormPost(multipartFile, uploadPath));
-						break;
-					case 1:
-						board.setFile_2(UploadUtils.uploadFormPost(multipartFile, uploadPath));
-						break;
-					default:
-						board.setFile_3(UploadUtils.uploadFormPost(multipartFile, uploadPath));
-						break;
-					}
+	// file upload가 추가된 게시판 등록
+	@PostMapping("/register")
+	@PreAuthorize("isAuthenticated()")
+	public String register(MultipartFile[] uploadFile, GameInfoVO games, RedirectAttributes rttr) {
+		
+		int index = 0;
+		for (MultipartFile multipartFile : uploadFile) {
+			if(multipartFile.getSize() > 0) {
+				switch (index) {
+				case 0:
+					games.setFile_1(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+					break;
+				case 1:
+					games.setFile_2(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+					break;
+				default:
+					games.setFile_3(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+					break;
 				}
-				index++;
 			}
-			
-			log.info("register: " + board);
-			service.register(board);
-			rttr.addFlashAttribute("result", board.getBno());
-
-			return "redirect:/board/list";
+			index++;
 		}
 		
+		log.info("register: " + games);
+		gs.registerGame(games);
+		rttr.addFlashAttribute("result", games.getGame_num());
+
+		return "redirect:/board/list";
+	}
+
 	// @ModelAttribute 는 model.addAttribute("cri", cri) 해주는거와 동일하다.
 	@GetMapping({ "/get", "/modify" })
 	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
 
 		log.info("/get or modify");
 		model.addAttribute("board", service.get(bno));
+		model.addAttribute("games", gs.getGamesList());
 	}
 	
 	@PostMapping("/modify")
