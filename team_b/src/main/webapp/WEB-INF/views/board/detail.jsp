@@ -47,11 +47,8 @@
 					<div class="col-lg-3">
 							<c:set var="t" value="file_1" />
 							<c:if test="${not empty games[t]}">
-								<div class="form-group">
 								<div class="anime__details__pic set-bg" data-setbg="/resources/upload/${games[t]}">
-
 								</div>
-							</div>
 								<script>
 									//document.getElementById('thumb_${i}').src="/resources/upload/" + getThumbFileName('${board[t]}');
 								</script>

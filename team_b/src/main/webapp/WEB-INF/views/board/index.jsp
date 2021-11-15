@@ -101,8 +101,10 @@
 								<div class="col-lg-4 col-md-6 col-sm-6">
 									<div class="product__item">
 										<a class='move' href='detail?game_num=<c:out value="${games.game_num}"/>'>
+										<c:set var="t" value="file_1" />
+										<c:if test="${not empty games[t]}">
 											<div class="product__item__pic set-bg"
-												data-setbg="/resources/img/trending/trend-1.jpg">
+												data-setbg="/resources/upload/${games[t]}">
 												<div class="view">
 													<del>
 														<c:out value="${games.price}" />
@@ -114,6 +116,7 @@
 													</h5>
 												</div>
 											</div>
+											</c:if>
 										</a>
 										<div class="product__item__text">
 											<ul>
