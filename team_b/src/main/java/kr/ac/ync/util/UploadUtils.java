@@ -84,7 +84,7 @@ public class UploadUtils {
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_" + saveFileName));
 
 					// 썸네일 사이즈를 지정해준다. 프로젝트에 따라 썸네일의 크기를 조절해서 사용
-					Thumbnailator.createThumbnail(uploadFile.getInputStream(), thumbnail, 100, 100);
+					Thumbnailator.createThumbnail(uploadFile.getInputStream(), thumbnail, 750, 800);
 					thumbnail.close();
 				}
 				

@@ -40,130 +40,150 @@
     <!-- Breadcrumb End -->
 
     <!-- Anime Section Begin -->
-    <section class="anime-details spad">
-        <div class="container">
-            <div class="anime__details__content">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="anime__details__pic set-bg" data-setbg="img/popular/fallout.jpg">
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="anime__details__text">
-                            <div class="anime__details__title">
-                                <h3>${games.title}</h3>
-                                <span>${games.dev}</span>
-                            </div>
-                            <div class="anime__details__rating">
-                                <div class="rating">
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star-half-o"></i></a>
-                                </div>
-                                <span>${games.korean}</span>
-                            </div>
-                            <p>${games.info}</p>
-                            <div class="anime__details__widget">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6">
-                                        <ul>
-                                            <li><span>장르:</span> ${games.genre_name}</li>
-                                            <li><span>퍼블리셔:</span> ${games.publisher }</li>
-                                            <li><span>개발사:</span> ${games.dev}</li>
-                                            <li><span>플랫폼:</span> ${games.platform}</li>
-                                            <li><span>언어:</span>${games.korean}</li>
-                                            <li><span>플레이어 지원:</span>${games.size_name}</li>
-                                        </ul>
-                                    </div>
-                            </div>
-                            <div class="anime__details__btn">
-                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> 위시리스트 추가</a>
-                                <a href="#" class="watch-btn"><span><del>${games.sale_price} KRW</del>
-                                     ${games.price} KRW</span> <i
-                                    class="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 col-md-8">
-                        <div class="anime__details__review">
-                            <div class="section-title">
-                                <h5>게임 정보</h5>
-                            </div>
-                            <p style="color:white;">${games.info}</p>
-                        </div>
-                        <div class="anime__details__widget">
-                            <div class="section-title">
-                                <h5>권장 사양</h5>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">        
-                                    <ul>
-                                        <li><span>운영체제:</span> 윈도우 7/8.1/10 (64-bit versions)</li>
-                                        <li><span>프로세서:</span> i5-6600k 3.5 GHz</li>
-                                        <li><span>메모리:</span>  8 GB RAM</li>
-                                        <li><span>그래픽:</span>  GTX 780 3GB / Radeon R9 285 2GB</li>
-                                        <li><span>네트워크:</span> 초고속 인터넷 연결</li>
-                                        <li><span>저장공간:</span>80 GB 사용 가능 공간</li>
-                                    </ul>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <ul>
-                                        <li><span>운영체제:</span> 윈도우 7/8.1/10 (64-bit versions)</li>
-                                        <li><span>프로세서:</span> i5-6600k 3.5 GHz</li>
-                                        <li><span>메모리:</span>  8 GB RAM</li>
-                                        <li><span>그래픽:</span>  GTX 780 3GB / Radeon R9 285 2GB</li>
-                                        <li><span>네트워크:</span> 초고속 인터넷 연결</li>
-                                        <li><span>저장공간:</span>80 GB 사용 가능 공간</li>
-                                    </ul>
-                                </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="col-lg-4 col-md-4" style="float:right;">
-                <div class="anime__details__sidebar">
-                        <div class="section-title">
-                            <h5>프로모션</h5>
-                        </div>
-                        <!-- <ul class="filter__controls">
+	<section class="anime-details spad">
+		<div class="container">
+			<div class="anime__details__content">
+				<div class="row">
+					<div class="col-lg-3">
+							<c:set var="t" value="file_1" />
+							<c:if test="${not empty games[t]}">
+								<div class="form-group">
+								<div class="anime__details__pic set-bg" data-setbg="/resources/upload/${games[t]}">
+
+								</div>
+							</div>
+								<script>
+									//document.getElementById('thumb_${i}').src="/resources/upload/" + getThumbFileName('${board[t]}');
+								</script>
+							</c:if>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<div class="anime__details__text">
+						<div class="anime__details__title">
+							<h3><c:out value="${games.title }"/></h3>
+							<span><c:out value="${games.dev }"/></span>
+						</div>
+						<div class="anime__details__rating">
+							<div class="rating">
+								<a href="#"><i class="fa fa-star"></i></a> <a href="#"><i
+									class="fa fa-star"></i></a> <a href="#"><i class="fa fa-star"></i></a>
+								<a href="#"><i class="fa fa-star"></i></a> <a href="#"><i
+									class="fa fa-star-half-o"></i></a>
+							</div>
+							<span><c:out value="${games.korean }"/></span>
+						</div>
+						<p><c:out value="${games.info }"/></p>
+						<div class="anime__details__widget">
+							<div class="row">
+								<div class="col-lg-6 col-md-6">
+									<ul>
+										<li><span>장르:</span> <c:out value="${games.genre_name }"/></li>
+										<li><span>퍼블리셔:</span> <c:out value="${games.publisher }"/></li>
+										<li><span>개발사:</span> <c:out value="${games.dev }"/></li>
+										<li><span>플랫폼:</span> <c:out value="${games.platform }"/></li>
+										<li><span>언어:</span> <c:out value="${games.korean }"/></li>
+										<li><span>플레이어 지원:</span> <c:out value="${games.size_name }"/></li>
+									</ul>
+								</div>
+							</div>
+							<div class="anime__details__btn">
+								<a href="#" class="follow-btn"><i class="fa fa-heart-o"></i>
+									위시리스트 추가</a> <a href="#" class="watch-btn"><span><del>${games.sale_price}
+											KRW</del> ${games.price} KRW</span> <i class="fa fa-angle-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-8 col-md-8">
+					<div class="anime__details__review">
+						<div class="section-title">
+							<h5>게임 정보</h5>
+						</div>
+						<p style="color: white;">${games.info}</p>
+					</div>
+					<div class="anime__details__widget">
+						<div class="section-title">
+							<h5>권장 사양</h5>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6">
+								<ul>
+									<li><span>운영체제:</span> 윈도우 7/8.1/10 (64-bit versions)</li>
+									<li><span>프로세서:</span> i5-6600k 3.5 GHz</li>
+									<li><span>메모리:</span> 8 GB RAM</li>
+									<li><span>그래픽:</span> GTX 780 3GB / Radeon R9 285 2GB</li>
+									<li><span>네트워크:</span> 초고속 인터넷 연결</li>
+									<li><span>저장공간:</span>80 GB 사용 가능 공간</li>
+								</ul>
+							</div>
+							<div class="col-lg-6 col-md-6">
+								<ul>
+									<li><span>운영체제:</span> 윈도우 7/8.1/10 (64-bit versions)</li>
+									<li><span>프로세서:</span> i5-6600k 3.5 GHz</li>
+									<li><span>메모리:</span> 8 GB RAM</li>
+									<li><span>그래픽:</span> GTX 780 3GB / Radeon R9 285 2GB</li>
+									<li><span>네트워크:</span> 초고속 인터넷 연결</li>
+									<li><span>저장공간:</span>80 GB 사용 가능 공간</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4" style="float: right;">
+					<div class="anime__details__sidebar">
+						<div class="section-title">
+							<h5>프로모션</h5>
+						</div>
+						<!-- <ul class="filter__controls">
                             <li class="active" data-filter="*">Day</li>
                             <li data-filter=".week">Week</li>
                             <li data-filter=".month">Month</li>
                             <li data-filter=".years">Years</li>
                         </ul> -->
-                                    <div class="filter__gallery">
-                                        <div class="product__sidebar__view__item set-bg mix day years"
-                                        data-setbg="../img/sidebar/tv-1.jpg">
-                                        <div class="ep">2021 / 06 / 04  ~  2021 / 06 / 18</div>
-                                        <h5><a href="#">2021 여름세일 돌입</a></h5>
-                                    </div>
-                                    <div class="product__sidebar__view__item set-bg mix month week"
-                                    data-setbg="../img/sidebar/tv-2.jpg">
-                                    <div class="ep">2021 / 10 / 28  ~  2021 / 11 / 04</div>
-                                    <h5><a href="#">2021 할로윈세일 예정</a></h5>
-                                </div>
-                                <div class="product__sidebar__view__item set-bg mix week years"
-                                data-setbg="../img/sidebar/tv-3.jpg">
-                                <div class="ep">2021 / 10 / 28  ~  2021 / 11 / 04</div>
-                                <h5><a href="#">아무 행사</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg mix years month"
-                            data-setbg="../img/sidebar/tv-4.jpg">
-                            <div class="ep">2021 / 10 / 28  ~  2021 / 11 / 04</div>
-                            <h5><a href="#">이외에 예정된 행사 없음</a></h5>
-                        </div>
-                        <div class="product__sidebar__view__item set-bg mix day"
-                        data-setbg="../sidebar/tv-5.jpg">
-                        <div class="ep">2021 / 10 / 28  ~  2021 / 11 / 04</div>
-                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                        <h5><a href="#">--</a></h5>
-        </div>
-        </div>
-        <!-- <div class="product__sidebar__comment">
+						<div class="filter__gallery">
+							<div class="product__sidebar__view__item set-bg mix day years"
+								data-setbg="../img/sidebar/tv-1.jpg">
+								<div class="ep">2021 / 06 / 04 ~ 2021 / 06 / 18</div>
+								<h5>
+									<a href="#">2021 여름세일 돌입</a>
+								</h5>
+							</div>
+							<div class="product__sidebar__view__item set-bg mix month week"
+								data-setbg="../img/sidebar/tv-2.jpg">
+								<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
+								<h5>
+									<a href="#">2021 할로윈세일 예정</a>
+								</h5>
+							</div>
+							<div class="product__sidebar__view__item set-bg mix week years"
+								data-setbg="../img/sidebar/tv-3.jpg">
+								<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
+								<h5>
+									<a href="#">아무 행사</a>
+								</h5>
+							</div>
+							<div class="product__sidebar__view__item set-bg mix years month"
+								data-setbg="../img/sidebar/tv-4.jpg">
+								<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
+								<h5>
+									<a href="#">이외에 예정된 행사 없음</a>
+								</h5>
+							</div>
+							<div class="product__sidebar__view__item set-bg mix day"
+								data-setbg="../sidebar/tv-5.jpg">
+								<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
+								<div class="view">
+									<i class="fa fa-eye"></i> 9141
+								</div>
+								<h5>
+									<a href="#">--</a>
+								</h5>
+							</div>
+						</div>
+						<!-- <div class="product__sidebar__comment">
             <div class="section-title">
                 <h5>신규출시</h5>
             </div>
@@ -220,11 +240,11 @@
                 </div>
             </div>
         </div> -->
-                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- Anime Section End -->
+					</div>
+				</div>
+			</div>
+	</section>
+	<!-- Anime Section End -->
 	<%@include file="../includes/shopFooter.jsp"%>
           <!-- Search model Begin -->
           <div class="search-model">
