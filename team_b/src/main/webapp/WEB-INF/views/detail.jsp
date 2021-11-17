@@ -35,7 +35,7 @@ pageContext.setAttribute("BR", "<br/>");
         <div class="loader"></div>
     </div>
 
-   <%@include file="../includes/shopHeader.jsp"%>
+   <%@include file="includes/shopHeader.jsp"%>
 
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
@@ -257,7 +257,7 @@ pageContext.setAttribute("BR", "<br/>");
 			</div>
 	</section>
 	<!-- Anime Section End -->
-	<%@include file="../includes/shopFooter.jsp"%>
+	<%@include file="includes/shopFooter.jsp"%>
           <!-- Search model Begin -->
           <div class="search-model">
             <div class="h-100 d-flex align-items-center justify-content-center">

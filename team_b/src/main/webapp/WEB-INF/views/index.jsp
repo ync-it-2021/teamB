@@ -17,7 +17,7 @@ pageContext.setAttribute("BR", "<br/>");
 <c:set var="cmt" value="${fn:replace(cmt,' ',SP)}" />
 <!DOCTYPE html>
 <html lang="zxx">
-<%@include file="../includes/shopHeader.jsp"%>
+<%@include file="includes/shopHeader.jsp"%>
 
 <head>
 <meta charset="UTF-8">
@@ -601,7 +601,7 @@ pageContext.setAttribute("BR", "<br/>");
 	</section>
 	<!-- Product Section End -->
 
-	<%@include file="../includes/shopFooter.jsp"%>
+	<%@include file="includes/shopFooter.jsp"%>
 
 	<!-- Search model Begin -->
 	<div class="search-model">
