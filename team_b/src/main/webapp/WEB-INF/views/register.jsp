@@ -23,7 +23,7 @@
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 
-				<form role="form" action="/board/register" method="post"
+				<form role="form" action="/register" method="post"
 					enctype="multipart/form-data">
 					<!--
         	controller에서 파라미터 수집시 upload file은 uploadFile 이름으로 server로 넘어간다.(binary data로)
