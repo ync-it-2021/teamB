@@ -38,6 +38,7 @@
 							<th>출시일</th>
 							<th>장르</th>
 							<th>플레이 지원</th>
+							<th>수정</th>
 						</tr>
 					</thead>
 
@@ -56,9 +57,12 @@
 							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${games.relase_date}" /></td>
 							<td><c:out value="${games.genre_name}" /></td>
 							<td><c:out value="${games.size_name}" /></td>
+							<td><sec:authentication property="principal" var="pinfo" />
+								<sec:authorize access="isAuthenticated()">
+										<button data-oper='modify' class="btn btn-default">수정</button>
+								</sec:authorize></td>
 						</tr>
 					</c:forEach>
-					
 				</table>
 				
 				<!-- 검색 영역 시작 -->

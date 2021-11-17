@@ -29,7 +29,7 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping("/board/*")
+@RequestMapping("board/*")
 public class BoardController {
 
 	@Value("${globalConfig.uploadPath}")
@@ -39,7 +39,7 @@ public class BoardController {
 	private BoardService service;
 	
 	@Autowired
-	private GameInfoService gs;
+	private GameInfoService gs;	
 	
 	@GetMapping("/index")
     public void shop(Model model){
