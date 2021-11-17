@@ -147,7 +147,7 @@ public class BoardController {
 		gs.registerGame(games);
 		rttr.addFlashAttribute("result", games.getGame_num());
 
-		return "redirect:/board/list";
+		return "redirect:/list";
 	}
 
 	// @ModelAttribute 는 model.addAttribute("cri", cri) 해주는거와 동일하다.
@@ -188,7 +188,7 @@ public class BoardController {
 			rttr.addFlashAttribute("result", "success");
 		}
 
-		return "redirect:/board/list" + cri.getListLink();
+		return "redirect:/list" + cri.getListLink();
 	}
 
 	@PostMapping("/remove")
