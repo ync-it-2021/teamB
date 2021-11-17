@@ -69,18 +69,16 @@
                     <div class="header__right">
                         <a href="#" class=""><span class="icon_cart_alt"></span></a>
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="/login"><span class="icon_profile"></span></a>
-
 						<sec:authorize access="isAuthenticated()">
 
 							<a href="/logout"><span
-									class="fa fa-sign-out fa-fw"></span></a>
+									class="icon_profile"></span></a>
 						</sec:authorize>
 
 						<sec:authorize access="isAnonymous()">
 
 							<a href="/login"><span
-									class="fa fa-sign-out fa-fw"></span></a>
+									class="icon_profile"></span></a>
 						</sec:authorize>
 					</div>
                 </div>
