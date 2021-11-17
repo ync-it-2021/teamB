@@ -41,10 +41,12 @@ public class BoardController {
 	@Autowired
 	private GameInfoService gs;	
 	
-	@GetMapping("/index")
-    public void shop(Model model){
+	@GetMapping(value = "/*")
+    public String shop(Model model){
 		log.info("index");
 		model.addAttribute("games", gs.getGamesList());
+		
+		return "/board/index";
     }
 	
 	@GetMapping("/detail")

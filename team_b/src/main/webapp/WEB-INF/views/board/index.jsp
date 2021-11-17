@@ -10,7 +10,6 @@ pageContext.setAttribute("CRLF", "\r\n");
 pageContext.setAttribute("SP", "&nbsp;");
 pageContext.setAttribute("BR", "<br/>");
 %>
-
 <!-- jstl로 줄바꿈 변환처리 -->
 <c:set var="cmt" value="${fn:replace(coment.coment,CRLF, BR)}" />
 <c:set var="cmt" value="${fn:replace(cmt,CR, BR)}" />
@@ -18,7 +17,7 @@ pageContext.setAttribute("BR", "<br/>");
 <c:set var="cmt" value="${fn:replace(cmt,' ',SP)}" />
 <!DOCTYPE html>
 <html lang="zxx">
-<%@include file="../WEB-INF/views/includes/shopHeader.jsp"%>
+<%@include file="../includes/shopHeader.jsp"%>
 
 <head>
 <meta charset="UTF-8">
@@ -27,7 +26,7 @@ pageContext.setAttribute("BR", "<br/>");
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Project B</title>
-<%response.sendRedirect(request.getContextPath()+"/index"); %>
+
 </head>
 
 <body>
@@ -602,7 +601,7 @@ pageContext.setAttribute("BR", "<br/>");
 	</section>
 	<!-- Product Section End -->
 
-	<%@include file="../WEB-INF/views/includes/shopFooter.jsp"%>
+	<%@include file="../includes/shopFooter.jsp"%>
 
 	<!-- Search model Begin -->
 	<div class="search-model">
