@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="/board/index">
+                        <a href="/">
                             <img src="/resources/img/logo.png" alt="">
                         </a>
                     </div>
@@ -69,18 +69,18 @@
                     <div class="header__right">
                         <a href="#" class=""><span class="icon_cart_alt"></span></a>
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="/board/login"><span class="icon_profile"></span></a>
+                        <a href="/login"><span class="icon_profile"></span></a>
 
 						<sec:authorize access="isAuthenticated()">
 
-							<li><a href="/customLogout"><i
-									class="fa fa-sign-out fa-fw"></i></a></li>
+							<a href="/logout"><span
+									class="fa fa-sign-out fa-fw"></span></a>
 						</sec:authorize>
 
 						<sec:authorize access="isAnonymous()">
 
-							<li><a href="/customLogin"><i
-									class="fa fa-sign-out fa-fw"></i></a></li>
+							<a href="/login"><span
+									class="fa fa-sign-out fa-fw"></span></a>
 						</sec:authorize>
 					</div>
                 </div>

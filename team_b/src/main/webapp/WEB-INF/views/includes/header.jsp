@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>        
@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>어드민 페이지</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -55,9 +55,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/board/list">ADMIN</a>
+                <a class="navbar-brand" href="/list">ADMIN</a>
 
-                <a class="navbar-brand" href="/board/index">SHOP</a>
+                <a class="navbar-brand" href="/">SHOP</a>
             </div>
             <!-- /.navbar-header -->
 

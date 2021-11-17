@@ -69,7 +69,7 @@
 				<div class='row'>
 					<div class="col-lg-12">
 
-						<form id='searchForm' action="/board/list" method='get'>
+						<form id='searchForm' action="/list" method='get'>
 							<select name='type'>
 								<option value=""
 									<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
@@ -121,7 +121,7 @@
 				<!--  Pagination 끝 -->
 				
 				<!-- 페이징 Form 시작 -->
-				<form id='actionForm' action="/board/list" method='get'>
+				<form id='actionForm' action="/list" method='get'>
 				<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum}'>
 				<input type='hidden' name='amount' value='${pageMaker.cri.amount}'>
 				<input type='hidden' name='type' value='<c:out value="${ pageMaker.cri.type }"/>'>
@@ -189,7 +189,7 @@
 		}
 		
 		$("#regBtn").on("click", function() {
-			self.location = "/board/register";
+			self.location = "/register";
 		});
 		
 		var actionForm = $("#actionForm");
@@ -206,7 +206,7 @@
 		$(".move").on("click",function(e) {
 			e.preventDefault();
 			actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href")	+ "'>");
-			actionForm.attr("action", "/board/get");
+			actionForm.attr("action", "/get");
 			actionForm.submit();
 		});
 		

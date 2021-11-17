@@ -50,7 +50,7 @@
             <div class="col-lg-6">
                 <div class="footer__nav">
                     <ul>
-                        <li class="active"><a href="/board/index">홈</a></li>
+                        <li class="active"><a href="/index">홈</a></li>
                         <li><a href="./categories.jsp">뉴스</a></li>
                         <li><a href="./blog.jsp">고객센터</a></li>
                         <li><a href="#">프로젝트 소개</a></li>
