@@ -33,9 +33,38 @@
 			select seq_gamenum.nextval from dual
 		</selectKey>
 
-		INSERT INTO game_info (game_num, title, korean, dev, publisher, platform, price, sale_price, sale_enabled, relase_date, genre_id, size_id, rec_id, info, file_1, file_2, file_3)
-		VALUES (#{game_num}, #{title}, #{korean}, #{dev}, #{publisher}, #{platform}, #{price}, #{sale_price}, #{sale_enabled}, #{relase_date}, #{genre_id}, #{size_id}, #{rec_id}, #{info, jdbcType=VARCHAR}, #{file_1, jdbcType=VARCHAR}, #{file_2, jdbcType=VARCHAR}, #{file_3, jdbcType=VARCHAR})
+		INSERT INTO game_info (game_num, title, korean, dev, publisher, platform, price, sale_price, sale_enabled, 
+												relase_date, genre_id, size_id, rec_id, info, file_1, file_2, file_3)
+		VALUES (#{game_num}, #{title}, #{korean}, #{dev}, #{publisher}, #{platform}, #{price}, #{sale_price}, #{sale_enabled}, 
+												#{relase_date}, #{genre_id}, #{size_id}, #{rec_id}, #{info, jdbcType=VARCHAR}, 
+												#{file_1, jdbcType=VARCHAR}, #{file_2, jdbcType=VARCHAR}, #{file_3, jdbcType=VARCHAR})
 	</insert>
+	
+		<delete id="delete">
+		DELETE FROM game_info WHERE game_num = #{game_num}
+	</delete>
+ 
+	<update id="update">
+	UPDATE game_info SET 	title= #{title}, 
+							dev = #{dev},
+							publisher = #{publisher},
+							korean = #{korean}, 
+							platform = #{platform},
+							price = #{price},
+							sale_price = #{sale_price},
+							sale_enabled = #{sale_enabled},
+							relase_date = #{relase_date},
+							genre_id = #{genre_id},
+							size_id = #{size_id},
+							rec_id = #{rec_id},
+							info = #{info, jdbcType=VARCHAR},
+							file_1 = #{file_1, jdbcType=VARCHAR},
+							file_2 = #{file_2, jdbcType=VARCHAR},
+							file_3 = #{file_3, jdbcType=VARCHAR}
+	WHERE game_num = #{game_num}
+	</update>
+	
+	
 	
 
 	<!--  <select id="read" resultType="kr.ac.ync.domain.BoardVO">

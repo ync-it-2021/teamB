@@ -9,6 +9,9 @@ public interface GameInfoService {
 	
 	public GameInfoVO getDetail(Long game_num);
 	
-	// 글 등록
+	//등록
 	public void registerGame(GameInfoVO games);
+	
+	//수정
+	public boolean modify(GameInfoVO games);
 }

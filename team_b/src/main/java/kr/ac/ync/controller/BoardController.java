@@ -152,16 +152,14 @@ public class BoardController {
 
 	// @ModelAttribute 는 model.addAttribute("cri", cri) 해주는거와 동일하다.
 	@GetMapping({ "/get", "/modify" })
-	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
+	public void get(@RequestParam("game_num") Long game_num, @ModelAttribute("cri") Criteria cri, Model model) {
 
 		log.info("/get or modify");
-		model.addAttribute("board", service.get(bno));
-		model.addAttribute("games", gs.getGamesList());
+		model.addAttribute("games", gs.getDetail(game_num));
 	}
 	
 	@PostMapping("/modify")
-	@PreAuthorize("principal.username == #board.writer")
-	public String modify(MultipartFile[] uploadFile, BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
+	public String modify(MultipartFile[] uploadFile, GameInfoVO games, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		
 		int index = 0;
 		for (MultipartFile multipartFile : uploadFile) {
@@ -169,22 +167,22 @@ public class BoardController {
 			if (multipartFile.getSize() > 0) {
 				switch (index) {
 				case 0:
-					board.setFile_1(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+					games.setFile_1(UploadUtils.uploadFormPost(multipartFile, uploadPath));
 					break;
 				case 1:
-					board.setFile_2(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+					games.setFile_2(UploadUtils.uploadFormPost(multipartFile, uploadPath));
 					break;
 				default:
-					board.setFile_3(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+					games.setFile_3(UploadUtils.uploadFormPost(multipartFile, uploadPath));
 					break;
 				}
 			}
 			index++;
 		}
 		
-		log.info("modify:" + board);
+		log.info("modify:" + games);
 		
-		if (service.modify(board)) {
+		if (gs.modify(games)) {
 			rttr.addFlashAttribute("result", "succeed");
 		}
 

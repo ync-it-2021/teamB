@@ -14,5 +14,7 @@ public interface GameInfoMapper {
 	public void insert(GameInfoVO games);
 	
 	public Integer insertSelectKey(GameInfoVO games);
+	
+	public int update(GameInfoVO games);
 
 }

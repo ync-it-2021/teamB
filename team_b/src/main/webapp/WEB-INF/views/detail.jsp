@@ -83,7 +83,6 @@ pageContext.setAttribute("BR", "<br/>");
 							</div>
 							<span><c:out value="${games.korean }"/></span>
 						</div>
-						<p><c:out value="${games.info }"/></p>
 						<div class="anime__details__widget">
 							<div class="row">
 								<div class="col-lg-6 col-md-6">

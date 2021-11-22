@@ -6,7 +6,7 @@
 <%@include file="includes/header.jsp"%>
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Tables</h1>
+		<h1 class="page-header">GAME_INFO</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -16,9 +16,10 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">	
 			<div class="panel-heading">
-				Board List Page
-				<button id='regBtn' type="button" class="btn btn-xs pull-right">Register
-					New Board</button>
+				Game_info
+				<button id='regBtn' type="button" class="btn btn-success btn-xs pull-right">
+					새로운 게임 등록
+				</button>
 			</div>
 
 			<!-- /.panel-heading -->
@@ -26,9 +27,9 @@
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>#번호</th>
+							<th>#</th>
 							<th>타이틀</th>
-							<th>한국어 지원</th>
+							<th>한국어</th>
 							<th>개발사</th>
 							<th>유통사</th>
 							<th>플랫폼</th>
@@ -38,7 +39,7 @@
 							<th>출시일</th>
 							<th>장르</th>
 							<th>플레이 지원</th>
-							<th>수정</th>
+							<th>-</th>
 						</tr>
 					</thead>
 
@@ -59,7 +60,10 @@
 							<td><c:out value="${games.size_name}" /></td>
 							<td><sec:authentication property="principal" var="pinfo" />
 								<sec:authorize access="isAuthenticated()">
-										<button data-oper='modify' class="btn btn-default">수정</button>
+										<a href="/modify?game_num=${games.game_num}" role="button" 
+															data-oper='modify' class="btn btn-default">
+											<i class="fa fa-gear fa-fw"></i>
+										</a>
 								</sec:authorize></td>
 						</tr>
 					</c:forEach>
@@ -79,15 +83,6 @@
 									<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
 								<option value="W"
 									<c:out value="${pageMaker.cri.type eq 'W'?'selected':''}"/>>작성자</option>
-								<option value="TC"
-									<c:out value="${pageMaker.cri.type eq 'TC'?'selected':''}"/>>제목
-									or 내용</option>
-								<option value="TW"
-									<c:out value="${pageMaker.cri.type eq 'TW'?'selected':''}"/>>제목
-									or 작성자</option>
-								<option value="TWC"
-									<c:out value="${pageMaker.cri.type eq 'TWC'?'selected':''}"/>>제목
-									or 내용 or 작성자</option>
 							</select>
 							<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' />
 							<input type='hidden' name='pageNum'	value='<c:out value="${pageMaker.cri.pageNum}"/>' />
@@ -182,7 +177,7 @@
 			}
 
 			if (parseInt(result) > 0) {
-				$(".modal-body").html("게시글 " + parseInt(result)	+ " 번이 등록되었습니다.");
+				$(".modal-body").html("새로운 게임 " + parseInt(result)	+ " 등록되었습니다.");
 			}
 
 			$("#myModal").modal("show");

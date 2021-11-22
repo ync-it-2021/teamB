@@ -45,4 +45,9 @@ public class GameInfoServiceImpl implements GameInfoService {
 		mapper.insertSelectKey(games);
 	}
 
+	@Override
+	public boolean modify(GameInfoVO games) {
+		return mapper.update(games) == 1;
+	}
+
 }
