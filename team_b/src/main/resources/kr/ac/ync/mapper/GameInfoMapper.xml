@@ -22,8 +22,8 @@
 	</select> 
 	
 		<insert id="insert">
-		INSERT INTO game_info (game_num, title, korean, dev, publisher, platform, price, sale_price, sale_enabled, relase_date, genre_id, size_id, rec_id, file_1, file_2, file_3)
-		VALUES (seq_gamenum.nextval, #{title}, #{korean}, #{dev}, #{publisher}, #{platform}, #{price}, #{sale_price}, #{sale_enabled}, #{relase_date}, #{genre_id}, #{size_id}, #{rec_id}, #{file_1, jdbcType=VARCHAR}, #{file_2, jdbcType=VARCHAR}, #{file_3, jdbcType=VARCHAR})
+		INSERT INTO game_info (game_num, title, korean, dev, publisher, platform, price, sale_price, sale_enabled, relase_date, genre_id, size_id, rec_id, info, file_1, file_2, file_3)
+		VALUES (seq_gamenum.nextval, #{title}, #{korean}, #{dev}, #{publisher}, #{platform}, #{price}, #{sale_price}, #{sale_enabled}, #{relase_date}, #{genre_id}, #{size_id}, #{rec_id}, #{info, jdbcType=VARCHAR}, #{file_1, jdbcType=VARCHAR}, #{file_2, jdbcType=VARCHAR}, #{file_3, jdbcType=VARCHAR})
 	</insert>
 
 	<insert id="insertSelectKey">
@@ -33,8 +33,8 @@
 			select seq_gamenum.nextval from dual
 		</selectKey>
 
-		INSERT INTO game_info (game_num, title, korean, dev, publisher, platform, price, sale_price, sale_enabled, relase_date, genre_id, size_id, rec_id, file_1, file_2, file_3)
-		VALUES (#{game_num}, #{title}, #{korean}, #{dev}, #{publisher}, #{platform}, #{price}, #{sale_price}, #{sale_enabled}, #{relase_date}, #{genre_id}, #{size_id}, #{rec_id}, #{file_1, jdbcType=VARCHAR}, #{file_2, jdbcType=VARCHAR}, #{file_3, jdbcType=VARCHAR})
+		INSERT INTO game_info (game_num, title, korean, dev, publisher, platform, price, sale_price, sale_enabled, relase_date, genre_id, size_id, rec_id, info, file_1, file_2, file_3)
+		VALUES (#{game_num}, #{title}, #{korean}, #{dev}, #{publisher}, #{platform}, #{price}, #{sale_price}, #{sale_enabled}, #{relase_date}, #{genre_id}, #{size_id}, #{rec_id}, #{info, jdbcType=VARCHAR}, #{file_1, jdbcType=VARCHAR}, #{file_2, jdbcType=VARCHAR}, #{file_3, jdbcType=VARCHAR})
 	</insert>
 	
 
