@@ -96,17 +96,17 @@
                 value='<sec:authentication property="principal.username"/>' readonly="readonly">
           </div> -->
 
-					<div class="form-group">
-						<label>이미지 등록 1</label> <input type="file" class="form-control"
-							name='uploadFile'>
+					<div class="form-group" style="{display:inline-block}">
+						<label>이미지 등록 1</label> 
+						<input type="file" class="form-control" name='uploadFile'>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group" style="{display:inline-block}">
 						<label>이미지 등록 2</label> <input type="file" class="form-control"
 							name='uploadFile'>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group" style="{display:inline-block}">
 						<label>이미지 등록 3</label> <input type="file" class="form-control"
 							name='uploadFile'>
 					</div>

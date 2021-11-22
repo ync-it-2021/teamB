@@ -185,7 +185,7 @@ public class BoardController {
 		log.info("modify:" + board);
 		
 		if (service.modify(board)) {
-			rttr.addFlashAttribute("result", "success");
+			rttr.addFlashAttribute("result", "succeed");
 		}
 
 		return "redirect:/list" + cri.getListLink();

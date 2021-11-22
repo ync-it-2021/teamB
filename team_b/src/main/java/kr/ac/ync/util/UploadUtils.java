@@ -29,7 +29,9 @@ public class UploadUtils {
 		Date date = new Date();
 		String str = sdf.format(date);
 
-		return str.replace("-", File.separator);
+//		return str.replace("-", File.separator);
+		
+		return str.replace("-", "/");
 	}
 
 	private static boolean checkImageType(File file) {
@@ -45,20 +47,22 @@ public class UploadUtils {
 
 		return false;
 	}
-	@PostMapping("/uploadFormAction")
+//	@PostMapping("/uploadFormAction")
 	public static String uploadFormPost(MultipartFile uploadFile, String realUploadPath) {
 
 		String uploadFolder = realUploadPath;
 		String saveFileName = null; // 서버에 저장되는 file 명
 		String fullSaveName = null; // uploadFolder + saveFileName
-		String savePath = getFolder(); // 날짜별 생성되어진 경로를 포함시킨다. 예) 2020/01/01
+		
+		log.info("uploadFolder: " + uploadFolder);
 		
 		// make folder --------
 		File uploadPath = new File(uploadFolder, getFolder());
 		log.info("upload path: " + uploadPath);
 
-		if (uploadPath.exists() == false) {
+		if (uploadPath.exists()	== false) {
 			uploadPath.mkdirs();
+			log.info("mkdirs done...");
 		}
 
 		// 다중 upload에서 모두 upload시키지 않고 몇개만 upload 된다면 빠지는 multipartFile 은 제외시킨다.
@@ -67,7 +71,7 @@ public class UploadUtils {
 			String uploadFileName = uploadFile.getOriginalFilename();
 
 			// IE has file path
-			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
+			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf(File.separator) + 1);
 			log.info("only file name: " + uploadFileName);
 
 			UUID uuid = UUID.randomUUID();
@@ -77,9 +81,13 @@ public class UploadUtils {
 			try {
 				File saveFile = new File(uploadPath, saveFileName);
 				uploadFile.transferTo(saveFile);
+				
+				log.info("file transfer done...");
 
 				// upload 된 파일이 이미지일 경우 썸네일을 제작
 				if (checkImageType(saveFile)) {
+					
+					log.info("thumbnail: " + saveFile);
 
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_" + saveFileName));
 
@@ -88,11 +96,7 @@ public class UploadUtils {
 					thumbnail.close();
 				}
 				
-				log.info("uploadFileName : " + uploadFileName);
-				log.info("saveFileName : " + saveFileName);
-				log.info("uploadPath : " + uploadPath);
-				
-				fullSaveName = savePath.replace("\\", "/") + "/" + saveFileName;
+				fullSaveName = getFolder() + "/" + saveFileName;
 				
 				
 			} catch (Exception e) {
@@ -103,3 +107,29 @@ public class UploadUtils {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
