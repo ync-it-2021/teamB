@@ -4,8 +4,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
-<%@include file="includes/header.jsp"%>    
-
+<%@include file="includes/header.jsp"%>
+<style>
+	td{width:234px;}
+</style>
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">Board Register</h1>
@@ -37,84 +39,146 @@
 					<div class="form-group">
 						<label>게임 제목</label> <input class="form-control" name='title'>
 					</div>
+					<table>
+						<tr>
+							<td><div class="form-group" style="padding: 5px;">
+									<label>개발사</label> <input class="form-control" name='dev'
+										placeholder='개발사'>
+								</div></td>
+							<td><div class="form-group" style="padding: 5px;">
+									<label>유통사</label> <input class="form-control" name='publisher'
+										placeholder='유통사'>
+								</div></td>
+							<td><div class="form-group" style="padding: 5px;">
+									<label>한국어 지원</label> <input class="form-control" name='korean'
+										placeholder='한국어 지원/미지원'>
+								</div></td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>플랫폼</label> <input class="form-control" name='platform'
+										placeholder='플랫폼'>
+								</div>
+							</td>
+
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>정상가</label> <input class="form-control" name='price'
+										placeholder='정상가'>
+								</div>
+							</td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>할인가</label> <input class="form-control"
+										name='sale_price' placeholder='할인가'>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>할인 적용</label> <input class="form-control"
+										name='sale_enabled' placeholder='적용: 1, 미적용: 0'>
+								</div>
+							</td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>출시 일자</label> <input class="form-control"
+										name='relase_date' placeholder='yy/MM/dd'>
+								</div>
+							</td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>장르</label> <input class="form-control" name='genre_id'
+										placeholder='장르의 id 입력'>
+								</div>
+							</td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>플레이 지원</label> <input class="form-control"
+										name='size_id' placeholder='플레이 지원의 id 입력'>
+								</div>
+							</td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>요구사양</label> <input class="form-control" name='rec_id'
+										placeholder='추후 수정 예정, 1입력'>
+								</div>
+							</td>
+							<td>
+								<div class="form-group"
+									style="display: inline-block; padding: 5px;">
+									<label>게임 타이틀 이미지 등록</label> <input type="file"
+										class="form-control" name='uploadFile'>
+								</div>
+							</td>
+						</tr>
+					</table>
 
 					<div class="form-group">
-						<label>개발사</label> <input class="form-control" name='dev'>
-					</div>
-
-					<div class="form-group">
-						<label>유통사</label> <input class="form-control" name='publisher'>
-					</div>
-
-					<div class="form-group">
-						<label>한국어 지원</label> <input class="form-control" name='korean'>
-					</div>
-
-					<div class="form-group">
-						<label>플랫폼</label> <input class="form-control" name='platform'>
-					</div>
-
-					<div class="form-group">
-						<label>정상가</label> <input class="form-control" name='price'>
-					</div>
-
-					<div class="form-group">
-						<label>할인가</label> <input class="form-control" name='sale_price'>
-					</div>
-
-					<div class="form-group">
-						<label>세일 적용</label> <input class="form-control"
-							name='sale_enabled'>
-					</div>
-					<div class="form-group">
-						<label>출시 일자 YY/MM/DD</label> <input class="form-control"
-							name='relase_date'>
-					</div>
-
-					<div class="form-group">
-						<label>장르</label> <input class="form-control" name='genre_id'>
-					</div>
-					<div class="form-group">
-						<label>플레이 지원</label> <input class="form-control" name='size_id'>
-					</div>
-					<div class="form-group">
-						<label>요구사양</label> <input class="form-control" name='rec_id'>
-					</div>
-
-					<div class="form-group">
-						<!-- include libraries(jQuery, bootstrap) -->
-						<link
-							href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-							rel="stylesheet">
+<!-- 		 include libraries(jQuery, bootstrap)
+						<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 						<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-						<script
-							src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+						<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-						<!-- include summernote css/js -->
+						include summernote css/js
+						<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+						<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> -->
+
+
 						<link
-							href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+							href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css"
 							rel="stylesheet">
 						<script
-							src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+							src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
 						<label>상세 설명</label>
 						<textarea class="form-control" id="summernote" name='info'></textarea>
 						<!-- <div id="summernote" name='info'></div> -->
 						<script>
-							$('#summernote').summernote({
+							$('#summernote')
+									.summernote(
+											{
 												toolbar : [
-												    // [groupName, [list of button]]
-												    ['fontname', ['fontname']],
-												    ['fontsize', ['fontsize']],
-												    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
-												    ['color', ['forecolor','color']],
-												    ['table', ['table']],
-												    ['para', ['ul', 'ol', 'paragraph']],
-												    ['height', ['height']],
-												    ['insert',['picture','link','video']],
-												    ['view', ['fullscreen', 'help']]
-												  ],
-												fontNames: ['맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
-												fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+														// [groupName, [list of button]]
+														[ 'fontname',
+																[ 'fontname' ] ],
+														[ 'fontsize',
+																[ 'fontsize' ] ],
+														[
+																'style',
+																[
+																		'bold',
+																		'italic',
+																		'underline',
+																		'strikethrough',
+																		'clear' ] ],
+														[
+																'color',
+																[ 'forecolor',
+																		'color' ] ],
+														[ 'table', [ 'table' ] ],
+														[
+																'para',
+																[ 'ul', 'ol',
+																		'paragraph' ] ],
+														[ 'height',
+																[ 'height' ] ],
+														[
+																'insert',
+																[ 'picture',
+																		'link',
+																		'video' ] ],
+														[
+																'view',
+																[ 'help',
+																		'codeview' ] ] ],
+												fontNames : [ '맑은 고딕', '궁서',
+														'굴림체', '굴림', '돋움체',
+														'바탕체' ],
+												fontSizes : [ '8', '9', '10',
+														'11', '12', '14', '16',
+														'18', '20', '22', '24',
+														'28', '30', '36', '50',
+														'72' ],
 												height : 450,
 												lang : "ko-KR"
 											});
@@ -130,17 +194,12 @@
                 value='<sec:authentication property="principal.username"/>' readonly="readonly">
           </div> -->
 
-					<div class="form-group" style="{display:inline-block}">
-						<label>게임 타이틀 이미지 등록</label> 
-						<input type="file" class="form-control" name='uploadFile'>
-					</div>
-
-					<div class="form-group" style="{display:inline-block}">
+					<div class="form-group" style="display: inline-block">
 						<label>이미지 등록 2</label> <input type="file" class="form-control"
 							name='uploadFile'>
 					</div>
 
-					<div class="form-group" style="{display:inline-block}">
+					<div class="form-group" style="display: inline-block">
 						<label>이미지 등록 3</label> <input type="file" class="form-control"
 							name='uploadFile'>
 					</div>

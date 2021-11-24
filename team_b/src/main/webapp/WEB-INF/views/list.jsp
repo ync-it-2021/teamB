@@ -4,6 +4,13 @@
 
 
 <%@include file="includes/header.jsp"%>
+<style>
+td {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+</style>
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">GAME_INFO</h1>
@@ -24,22 +31,23 @@
 
 			<!-- /.panel-heading -->
 			<div class="panel-body">
-				<table class="table table-striped table-bordered table-hover">
+				<table class="table table-striped table-bordered table-hover"
+					style="table-layout:fixed">
 					<thead>
 						<tr>
-							<th>#</th>
-							<th>타이틀</th>
-							<th>한국어</th>
-							<th>개발사</th>
-							<th>유통사</th>
-							<th>플랫폼</th>
+							<th style="width:50px;">#</th>
+							<th style="width:230px;">타이틀</th>
+							<th style="width:110px;">한국어</th>
+							<th style="width:110px;">개발사</th>
+							<th style="width:110px;">유통사</th>
+							<th style="width:60px;">플랫폼</th>
 							<th>정상가</th>
 							<th>할인가</th>
-							<th>할인적용</th>
+							<th style="width:50px;">할인적용</th>
 							<th>출시일</th>
 							<th>장르</th>
 							<th>플레이 지원</th>
-							<th>-</th>
+							<th style="width:58px;"></th>
 						</tr>
 					</thead>
 
@@ -47,7 +55,8 @@
 						<tr>
 							<td><c:out value="${games.game_num}" /></td>
 							<%-- <td><a href='/board/get?bno=<c:out value="${board.bno}"/>'><c:out value="${board.title}"/></a></td> --%>
-							<td><a href='detail?game_num=<c:out value="${games.game_num}"/>'><c:out value="${games.title}" /></a></td>
+							<td>
+							<a href='detail?game_num=<c:out value="${games.game_num}"/>'><c:out value="${games.title}" /></a></td>
 							<td><c:out value="${games.korean}" /></td>
 							<td><c:out value="${games.dev}" /></td>
 							<td><c:out value="${games.publisher}" /></td>

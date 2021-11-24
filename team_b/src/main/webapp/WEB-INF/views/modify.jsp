@@ -31,7 +31,7 @@ function getThumbFileName(fullFilePath) {
       <!-- /.panel-heading -->
       <div class="panel-body">
 
-      <form role="form" action="/modify" method="post" enctype="multipart/form-data">
+      <form action="/modify" method="post" enctype="multipart/form-data" id="form">
       	<!--
        	controller에서 파라미터 수집시 upload file은 uploadFile 이름으로 server로 넘어간다.(binary data로)
        	하지만 BoardVO에서는 file_1,file_2,file_3의 이름으로 setter를 해줘야 한다.
@@ -58,80 +58,93 @@ function getThumbFileName(fullFilePath) {
 	    <input type='hidden' name='type' value='<c:out value="${cri.type }"/>'>
 		<input type='hidden' name='keyword' value='<c:out value="${cri.keyword }"/>'>
 		<input type='hidden' name='game_num' value='<c:out value="${games.game_num }"/>'>
+		
+		
 
 					<div class="form-group">
 						<label>게임 타이틀</label> <input class="form-control" name='title'
 							value='<c:out value="${games.title }"/>'>
 					</div>
-					<div class="form-group">
-						<label>개발사</label> <input class="form-control" name='dev'
-							value='<c:out value="${games.dev}"/>'>
-					</div>
+					
+					<table>
+						<tr>
+							<td><div class="form-group" style="padding: 5px;">
+									<label>개발사</label> <input class="form-control" name='dev'
+										placeholder='개발사' value='<c:out value="${games.dev}"/>'>
+								</div></td>
+							<td><div class="form-group" style="padding: 5px;">
+									<label>유통사</label> <input class="form-control" name='publisher'
+										placeholder='유통사' value='<c:out value="${games.publisher}"/>'>
+								</div></td>
+							<td><div class="form-group" style="padding: 5px;">
+									<label>한국어 지원</label> <input class="form-control" name='korean'
+										placeholder='한국어 지원/미지원' value='<c:out value="${games.korean}"/>'>
+								</div></td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>플랫폼</label> <input class="form-control" name='platform'
+										placeholder='플랫폼' value='<c:out value="${games.platform}"/>'>
+								</div>
+							</td>
 
-					<div class="form-group">
-						<label>유통사</label> <input class="form-control" name='publisher'
-							value='<c:out value="${games.publisher}"/>'>
-					</div>
-
-					<div class="form-group">
-						<label>한국어 지원</label> <input class="form-control" name='korean'
-							value='<c:out value="${games.korean}"/>'>
-					</div>
-
-					<div class="form-group">
-						<label>플랫폼</label> <input class="form-control" name='platform'
-							value='<c:out value="${games.platform}"/>'>
-					</div>
-
-					<div class="form-group">
-						<label>정상가</label> <input class="form-control" name='price'
-							value='<c:out value="${games.price}"/>'>
-					</div>
-
-					<div class="form-group">
-						<label>할인가</label> <input class="form-control" name='sale_price'
-							value='<c:out value="${games.sale_price}"/>'>
-					</div>
-
-					<div class="form-group">
-						<label>세일 적용</label> <input class="form-control"
-							name='sale_enabled' value='<c:out value="${games.sale_enabled}"/>'>
-					</div>
-					<div class="form-group">
-						<label>출시 일자 YY/MM/DD</label> <input class="form-control"
-							name='relase_date' value='<c:out value="${games.relase_date}"/>'>
-					</div>
-
-					<div class="form-group">
-						<label>장르</label> <input class="form-control" name='genre_id'
-						value='<c:out value="${games.genre_id}"/>'>
-					</div>
-					<div class="form-group">
-						<label>플레이 지원</label> <input class="form-control" name='size_id'
-						value='<c:out value="${games.size_id}"/>'>
-					</div>
-					<div class="form-group">
-						<label>요구사양</label> <input class="form-control" name='rec_id'
-						value='<c:out value="${games.rec_id}"/>'>
-					</div>
-
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>정상가</label> <input class="form-control" name='price'
+										placeholder='정상가' value='<c:out value="${games.price}"/>'>
+								</div>
+							</td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>할인가</label> <input class="form-control"
+										name='sale_price' placeholder='할인가' value='<c:out value="${games.sale_price}"/>'>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>할인 적용</label> <input class="form-control"
+										name='sale_enabled' placeholder='적용: 1, 미적용: 0' value='<c:out value="${games.sale_enabled}"/>'>
+								</div>
+							</td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>출시 일자</label> <input class="form-control"
+										name='relase_date' placeholder='yy/MM/dd' value='<c:out value="${games.relase_date}"/>'>
+								</div>
+							</td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>장르</label> <input class="form-control" name='genre_id'
+										placeholder='장르의 id 입력' value='<c:out value="${games.genre_id}"/>'>
+								</div>
+							</td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>플레이 지원</label> <input class="form-control"
+										name='size_id' placeholder='플레이 지원의 id 입력' value='<c:out value="${games.size_id}"/>'>
+								</div>
+							</td>
+							<td>
+								<div class="form-group" style="padding: 5px;">
+									<label>요구사양</label> <input class="form-control" name='rec_id'
+										placeholder='추후 수정 예정, 1입력' value='<c:out value="${games.rec_id}"/>'>
+								</div>
+							</td>
+						</tr>
+					</table>
+					
 					<div class="form-group">
 					<label>상세 설명</label>
 								<!-- include libraries(jQuery, bootstrap) -->
-						<link
-							href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-							rel="stylesheet">
+						<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 						<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-						<script
-							src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+						<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 						<!-- include summernote css/js -->
-						<link
-							href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
-							rel="stylesheet">
-						<script
-							src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-						
+						<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+						<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 						<textarea class="form-control" id="summernote" name='info'><c:out value="${games.info}"/></textarea>
 						<!-- <div id="summernote" name='info'></div> -->
 						<script>
@@ -148,7 +161,7 @@ function getThumbFileName(fullFilePath) {
 												    ['para', ['ul', 'ol', 'paragraph']],
 												    ['height', ['height']],
 												    ['insert',['picture','link','video']],
-												    ['view', ['fullscreen', 'help']]
+												    ['view', ['help', 'codeview']]
 												  ],
 												fontNames: ['맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
 												fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
@@ -174,12 +187,14 @@ function getThumbFileName(fullFilePath) {
 
 	<sec:authentication property="principal" var="pinfo"/>
 	<sec:authorize access="isAuthenticated()">
-			<button type="submit" data-oper='modify' class="btn btn-default">수정</button>
-			<button type="submit" data-oper='remove' class="btn btn-danger"><i class="fa fa-trash-o fa-fw"></i></button>
+			<input type="submit" class="btn btn-default" value="등록" />
+			<button type="submit" data-oper='remove' class="btn btn-danger" id="confirm">
+				<i class="fa fa-trash-o fa-fw"></i>
+			</button>
 	</sec:authorize>
 
   
-  <button type="submit" data-oper='list' class="btn btn-info">List</button>
+  <button type="submit" data-oper='list' class="btn btn-info" id="confirm">List</button>
 </form>
 
 
@@ -192,14 +207,14 @@ function getThumbFileName(fullFilePath) {
   <!-- end panel -->
 </div>
 <!-- /.row -->
-
+<!--  
 <script type="text/javascript">
 $(document).ready(function() {
 
 
-	  let formObj = $("form");
+	  let formObj = $("#form");
 
-	  $('button').on("click", function(e){
+	  $('#confirm').on("click", function(e){
 	    
 	    e.preventDefault(); 
 	    
@@ -232,6 +247,7 @@ $(document).ready(function() {
 
 });
 </script>
+-->
   
 
 
