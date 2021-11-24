@@ -64,7 +64,7 @@ td {
 							<td><c:out value="${games.price}" /></td>
 							<td><c:out value="${games.sale_price}" /></td>
 							<td><c:out value="${games.sale_enabled}" /></td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${games.relase_date}" /></td>
+							<td><c:out value="${games.relase_date}" /></td>
 							<td><c:out value="${games.genre_name}" /></td>
 							<td><c:out value="${games.size_name}" /></td>
 							<td><sec:authentication property="principal" var="pinfo" />

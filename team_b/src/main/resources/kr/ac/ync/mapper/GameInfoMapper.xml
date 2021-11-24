@@ -17,7 +17,7 @@
 				from game_info, genre, size_spec 
 				where game_num = #{game_num}
 				and game_info.genre_id = genre.genre_id
-				and game_info.size_id = size_spec.size_id
+				and game_info.size_id = size_spec.size_id	
 		
 	</select> 
 	
