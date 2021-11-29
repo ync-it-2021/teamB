@@ -9,6 +9,7 @@
 td {
 	width: 234px;
 }
+.note-editable { background-color: #0b0c2a !important; color: white !important; }
 </style>
 <div class="row">
 	<div class="col-lg-12">
@@ -144,11 +145,10 @@ td {
 					</table>
 
 					<div class="form-group">
-						<link
-							href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css"
-							rel="stylesheet">
-						<script
-							src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+					
+							<link href="/resources/vendor/plex/summernote-lite.css" rel="stylesheet" />
+							<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+							<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-ko-KR.js"></script>
 						<label>상세 설명</label>
 						<textarea class="form-control" id="summernote" name='info'></textarea>
 						<!-- <div id="summernote" name='info'></div> -->

@@ -14,6 +14,8 @@
     <meta name="author" content="">
 
     <title>어드민 페이지</title>
+    
+    
 
     <!-- Bootstrap Core CSS -->
     <link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
