@@ -45,6 +45,12 @@
 	<!-- Header Section Begin -->
 	<header class="header">
 		<div class="container">
+			<div class="input-group custom-search-form" style="padding: 5px 0 5px 0; width:50%;margin: 0 auto;">
+				<input type="text" class="form-control" placeholder="Search..." style="height:30px; background-color:#0b0c2a; color:white;">
+				<span class="input-group-btn">
+						<a href="#" class="fa fa-search" style="color:white; height:30px; padding:5px 5px 5px 5px;"></a>
+				</span>
+			</div>
 			<div class="row">
 				<div class="col-lg-2">
 					<div class="header__logo">
@@ -85,17 +91,17 @@
 				</div>
 				<div class="col-lg-2">
 					<div class="header__right">
-						<a href="#" class=""><span class="icon_cart_alt"></span></a> <a
-							href="#" class="search-switch"><span class="icon_search"></span></a>
+						<a href="#" class=""><span class="icon_cart_alt"></span></a>
 						<sec:authorize access="isAuthenticated()">
 
-							<a href="/logout"><span class="icon_profile"></span></a>
+							<a href="/logout"><span class="fa fa-sign-out"></span></a>
 						</sec:authorize>
 
 						<sec:authorize access="isAnonymous()">
 
-							<a href="/login"><span class="icon_profile"></span></a>
+							<a href="/login"><span class="fa fa-sign-in"></span></a>
 						</sec:authorize>
+
 					</div>
 				</div>
 			</div>
