@@ -21,6 +21,7 @@
 			where game_info.genre_id = genre.genre_id
             and game_info.size_id = size_spec.size_id
             and sale_enabled = 1
+            and rownum <= 6
 		]]>
 	</select>
 
@@ -31,6 +32,7 @@
 			from game_info, genre, size_spec
 			where game_info.genre_id = genre.genre_id
             and game_info.size_id = size_spec.size_id
+            and rownum <= 6
             order by relase_date desc
 		]]>
 	</select>
@@ -101,13 +103,12 @@
 								platform = #{platform},
 								price = #{price},
 								sale_price = #{sale_price},
-								sale_enabled =
-								#{sale_enabled},
+								sale_enabled = #{sale_enabled},
 								relase_date = #{relase_date},
 								genre_id = #{genre_id},
 								size_id = #{size_id},
 								rec_id = #{rec_id},
-								info = #{info,
+								info = #{info},
 								jdbcType=VARCHAR},
 								file_1 = #{file_1, jdbcType=VARCHAR},
 								file_2 = #{file_2, jdbcType=VARCHAR},
@@ -115,6 +116,23 @@
 		WHERE
 		game_num = #{game_num}
 	</update>
+
+	<select id="getGamesSearch"
+		resultType="kr.ac.ync.domain.GameInfoVO">
+	<![CDATA[
+		select * 
+			from game_info, genre, size_spec
+			where game_info.genre_id = genre.genre_id
+            and game_info.size_id = size_spec.size_id
+            and title like '%'||#{keyword}||'%'
+		]]>
+	</select>
+		    <select id="getTotal" resultType="int"> 
+	        select count(*) from game_info  
+	        <if test="keyword != null">
+	            where title like '%'||#{keyword}||'%'
+	        </if>
+	    </select>
 
 
 

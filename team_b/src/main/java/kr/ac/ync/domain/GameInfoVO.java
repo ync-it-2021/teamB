@@ -27,5 +27,7 @@ public class GameInfoVO {
 	
 	private String genre_name;
 	private String size_name;
+	
+	private String keyword;
 
 }

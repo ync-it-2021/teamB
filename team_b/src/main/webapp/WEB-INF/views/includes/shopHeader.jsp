@@ -39,18 +39,39 @@
 	type="text/css">
 <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
 
-
+<script>
+	var searchForm = $("#searchForm");
+	
+	$("#searchForm button").on("click", function(e) {
+		if(!searchForm.find("input[name='keyword']").val()) {
+			alert("검색어를 입력하세요!");
+			return false;
+		}
+		e.preventDefault();
+		searchForm.submit();
+	})
+</script>
 </head>
 <body>
 	<!-- Header Section Begin -->
 	<header class="header">
 		<div class="container">
-			<div class="input-group custom-search-form" style="padding: 5px 0 5px 0; width:50%;margin: 0 auto;">
-				<input type="text" class="form-control" placeholder="Search..." style="height:30px; background-color:#0b0c2a; color:white;">
-				<span class="input-group-btn">
-						<a href="search.jsp" class="fa fa-search" style="color:white; height:30px; padding:5px 5px 5px 5px;"></a>
-				</span>
-			</div>
+			<form id='searchForm' action="/search" method='get'>	
+				<div class="input-group custom-search-form"
+					style="padding: 5px 0 5px 0; width: 50%; margin: 0 auto;">
+					<input type="text" class="form-control" placeholder="Search..."
+						id="keyword" name="keyword"
+						style="height: 30px; background-color: #0b0c2a; color: white;">
+					<span class="input-group-btn">
+						<button class="fa fa-search"
+						style="color: white;
+						background-color:transparent;
+						border: 0px;
+						height: 30px; 
+						padding: 5px 5px 5px 5px;"></button>
+					</span>
+				</div>
+			</form>
 			<div class="row">
 				<div class="col-lg-2">
 					<div class="header__logo">

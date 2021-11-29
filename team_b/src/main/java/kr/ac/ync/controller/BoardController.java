@@ -206,5 +206,12 @@ public class BoardController {
 
 		return "redirect:/list" + cri.getListLink();
 	}
+	
+	@GetMapping("/search")
+	public String search(Criteria cri, Model model, @RequestParam("keyword") String keyword) {
+		int Total = gs.getTotal(cri);
+		model.addAttribute("games", gs.getGamesSearch(keyword));
+			return "search";
+	}
 
 }

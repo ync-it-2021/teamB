@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.ac.ync.domain.Criteria;
 import kr.ac.ync.domain.GameInfoVO;
 import kr.ac.ync.mapper.GameInfoMapper;
 import lombok.AllArgsConstructor;
@@ -82,6 +83,18 @@ public class GameInfoServiceImpl implements GameInfoService {
 	@Override
 	public List<GameInfoVO> getSizeSpec() {
 		return mapper.getSizeSpec();
+	}
+
+	@Override
+	public List<GameInfoVO> getGamesSearch(String keyword) {
+		 log.info("OK Searching..." + keyword);
+			
+		 return mapper.getGamesSearch(keyword);
+	}
+
+	@Override
+	public int getTotal(Criteria cri) {
+		return mapper.getTotal(cri);
 	}
 
 }
