@@ -48,7 +48,7 @@
 			<div class="input-group custom-search-form" style="padding: 5px 0 5px 0; width:50%;margin: 0 auto;">
 				<input type="text" class="form-control" placeholder="Search..." style="height:30px; background-color:#0b0c2a; color:white;">
 				<span class="input-group-btn">
-						<a href="#" class="fa fa-search" style="color:white; height:30px; padding:5px 5px 5px 5px;"></a>
+						<a href="search.jsp" class="fa fa-search" style="color:white; height:30px; padding:5px 5px 5px 5px;"></a>
 				</span>
 			</div>
 			<div class="row">
