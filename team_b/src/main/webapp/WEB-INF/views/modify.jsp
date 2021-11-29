@@ -137,16 +137,31 @@
 							</td>
 							<td>
 								<div class="form-group" style="padding: 5px;">
-									<label>장르</label> <input class="form-control" name='genre_id'
+									<label>장르</label> 
+									<!-- <input class="form-control" name='genre_id'
 										placeholder='장르의 id 입력'
-										value='<c:out value="${games.genre_id}"/>'>
+										value='<c:out value="${games.genre_id}"/>'> -->
+										<select class="form-control" name='genre_id'>
+										<c:forEach items="${genre}" var="genre">
+											<option value="${genre.genre_id }"><c:out
+													value="${genre.genre_name}" /></option>
+										</c:forEach>
+									</select>
 								</div>
 							</td>
 							<td>
 								<div class="form-group" style="padding: 5px;">
-									<label>플레이 지원</label> <input class="form-control"
+									<label>플레이 지원</label> 
+									<!--<input class="form-control"
 										name='size_id' placeholder='플레이 지원의 id 입력'
-										value='<c:out value="${games.size_id}"/>'>
+										value='<c:out value="${games.size_id}"/>'> -->
+										
+										<select class="form-control" name='size_id'>
+										<c:forEach items="${size}" var="size">
+											<option value="${size.size_id }"><c:out
+													value="${size.size_name}" /></option>
+										</c:forEach>
+									</select>
 								</div>
 							</td>
 							<td>

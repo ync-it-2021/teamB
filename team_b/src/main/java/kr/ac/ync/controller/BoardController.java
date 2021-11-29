@@ -160,6 +160,8 @@ public class BoardController {
 
 		log.info("/get or modify");
 		model.addAttribute("games", gs.getDetail(game_num));
+		model.addAttribute("genre", gs.getGenre());
+		model.addAttribute("size", gs.getSizeSpec());
 	}
 	
 	@PostMapping("/modify")

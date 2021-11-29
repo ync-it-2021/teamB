@@ -119,7 +119,7 @@ td {
 									<label>플레이 지원</label>
 									<!--  <input class="form-control"
 										name='size_id' placeholder='플레이 지원의 id 입력'>-->
-									<select class="form-control" name='genre_id'>
+									<select class="form-control" name='size_id'>
 										<c:forEach items="${size}" var="size">
 											<option value="${size.size_id }"><c:out
 													value="${size.size_name}" /></option>
