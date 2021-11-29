@@ -22,25 +22,49 @@ public class GameInfoServiceImpl implements GameInfoService {
 	// 인터페이스의 구현체를 동적으로 생성
 	//@Autowired
 	private GameInfoMapper mapper;
-
-	 @Override
+	
+	@Override
 	 public List<GameInfoVO> getGamesList() {
 	
-		 log.info("getList..........");
+		 log.info("getList all");
 		
 		 return mapper.getGamesList();
 	 }
+	
+	@Override
+	 public List<GameInfoVO> getGamesListforSale() {
+	
+		 log.info("getList for sale");
+		
+		 return mapper.getGamesListforSale();
+	 }
+	
+	@Override
+	 public List<GameInfoVO> getGamesListforNew() {
+	
+		 log.info("getList for new");
+		
+		 return mapper.getGamesListforNew();
+	 }
+	
+//	@Override
+//	 public List<GameInfoVO> getGamesListforMost() {
+//	
+//		 log.info("getList for most");
+//		
+//		 return mapper.getGamesListforMost();
+//	 }
 
 	@Override
 	public GameInfoVO getDetail(Long game_num) {
-		log.info("get......" + game_num);
+		log.info("get" + game_num);
 
 		return mapper.getDetail(game_num);
 	}
 
 	@Override
 	public void registerGame(GameInfoVO games) {
-		log.info("registerGAmes......" + games);
+		log.info("registerGAmes" + games);
 
 		mapper.insertSelectKey(games);
 	}
@@ -48,6 +72,16 @@ public class GameInfoServiceImpl implements GameInfoService {
 	@Override
 	public boolean modify(GameInfoVO games) {
 		return mapper.update(games) == 1;
+	}
+
+	@Override
+	public List<GameInfoVO> getGenre() {
+		return mapper.getGenre();
+	}
+
+	@Override
+	public List<GameInfoVO> getSizeSpec() {
+		return mapper.getSizeSpec();
 	}
 
 }

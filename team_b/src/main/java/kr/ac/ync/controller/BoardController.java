@@ -44,7 +44,10 @@ public class BoardController {
 	@GetMapping(value = "/*")
     public String shop(Model model){
 		log.info("index");
-		model.addAttribute("games", gs.getGamesList());
+		model.addAttribute("sales", gs.getGamesListforSale());
+		model.addAttribute("news", gs.getGamesListforNew());
+		model.addAttribute("genre", gs.getGenre());
+		model.addAttribute("size", gs.getSizeSpec());
 		
 		return "/board/index";
     }
@@ -69,8 +72,9 @@ public class BoardController {
 
 	@GetMapping("/register")
 	@PreAuthorize("isAuthenticated()")
-	public void register() {
-
+	public void register(Model model) {
+		model.addAttribute("genre", gs.getGenre());
+		model.addAttribute("size", gs.getSizeSpec());
 	}
 
 	@GetMapping("/list")

@@ -104,14 +104,27 @@ td {
 							</td>
 							<td>
 								<div class="form-group" style="padding: 5px;">
-									<label>장르</label> <input class="form-control" name='genre_id'
-										placeholder='장르의 id 입력'>
+									<label>장르</label>
+									<!--  <input class="form-control" name='genre_id' placeholder='장르의 id 입력'>-->
+									<select class="form-control" name='genre_id'>
+										<c:forEach items="${genre}" var="genre">
+											<option value="${genre.genre_id }"><c:out
+													value="${genre.genre_name}" /></option>
+										</c:forEach>
+									</select>
 								</div>
 							</td>
 							<td>
 								<div class="form-group" style="padding: 5px;">
-									<label>플레이 지원</label> <input class="form-control"
-										name='size_id' placeholder='플레이 지원의 id 입력'>
+									<label>플레이 지원</label>
+									<!--  <input class="form-control"
+										name='size_id' placeholder='플레이 지원의 id 입력'>-->
+									<select class="form-control" name='genre_id'>
+										<c:forEach items="${size}" var="size">
+											<option value="${size.size_id }"><c:out
+													value="${size.size_name}" /></option>
+										</c:forEach>
+									</select>
 								</div>
 							</td>
 							<td>
@@ -131,8 +144,11 @@ td {
 					</table>
 
 					<div class="form-group">
-						<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
-						<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+						<link
+							href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css"
+							rel="stylesheet">
+						<script
+							src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
 						<label>상세 설명</label>
 						<textarea class="form-control" id="summernote" name='info'></textarea>
 						<!-- <div id="summernote" name='info'></div> -->

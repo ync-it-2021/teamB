@@ -6,8 +6,13 @@ import kr.ac.ync.domain.GameInfoVO;
 
 public interface GameInfoMapper {
 	
-	//@Select("select * from game_info where game_num > 0")
 	public List<GameInfoVO> getGamesList();
+	
+	public List<GameInfoVO> getGamesListforSale();
+	
+	public List<GameInfoVO> getGamesListforNew();
+	
+//	public List<GameInfoVO> getGamesListforMost();
 	
 	public GameInfoVO getDetail(Long game_num);
 
@@ -16,5 +21,11 @@ public interface GameInfoMapper {
 	public Integer insertSelectKey(GameInfoVO games);
 	
 	public int update(GameInfoVO games);
+
+	public List<GameInfoVO> getGenre();
+	
+	public List<GameInfoVO> getSizeSpec();
+
+	
 
 }
