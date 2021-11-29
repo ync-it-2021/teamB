@@ -5,7 +5,9 @@
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
 <%@include file="includes/header.jsp"%>
-
+<style>
+.note-editable { background-color: #0b0c2a !important; color: white !important; }
+</style>
 <script>
 	//썸네일 파일명을 가져오는 함수
 	function getThumbFileName(fullFilePath) {
