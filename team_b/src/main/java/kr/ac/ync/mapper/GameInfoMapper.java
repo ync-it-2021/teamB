@@ -30,6 +30,8 @@ public interface GameInfoMapper {
 	public List<GameInfoVO> getGamesSearch(String keyword);
 	
 	public int getTotal(Criteria cri);
+	//삭제
+	public int delete(Long game_num);
 
 	
 

@@ -92,7 +92,7 @@
 	</insert>
 
 	<delete id="delete">
-		DELETE FROM game_info WHERE game_num = #{game_num};
+		DELETE FROM game_info WHERE game_num = #{game_num}
 	</delete>
 
 	<update id="update">

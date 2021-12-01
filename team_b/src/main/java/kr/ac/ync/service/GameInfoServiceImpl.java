@@ -96,5 +96,13 @@ public class GameInfoServiceImpl implements GameInfoService {
 	public int getTotal(Criteria cri) {
 		return mapper.getTotal(cri);
 	}
+	//삭제
+	@Override
+	public boolean remove(Long game_num) {
+
+		log.info("delete game : " + game_num);
+
+		return mapper.delete(game_num) == 1;
+	}
 
 }

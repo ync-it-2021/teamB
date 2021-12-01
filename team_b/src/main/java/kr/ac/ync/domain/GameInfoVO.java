@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class GameInfoVO {
-	private int game_num ;
+	private Long game_num;
 	private String title;
 	private String info;
 	private String korean;

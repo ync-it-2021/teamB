@@ -196,11 +196,10 @@ public class BoardController {
 	}
 
 	@PostMapping("/remove")
-	@PreAuthorize("principal.username == #writer")
-	public String remove(@RequestParam("bno") Long bno, Criteria cri, RedirectAttributes rttr, String writer) {
+	public String remove(@RequestParam("game_num") Long game_num, Criteria cri, RedirectAttributes rttr) {
 
-		log.info("remove..." + bno);
-		if (service.remove(bno)) {
+		log.info("remove..." + game_num);
+		if (gs.remove(game_num)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 
@@ -209,7 +208,7 @@ public class BoardController {
 	
 	@GetMapping("/search")
 	public String search(Criteria cri, Model model, @RequestParam("keyword") String keyword) {
-		int Total = gs.getTotal(cri);
+		//int Total = gs.getTotal(cri);
 		model.addAttribute("games", gs.getGamesSearch(keyword));
 			return "search";
 	}

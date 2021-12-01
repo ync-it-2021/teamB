@@ -29,4 +29,7 @@ public interface GameInfoService {
 	public List<GameInfoVO> getGamesSearch(String keyword);
 	
 	public int getTotal(Criteria cri);
+	
+	//삭제
+	public boolean remove(Long game_num);
 }

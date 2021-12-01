@@ -79,11 +79,13 @@
 									var="pinfo" />
 								<div style="padding: 5px; float: right;">
 									<sec:authorize access="isAuthenticated()">
-										<button type="submit" data-oper='remove'
-											class="btn btn-danger" id="confirm">
-											<i class="fa fa-trash-o fa-fw"></i>
-										</button>
-										<input type="submit" class="btn btn-success" value="등록" />
+<%-- 									<a href="/delete?game_num=${games.game_num }" role="button" 
+											data-oper="remove" class="btn-xs btn-danger">
+												<i class="fa fa-trash-o fa-fw"></i>
+											</a> 
+										<input type="submit" class="btn btn-success" value="등록" /> --%>
+										<button type="submit" data-oper='remove' class="btn btn-danger">삭제</button>
+										<button type="submit" data-oper='modify' class="btn btn-success">등록</button>
 									</sec:authorize>
 								</div></td>
 						</tr>
@@ -251,11 +253,7 @@
 							<input type="file" class="form-control" name='uploadFile'>
 						</div>
 					</c:forEach>
-					<button type="submit" data-oper='list' class="btn btn-info"
-						id="confirm">List</button>
 				</form>
-
-
 			</div>
 			<!--  end panel-body -->
 
@@ -265,14 +263,14 @@
 	<!-- end panel -->
 </div>
 <!-- /.row -->
-<!--  
+
 <script type="text/javascript">
 $(document).ready(function() {
 
 
-	  let formObj = $("#form");
+	  let formObj = $("form");
 
-	  $('#confirm').on("click", function(e){
+	  $('button').on("click", function(e){
 	    
 	    e.preventDefault(); 
 	    
@@ -305,7 +303,6 @@ $(document).ready(function() {
 
 });
 </script>
--->
 
 
 

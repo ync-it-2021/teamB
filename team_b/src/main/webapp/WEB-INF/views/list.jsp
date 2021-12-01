@@ -67,12 +67,14 @@ td {
 							<td><c:out value="${games.relase_date}" /></td>
 							<td><c:out value="${games.genre_name}" /></td>
 							<td><c:out value="${games.size_name}" /></td>
-							<td><sec:authentication property="principal" var="pinfo" />
-								<sec:authorize access="isAuthenticated()">
-										<a href="/modify?game_num=${games.game_num}" role="button" 
-															data-oper='modify' class="btn btn-default">
-											<i class="fa fa-gear fa-fw"></i>
-										</a>
+							<td><sec:authentication property="principal" var="pinfo" /> 
+							<sec:authorize access="isAuthenticated()">
+							<div style="width:15px;">
+									<a href="/modify?game_num=${games.game_num}" role="button"
+										data-oper='modify' class="btn-sm btn-default"> <i
+										class="fa fa-gear fa-fw"></i>
+									</a>
+										</div>
 								</sec:authorize></td>
 						</tr>
 					</c:forEach>
@@ -83,16 +85,6 @@ td {
 					<div class="col-lg-12">
 
 						<form id='searchForm' action="/list" method='get'>
-							<select name='type'>
-								<option value=""
-									<c:out value="${pageMaker.cri.type == null?'selected':''}"/>>--</option>
-								<option value="T"
-									<c:out value="${pageMaker.cri.type eq 'T'?'selected':''}"/>>제목</option>
-								<option value="C"
-									<c:out value="${pageMaker.cri.type eq 'C'?'selected':''}"/>>내용</option>
-								<option value="W"
-									<c:out value="${pageMaker.cri.type eq 'W'?'selected':''}"/>>작성자</option>
-							</select>
 							<input type='text' name='keyword' value='<c:out value="${pageMaker.cri.keyword}"/>' />
 							<input type='hidden' name='pageNum'	value='<c:out value="${pageMaker.cri.pageNum}"/>' />
 							<input type='hidden' name='amount' value='<c:out value="${pageMaker.cri.amount}"/>' />
