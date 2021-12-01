@@ -109,7 +109,6 @@
 								size_id = #{size_id},
 								rec_id = #{rec_id},
 								info = #{info},
-								jdbcType=VARCHAR},
 								file_1 = #{file_1, jdbcType=VARCHAR},
 								file_2 = #{file_2, jdbcType=VARCHAR},
 								file_3 = #{file_3, jdbcType=VARCHAR}
