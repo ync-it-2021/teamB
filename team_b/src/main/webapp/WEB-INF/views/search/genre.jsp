@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
-<%@include file="includes/shopHeader.jsp"%>
+<%@include file="../includes/shopHeader.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +42,7 @@
                             <div class="row">
                                 <div class="col-lg-8 col-md-8 col-sm-6">
                                     <div class="section-title">
-                                        <h4>" <c:out value="${keyword}"/>" 의 검색결과</h4>
+                                        <h4>검색결과</h4>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-6">
@@ -246,6 +246,6 @@
 	</section>
 	<!-- Product Section End -->
 
-<%@include file="includes/shopFooter.jsp"%>
+<%@include file="../includes/shopFooter.jsp"%>
 </body>
 </html>

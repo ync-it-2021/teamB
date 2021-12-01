@@ -88,14 +88,14 @@
 										class="arrow_carrot-down"></span></a>
 									<ul class="dropdown">
 										<c:forEach items="${genre}" var="genre">
-											<li><a href="#">${genre.genre_name}</a></li>
+											<li><a href="/genre?keyword=${genre.genre_name}">${genre.genre_name}</a></li>
 										</c:forEach>
 									</ul></li>
 								<li><a href="#">플레이 지원<span
 										class="arrow_carrot-down"></span></a>
 									<ul class="dropdown">
 										<c:forEach items="${size}" var="size">
-											<li><a href="#">${size.size_name}</a></li>
+											<li><a href="/size?keyword=${size.size_name}">${size.size_name}</a></li>
 										</c:forEach>
 									</ul></li>
 								<li><a href="./blog.jsp">고객센터<span

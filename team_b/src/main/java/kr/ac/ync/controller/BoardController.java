@@ -52,10 +52,30 @@ public class BoardController {
 		return "/board/index";
     }
 	
+	@GetMapping(value = "/sales")
+    public String sales(Model model){
+		model.addAttribute("sales", gs.getGamesListforSale());
+		model.addAttribute("genre", gs.getGenre());
+		model.addAttribute("size", gs.getSizeSpec());
+		
+		return "/search/sales";
+    }
+	
+	@GetMapping(value = "/recent")
+    public String recent(Model model){
+		model.addAttribute("recent", gs.getGamesListforNew());
+		model.addAttribute("genre", gs.getGenre());
+		model.addAttribute("size", gs.getSizeSpec());
+		
+		return "/search/recent";
+    }
+	
 	@GetMapping("/detail")
 	public void getDetail(@RequestParam("game_num") Long game_num, Model model) {
 		log.info("/detail");
 		model.addAttribute("games", gs.getDetail(game_num));
+		model.addAttribute("genre", gs.getGenre());
+		model.addAttribute("size", gs.getSizeSpec());
 	}
 	
 	
@@ -79,7 +99,6 @@ public class BoardController {
 
 	@GetMapping("/list")
 	public void list(Criteria cri, Model model) {
-
 		log.info("list: " + cri);
 //		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		
@@ -89,7 +108,6 @@ public class BoardController {
 		model.addAttribute("list", service.getListWithPaging(cri));
 		model.addAttribute("games", gs.getGamesList());
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
-
 	}
 	
 //	// 글 등록
@@ -207,10 +225,29 @@ public class BoardController {
 	}
 	
 	@GetMapping("/search")
-	public String search(Criteria cri, Model model, @RequestParam("keyword") String keyword) {
-		//int Total = gs.getTotal(cri);
+	public String search(Criteria cri, Model model, @RequestParam(value = "keyword", required=false) String keyword) {
+		//int Total = gs.getTotal(cri);	
 		model.addAttribute("games", gs.getGamesSearch(keyword));
-			return "search";
+		model.addAttribute("genre", gs.getGenre());
+		model.addAttribute("size", gs.getSizeSpec());
+			return "/search/search";
 	}
-
+	
+	@GetMapping("/genre")
+	public String genre(Criteria cri, Model model, @RequestParam(value = "keyword", required=false) String keyword) {
+		//int Total = gs.getTotal(cri);	
+		model.addAttribute("games", gs.searchGenre(keyword));
+		model.addAttribute("genre", gs.getGenre());
+		model.addAttribute("size", gs.getSizeSpec());
+			return "/search/genre";
+	}
+	
+	@GetMapping("/size")
+	public String size(Criteria cri, Model model, @RequestParam(value = "keyword", required=false) String keyword) {
+		//int Total = gs.getTotal(cri);	
+		model.addAttribute("games", gs.searchSize(keyword));
+		model.addAttribute("genre", gs.getGenre());
+		model.addAttribute("size", gs.getSizeSpec());
+			return "/search/size";
+	}
 }

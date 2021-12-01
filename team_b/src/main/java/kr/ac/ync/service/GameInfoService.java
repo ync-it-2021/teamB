@@ -25,8 +25,12 @@ public interface GameInfoService {
 	public List<GameInfoVO> getGenre();
 	
 	public List<GameInfoVO> getSizeSpec();
+
+	public List<GameInfoVO> getGamesSearch(String keyword);	//검색
 	
-	public List<GameInfoVO> getGamesSearch(String keyword);
+	public List<GameInfoVO> searchGenre(String keyword);	//검색
+	
+	public List<GameInfoVO> searchSize(String keyword);	//검색
 	
 	public int getTotal(Criteria cri);
 	

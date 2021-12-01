@@ -91,6 +91,21 @@ public class GameInfoServiceImpl implements GameInfoService {
 			
 		 return mapper.getGamesSearch(keyword);
 	}
+	
+	@Override
+	public List<GameInfoVO> searchGenre(String keyword) {
+		 log.info("OK Searching..." + keyword);
+			
+		 return mapper.searchGenre(keyword);
+	}
+	
+	@Override
+	public List<GameInfoVO> searchSize(String keyword) {
+		 log.info("OK Searching..." + keyword);
+			
+		 return mapper.searchSize(keyword);
+	}
+
 
 	@Override
 	public int getTotal(Criteria cri) {
@@ -104,5 +119,4 @@ public class GameInfoServiceImpl implements GameInfoService {
 
 		return mapper.delete(game_num) == 1;
 	}
-
 }

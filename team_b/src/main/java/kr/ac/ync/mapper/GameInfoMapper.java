@@ -26,8 +26,12 @@ public interface GameInfoMapper {
 	public List<GameInfoVO> getGenre();
 	
 	public List<GameInfoVO> getSizeSpec();
-	//검색
-	public List<GameInfoVO> getGamesSearch(String keyword);
+	
+	public List<GameInfoVO> getGamesSearch(String keyword); //검색
+	
+	public List<GameInfoVO> searchGenre(String keyword); //검색
+	
+	public List<GameInfoVO> searchSize(String keyword); //검색
 	
 	public int getTotal(Criteria cri);
 	//삭제
