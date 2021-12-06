@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.ync.mapper.NewsMapper">
+
+ 
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							news_title LIKE '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							news_contents LIKE '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+
+	<select id="getNewsList" resultType="kr.ac.ync.domain.NewsVO">
+	<![CDATA[
+		SELECT * FROM news WHERE news_num > 0 
+		]]>
+	</select>
+	
+		<select id="getNewsDetail" resultType="kr.ac.ync.domain.NewsVO">
+		select *
+		from news
+		where news_num = #{news_num}
+
+	</select>
+
+
+	<select id="getTotalCount" resultType="int">
+		SELECT count(*) FROM news WHERE 
+		<include refid="criteria"></include> 
+		news_num > 0
+	</select>
+	
+</mapper>
