@@ -24,6 +24,7 @@ import kr.ac.ync.domain.MemberVO;
 import kr.ac.ync.domain.PageDTO;
 import kr.ac.ync.service.BoardService;
 import kr.ac.ync.service.GameInfoService;
+import kr.ac.ync.service.NewsService;
 import kr.ac.ync.util.UploadUtils;
 import lombok.extern.log4j.Log4j;
 
@@ -40,6 +41,9 @@ public class BoardController {
 	
 	@Autowired
 	private GameInfoService gs;	
+	
+	@Autowired
+	private NewsService ns;
 	
 	@GetMapping(value = "/*")
     public String shop(Model model){
@@ -107,6 +111,19 @@ public class BoardController {
 		log.info("total: " + total);
 		model.addAttribute("list", service.getListWithPaging(cri));
 		model.addAttribute("games", gs.getGamesList());
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+	}
+	
+	@GetMapping("/newslist")
+	public void newslist(Criteria cri, Model model) {
+		log.info("newslist: " + cri);
+//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
+		
+		// 게시판의 글은 지속적으로 등록, 삭제 되기에 매번 list를 호출 할때 total을 구해와야 한다. 
+		int total = service.getTotal(cri);
+		log.info("total: " + total);
+		model.addAttribute("list", service.getListWithPaging(cri));
+		model.addAttribute("news", ns.getNewsList());
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
