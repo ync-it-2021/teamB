@@ -60,7 +60,7 @@
                 <div class="col-lg-6">
                     <div class="login__register">
                         <h3>계정이 없으십니까?</h3>
-                        <a href="/user/register" class="primary-btn">회원 가입</a>
+                        <a href="/signup" class="primary-btn">회원 가입</a>
                     </div>
                 </div>
             </div>

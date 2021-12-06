@@ -81,18 +81,6 @@ public class BoardController {
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
 	}
-	
-	
-	@GetMapping("/signup")
-    public String signup(){
-		
-        return "signup";
-    }
-	@GetMapping("/login")
-    public String login(){
-		
-        return "login";
-    }
 
 	@GetMapping("/register")
 	@PreAuthorize("isAuthenticated()")
