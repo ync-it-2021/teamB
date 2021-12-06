@@ -41,4 +41,11 @@ public class CartController {
 		
 		return "/cart";
 	}
+	
+	@PostMapping("/cart/delete")
+	public String deleteCart (CartDTO cart) {
+		cartService.deleteCart(cart.getCart_num());
+		
+		return "redirect:/cart/"+cart.getUSERID();
+	}
 }
