@@ -112,7 +112,7 @@
 				</div>
 				<div class="col-lg-2">
 					<div class="header__right">
-						<a href="#" class=""><span class="icon_cart_alt"></span></a>
+						<a href="/cart" class=""><span class="icon_cart_alt"></span></a>
 						<sec:authorize access="isAuthenticated()">
 
 							<a href="/logout"><span class="fa fa-sign-out"></span></a>
