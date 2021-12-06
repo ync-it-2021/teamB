@@ -10,7 +10,9 @@ public interface CartService {
 	public int addCart(CartDTO cart);
 	
 	//장바구니 리스트
-	
 	public List<CartDTO> getCartList(String USERID);
+	
+	//장바구니 삭제
+	public int deleteCart(int cart_num);
 
 }
