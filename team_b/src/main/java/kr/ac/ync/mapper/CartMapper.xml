@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.ync.mapper.CartMapper">
+	<!-- 카트 추가 -->
+	<insert id="addCart">
+
+		INSERT INTO CART(cart_num,USERID, game_num, QUANTITY)
+		VALUES(#{cart_num},#{USERID},#{game_num},#{QUANTITY})
+	
+
+	</insert>
+
+
+	<!-- 카트 삭제 -->
+	<delete id="deleteCart">
+
+		delete from CART where cart_num = #{cart_num}
+
+	</delete>
+
+	<!-- 카트 수량 수정 -->
+	<update id="modifyCount">
+
+		update CART set QUANTITY=#{QUANTITY} where cart_num = #{cart_num}
+
+	</update>
+
+
+	<!-- 카트 목록 -->
+	<select id="getCart" resultType="kr.ac.ync.domain.CartDTO">
+
+		select a.cart_num, a.userid, a.game_num, a.QUANTITY, b.title, b.price,
+		b.sale_price
+		from CART a left outer join GAME_INFO b on a.game_num =
+		b.game_num
+		where userid = #{userid}
+
+	</select>
+
+	<!-- 카트 확인 -->
+	<select id="checkCart" resultType="kr.ac.ync.domain.CartDTO">
+
+		select * from CART
+		where USERID = #{USERID} and game_num = #{game_num}
+
+	</select>
+
+</mapper>
