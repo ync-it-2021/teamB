@@ -35,12 +35,18 @@ public class CartController {
 		return result + "";
 	}
 	
-	@GetMapping("/cart/{USERID}")
-	public String cartPageGET (@PathVariable("USERID") String userId, Model model) {
-		model.addAttribute("cartInfo",cartService.getCartList(userId));
+//	@GetMapping("/cart/{USERID}")
+//	public String cartPageGET (@PathVariable("USERID") String userId, Model model) {
+//		model.addAttribute("cartInfo",cartService.getCartList(userId));
+//		
+//		return "/cart";
+//	}
+	
+	@GetMapping("/cart")
+    public String cart(){
 		
-		return "/cart";
-	}
+        return "cart";
+    }
 	
 	@PostMapping("/cart/delete")
 	public String deleteCart (CartDTO cart) {
