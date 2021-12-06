@@ -14,7 +14,7 @@ public interface GameInfoMapper {
 	public List<GameInfoVO> getGamesListforNew();
 	
 //	public List<GameInfoVO> getGamesListforMost();
-	//
+	//디테일
 	public GameInfoVO getDetail(Long game_num);
 
 	public void insert(GameInfoVO games);

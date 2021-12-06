@@ -34,4 +34,11 @@ public class NewsServiceImpl implements NewsService {
 		return mapper.getNewsDetail(news_num);
 	}
 
+	@Override
+	public void registerNews(NewsVO news) {
+		log.info("reg_news : " + news);
+
+		mapper.insertSelectKey(news);
+	}
+
 }

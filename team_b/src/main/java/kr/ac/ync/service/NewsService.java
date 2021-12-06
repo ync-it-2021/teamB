@@ -8,4 +8,7 @@ public interface NewsService {
 	public List<NewsVO> getNewsList();
 	
 	public NewsVO getNewsDetail(Long news_num);
+
+		//등록
+	public void registerNews(NewsVO news);
 }

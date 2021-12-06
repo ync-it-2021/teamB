@@ -83,7 +83,7 @@
 					<div class="header__nav">
 						<nav class="header__menu mobile-menu">
 							<ul>
-								<li class="active"><a href="./blog.jsp">뉴스</a></li>
+								<li class="active"><a href="/news">뉴스</a></li>
 								<li><a href="#">장르<span
 										class="arrow_carrot-down"></span></a>
 									<ul class="dropdown">

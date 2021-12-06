@@ -102,19 +102,6 @@ public class BoardController {
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
-	@GetMapping("/newslist")
-	public void newslist(Criteria cri, Model model) {
-		log.info("newslist: " + cri);
-//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
-		
-		// 게시판의 글은 지속적으로 등록, 삭제 되기에 매번 list를 호출 할때 total을 구해와야 한다. 
-		int total = service.getTotal(cri);
-		log.info("total: " + total);
-		model.addAttribute("list", service.getListWithPaging(cri));
-		model.addAttribute("news", ns.getNewsList());
-		model.addAttribute("pageMaker", new PageDTO(cri, total));
-	}
-	
 //	// 글 등록
 //	// file upload가 추가된 게시판 등록
 //	@PostMapping("/register")

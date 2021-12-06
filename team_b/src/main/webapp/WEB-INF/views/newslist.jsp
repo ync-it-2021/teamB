@@ -13,7 +13,7 @@ td {
 </style>
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">GAME_INFO</h1>
+		<h1 class="page-header">NEWS_Admin</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -164,14 +164,14 @@ td {
 			}
 
 			if (parseInt(result) > 0) {
-				$(".modal-body").html("새로운 게임 " + parseInt(result)	+ " 등록되었습니다.");
+				$(".modal-body").html("새로운 뉴스 " + parseInt(result)	+ " 등록되었습니다.");
 			}
 
 			$("#myModal").modal("show");
 		}
 		
 		$("#regBtn").on("click", function() {
-			self.location = "/register";
+			self.location = "/reg_news";
 		});
 		
 		var actionForm = $("#actionForm");

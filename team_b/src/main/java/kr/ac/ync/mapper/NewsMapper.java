@@ -9,5 +9,9 @@ public interface NewsMapper {
 	List<NewsVO> getNewsList();
 
 	NewsVO getNewsDetail(Long news_num);
+	
+	public void insert(NewsVO news);
+
+	public Integer insertSelectKey(NewsVO news);
 
 }

@@ -114,8 +114,8 @@ pageContext.setAttribute("BR", "<br/>");
 									<div class="product__item">
 										<a class='move'
 											href='detail?game_num=<c:out value="${sales.game_num}"/>'>
-											<c:set var="t" value="file_1" /> <c:if
-												test="${not empty sales[t]}">
+											<c:set var="t" value="file_1" /> 
+											<c:if test="${not empty sales[t]}">
 												<div class="product__item__pic set-bg"
 													data-setbg="/resources/upload/${sales[t]}">
 													<div class="view">

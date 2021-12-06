@@ -41,4 +41,38 @@
 		news_num > 0
 	</select>
 	
+		<insert id="insert">
+			INSERT INTO news (news_num, news_title, news_date, userid, gubun, news_contents, file_1, file_2, file_3)
+			VALUES
+			(seq_news.nextval, 
+			#{news_title},
+			sysdate,
+			#{userid},
+			#{gubun},
+			#{news_contents, jdbcType=VARCHAR},
+			#{file_1, jdbcType=VARCHAR}, 
+			#{file_2, jdbcType=VARCHAR}, 
+			#{file_3, jdbcType=VARCHAR})
+	</insert>
+
+	<insert id="insertSelectKey">
+
+		<selectKey keyProperty="news_num" order="BEFORE"
+			resultType="long">
+			select seq_news.nextval from dual
+		</selectKey>
+
+		INSERT INTO news (news_num, news_title, news_date, userid, gubun, news_contents, file_1, file_2, file_3)
+		VALUES
+		(#{news_num}, 
+		#{news_title},
+		sysdate,
+		#{userid},
+		#{gubun},
+		#{news_contents, jdbcType=VARCHAR},
+		#{file_1, jdbcType=VARCHAR}, 
+		#{file_2, jdbcType=VARCHAR}, 
+		#{file_3, jdbcType=VARCHAR})
+	</insert>
+	
 </mapper>
