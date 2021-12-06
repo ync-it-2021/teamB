@@ -35,5 +35,10 @@
 	FROM	tbl_member
 	WHERE	userid = #{userid} 
 	</select>
+	
+	<insert id="memberJoin">
+	insert into member (userid, userpw, userName, userPhone, userMail) 
+				values(#{userid},#{userpw},#{userName},#{userPhone},#{userMail})
+	</insert>
 
 </mapper>
