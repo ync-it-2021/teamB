@@ -144,7 +144,7 @@
 									<c:set var="t" value="file_1" /> 
 									<c:if test="${not empty sales[t]}">
 									<div class="product__sidebar__comment__item__pic">
-										<img src='detail?game_num=<c:out value="${sales.game_num}"/>' alt="">
+										<img src="/resources/upload/${recent[t]}" alt="">
 									</div>
 									</c:if>
 									<div class="product__sidebar__comment__item__text">
@@ -153,7 +153,7 @@
 											<li><c:out value="${sales.size_name}" /></li>
 										</ul>
 										<h5>
-											<a href="#">${sales.title }</a>
+											<a href="detail?game_num=<c:out value="${sales.game_num}"/>">${sales.title }</a>
 										</h5>
 										<span><div class="view">
 												<del>${sales.price } 원</del>
