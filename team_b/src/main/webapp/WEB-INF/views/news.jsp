@@ -32,7 +32,8 @@
                     <div class="row">
                     <c:forEach items="${news}" var="news">
                         <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="blog__item small__item set-bg" data-setbg="/resources/upload/${sales[t]}">
+                        <a class='move' href='newsdetail?news_num=<c:out value="${news.news_num}"/>'>
+                            <div class="blog__item small__item set-bg" data-setbg="/resources/upload/${news[t]}">
                                 <div class="product__item__pic set-bg"><div class="ep">${news.gubun }</div></div>
                                 <div class="blog__item__text">
                                		<!-- 작성일자 -->
@@ -40,11 +41,12 @@
                                     	<fmt:formatDate pattern="yyyy-MM-dd" value="${news.news_date}"/>
                                     </p>
                                     <!-- 제목 -->
-                                    <h4><a href="newsdetail?news_num=<c:out value="${news.news_num}"/>">
+                                    <h4>
                                     	${news.news_title }
-                                    </a></h4> 
+                                   </h4> 
                                 </div>
                             </div>
+                            </a>
                         </div>
                         </c:forEach>
                     </div>
