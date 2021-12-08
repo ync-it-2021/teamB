@@ -33,6 +33,8 @@
                     <c:forEach items="${news}" var="news">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                         <a class='move' href='newsdetail?news_num=<c:out value="${news.news_num}"/>'>
+                        <c:set var="t" value="file_1" /> 
+							<c:if test="${not empty news[t]}">
                             <div class="blog__item small__item set-bg" data-setbg="/resources/upload/${news[t]}">
                                 <div class="product__item__pic set-bg"><div class="ep">${news.gubun }</div></div>
                                 <div class="blog__item__text">
@@ -46,6 +48,7 @@
                                    </h4> 
                                 </div>
                             </div>
+                            </c:if>
                             </a>
                         </div>
                         </c:forEach>
