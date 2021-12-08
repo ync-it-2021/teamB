@@ -49,9 +49,10 @@ public class BoardController {
     public String shop(Model model){
 		log.info("index");
 		model.addAttribute("sales", gs.getGamesListforSale());
-		model.addAttribute("news", gs.getGamesListforNew());
+		model.addAttribute("recent", gs.getGamesListforNew());
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
+		model.addAttribute("news", ns.getNewsList());
 		
 		return "/board/index";
     }
@@ -61,7 +62,7 @@ public class BoardController {
 		model.addAttribute("sales", gs.getGamesListforSale());
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
-		
+		model.addAttribute("news", ns.getNewsList());
 		return "/search/sales";
     }
 	
@@ -70,7 +71,7 @@ public class BoardController {
 		model.addAttribute("recent", gs.getGamesListforNew());
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
-		
+		model.addAttribute("news", ns.getNewsList());
 		return "/search/recent";
     }
 	
@@ -80,6 +81,7 @@ public class BoardController {
 		model.addAttribute("games", gs.getDetail(game_num));
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
+		model.addAttribute("news", ns.getNewsList());
 	}
 
 	@GetMapping("/register")
@@ -222,6 +224,7 @@ public class BoardController {
 		model.addAttribute("games", gs.getGamesSearch(keyword));
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
+		model.addAttribute("news", ns.getNewsList());
 			return "/search/search";
 	}
 	
@@ -231,6 +234,7 @@ public class BoardController {
 		model.addAttribute("games", gs.searchGenre(keyword));
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
+		model.addAttribute("news", ns.getNewsList());
 			return "/search/genre";
 	}
 	
@@ -240,6 +244,7 @@ public class BoardController {
 		model.addAttribute("games", gs.searchSize(keyword));
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
+		model.addAttribute("news", ns.getNewsList());
 			return "/search/size";
 	}
 }

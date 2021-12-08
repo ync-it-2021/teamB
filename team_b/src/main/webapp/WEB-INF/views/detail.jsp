@@ -154,44 +154,20 @@ pageContext.setAttribute("BR", "<br/>");
                             <li data-filter=".years">Years</li>
                         </ul> -->
 						<div class="filter__gallery">
-							<div class="product__sidebar__view__item set-bg mix day years"
-								data-setbg="../img/sidebar/tv-1.jpg">
-								<div class="ep">2021 / 06 / 04 ~ 2021 / 06 / 18</div>
-								<h5>
-									<a href="#">2021 여름세일 돌입</a>
-								</h5>
-							</div>
-							<div class="product__sidebar__view__item set-bg mix month week"
-								data-setbg="../img/sidebar/tv-2.jpg">
-								<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
-								<h5>
-									<a href="#">2021 할로윈세일 예정</a>
-								</h5>
-							</div>
-							<div class="product__sidebar__view__item set-bg mix week years"
-								data-setbg="../img/sidebar/tv-3.jpg">
-								<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
-								<h5>
-									<a href="#">아무 행사</a>
-								</h5>
-							</div>
-							<div class="product__sidebar__view__item set-bg mix years month"
-								data-setbg="../img/sidebar/tv-4.jpg">
-								<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
-								<h5>
-									<a href="#">이외에 예정된 행사 없음</a>
-								</h5>
-							</div>
-							<div class="product__sidebar__view__item set-bg mix day"
-								data-setbg="../sidebar/tv-5.jpg">
-								<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
-								<div class="view">
-									<i class="fa fa-eye"></i> 9141
-								</div>
-								<h5>
-									<a href="#">--</a>
-								</h5>
-							</div>
+								<c:forEach items="${news}" var="news">
+									<c:set var="t" value="file_1" />
+									<c:if test="${not empty news[t]}">
+										<div class="product__sidebar__view__item set-bg mix day years"
+											data-setbg="/resources/upload/${news[t]}">
+											<div class="ep">${news.gubun }</div>
+                                    		<br>
+											<h5>
+												<a href='newsdetail?news_num=<c:out value="${news.news_num}"/>'>
+												${news.news_title }</a>
+											</h5>
+										</div>
+									</c:if>
+								</c:forEach>
 						</div>
 						<!-- <div class="product__sidebar__comment">
             <div class="section-title">

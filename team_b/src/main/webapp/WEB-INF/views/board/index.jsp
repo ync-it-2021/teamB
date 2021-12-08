@@ -160,22 +160,22 @@ pageContext.setAttribute("BR", "<br/>");
 								</div>
 							</div>
 							<div class="row">
-								<c:forEach items="${news}" var="news"  end="5">
+								<c:forEach items="${recent}" var="recent"  end="5">
 									<div class="col-lg-4 col-md-6 col-sm-6">
 										<div class="product__item">
 											<a class='move'
-												href='detail?game_num=<c:out value="${news.game_num}"/>'>
+												href='detail?game_num=<c:out value="${recent.game_num}"/>'>
 												<c:set var="t" value="file_1" /> <c:if
-													test="${not empty news[t]}">
+													test="${not empty recent[t]}">
 													<div class="product__item__pic set-bg"
-														data-setbg="/resources/upload/${news[t]}">
+														data-setbg="/resources/upload/${recent[t]}">
 														<div class="view">
 															<del>
-																<c:out value="${news.price}" />
+																<c:out value="${recent.price}" />
 																KRW
 															</del>
 															<h5 style="color: WHITE">
-																<c:out value="${news.sale_price}" />
+																<c:out value="${recent.sale_price}" />
 																KRW
 															</h5>
 														</div>
@@ -184,12 +184,12 @@ pageContext.setAttribute("BR", "<br/>");
 											</a>
 											<div class="product__item__text">
 												<ul>
-													<li><c:out value="${news.genre_name}" /></li>
-													<li><c:out value="${news.size_name}" /></li>
+													<li><c:out value="${recent.genre_name}" /></li>
+													<li><c:out value="${recent.size_name}" /></li>
 												</ul>
 												<h5>
-													<a href='detail?game_num=<c:out value="${news.game_num}"/>'><c:out
-															value="${news.title}" /></a>
+													<a href='detail?game_num=<c:out value="${recent.game_num}"/>'><c:out
+															value="${recent.title}" /></a>
 												</h5>
 											</div>
 										</div>
@@ -214,44 +214,20 @@ pageContext.setAttribute("BR", "<br/>");
                                 <li data-filter=".years">Years</li>
                             </ul> -->
 							<div class="filter__gallery">
-								<div class="product__sidebar__view__item set-bg mix day years"
-									data-setbg="/resources/img/sidebar/tv-1.jpg">
-									<div class="ep">2021 / 06 / 04 ~ 2021 / 06 / 18</div>
-									<h5>
-										<a href="#">2021 여름세일 돌입</a>
-									</h5>
-								</div>
-								<div class="product__sidebar__view__item set-bg mix month week"
-									data-setbg="/resources/img/sidebar/tv-2.jpg">
-									<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
-									<h5>
-										<a href="#">2021 할로윈세일 예정</a>
-									</h5>
-								</div>
-								<div class="product__sidebar__view__item set-bg mix week years"
-									data-setbg="/resources/img/sidebar/tv-3.jpg">
-									<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
-									<h5>
-										<a href="#">아무 행사</a>
-									</h5>
-								</div>
-								<div class="product__sidebar__view__item set-bg mix years month"
-									data-setbg="/resources/img/sidebar/tv-4.jpg">
-									<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
-									<h5>
-										<a href="#">이외에 예정된 행사 없음</a>
-									</h5>
-								</div>
-								<div class="product__sidebar__view__item set-bg mix day"
-									data-setbg="/resources/img/sidebar/tv-5.jpg">
-									<div class="ep">2021 / 10 / 28 ~ 2021 / 11 / 04</div>
-									<div class="view">
-										<i class="fa fa-eye"></i> 9141
-									</div>
-									<h5>
-										<a href="#">---</a>
-									</h5>
-								</div>
+								<c:forEach items="${news}" var="news">
+									<c:set var="t" value="file_1" />
+									<c:if test="${not empty news[t]}">
+										<div class="product__sidebar__view__item set-bg mix day years"
+											data-setbg="/resources/upload/${news[t]}">
+											<div class="ep">${news.gubun }</div>
+                                    		<br>
+											<h5>
+												<a href='newsdetail?news_num=<c:out value="${news.news_num}"/>'>
+												${news.news_title }</a>
+											</h5>
+										</div>
+									</c:if>
+								</c:forEach>
 							</div>
 							<!-- 프로모션 끝 -->
 
