@@ -178,7 +178,7 @@ pageContext.setAttribute("BR", "<br/>");
 									<c:set var="t" value="file_1" /> 
 									<c:if test="${not empty sales[t]}">
 									<div class="product__sidebar__comment__item__pic">
-										<img src="/resources/upload/${sales[t]}" alt="">
+										<img src="/resources/upload/${sales[t]}" alt="" width="90" height="130">
 									</div>
 									</c:if>
 									<div class="product__sidebar__comment__item__text">
