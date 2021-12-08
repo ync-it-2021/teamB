@@ -169,63 +169,34 @@ pageContext.setAttribute("BR", "<br/>");
 									</c:if>
 								</c:forEach>
 						</div>
-						<!-- <div class="product__sidebar__comment">
+						<div class="product__sidebar__comment">
             <div class="section-title">
-                <h5>신규출시</h5>
+                <h5>현재 할인중</h5>
             </div>
-            <div class="product__sidebar__comment__item">
-                <div class="product__sidebar__comment__item__pic">
-                    <img src="img/sidebar/comment-1.jpg" alt="">
-                </div>
-                <div class="product__sidebar__comment__item__text">
-                    <ul>
-                        <li>Active</li>
-                        <li>Movie</li>
-                    </ul>
-                    <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                    <span><div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div></span>
-                </div>
-            </div>
-            <div class="product__sidebar__comment__item">
-                <div class="product__sidebar__comment__item__pic">
-                    <img src="img/sidebar/comment-2.jpg" alt="">
-                </div>
-                <div class="product__sidebar__comment__item__text">
-                    <ul>
-                        <li>Active</li>
-                        <li>Movie</li>
-                    </ul>
-                    <h5><a href="#">Shirogane Tamashii hen Kouhan sen</a></h5>
-                    <span><div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div></span>
-                </div>
-            </div>
-            <div class="product__sidebar__comment__item">
-                <div class="product__sidebar__comment__item__pic">
-                    <img src="img/sidebar/comment-3.jpg" alt="">
-                </div>
-                <div class="product__sidebar__comment__item__text">
-                    <ul>
-                        <li>Active</li>
-                        <li>Movie</li>
-                    </ul>
-                    <h5><a href="#">Kizumonogatari III: Reiket su-hen</a></h5>
-                    <span><<div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div></span>
-                </div>
-            
-            <div class="product__sidebar__comment__item">
-                <div class="product__sidebar__comment__item__pic">
-                    <img src="img/sidebar/comment-4.jpg" alt="">
-                </div>
-                <div class="product__sidebar__comment__item__text">
-                    <ul>
-                        <li>Active</li>
-                        <li>Movie</li>
-                    </ul>
-                    <h5><a href="#">Monogatari Series: Second Season</a></h5>
-                    <span><div class="view"><del>85,000 KRW</del><h5 style="color:WHITE">55,000 KRW</h5></div></span>
-                </div>
-            </div>
-        </div> -->
+								<c:forEach items="${sales}" var="sales"  end="3">
+								<div class="product__sidebar__comment__item">
+									<c:set var="t" value="file_1" /> 
+									<c:if test="${not empty sales[t]}">
+									<div class="product__sidebar__comment__item__pic">
+										<img src='detail?game_num=<c:out value="${sales.game_num}"/>' alt="">
+									</div>
+									</c:if>
+									<div class="product__sidebar__comment__item__text">
+										<ul>
+											<li><c:out value="${sales.genre_name}" /></li>
+											<li><c:out value="${sales.size_name}" /></li>
+										</ul>
+										<h5>
+											<a href="#">${sales.title }</a>
+										</h5>
+										<span><div class="view">
+												<del>${sales.price } 원</del>
+												<h5 style="color: WHITE"><c:out value="${sales.sale_price}" /> 원</h5>
+											</div></span>
+									</div>
+								</div>
+								</c:forEach>
+        </div>
 					</div>
 				</div>
 			</div>

@@ -78,6 +78,8 @@ public class BoardController {
 	@GetMapping("/detail")
 	public void getDetail(@RequestParam("game_num") Long game_num, Model model) {
 		log.info("/detail");
+		model.addAttribute("recent", gs.getGamesListforNew());
+		model.addAttribute("sales", gs.getGamesListforSale());
 		model.addAttribute("games", gs.getDetail(game_num));
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
@@ -225,6 +227,7 @@ public class BoardController {
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
 		model.addAttribute("news", ns.getNewsList());
+		model.addAttribute("sales", gs.getGamesListforSale());
 			return "/search/search";
 	}
 	

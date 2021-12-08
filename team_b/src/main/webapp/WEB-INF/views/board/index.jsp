@@ -49,7 +49,7 @@ pageContext.setAttribute("BR", "<br/>");
 								<h2>
 									Fate: <br>UBW
 								</h2>
-								<a href="#"><span><del>45,000 KRW</del> 25,000 KRw</span> <i
+								<a href="#"><span><del>45,000 원</del> 25,000 원</span> <i
 									class="fa fa-angle-right"></i></a>
 							</div>
 						</div>
@@ -78,7 +78,7 @@ pageContext.setAttribute("BR", "<br/>");
 								<h2>발로란트</h2>
 								<div class="view" style="color: WHITE">시즌 2 에피소드 2 업데이트 기념
 									할인 !</div>
-								<a href="#"><span><del>39,000 KRW</del> 17,000 KRw</span> <i
+								<a href="#"><span><del>39,000 원</del> 17,000 원</span> <i
 									class="fa fa-angle-right"></i></a>
 							</div>
 						</div>
@@ -121,11 +121,11 @@ pageContext.setAttribute("BR", "<br/>");
 													<div class="view">
 														<del>
 															<c:out value="${sales.price}" />
-															KRW
+															원
 														</del>
 														<h5 style="color: WHITE">
 															<c:out value="${sales.sale_price}" />
-															KRW
+															원
 														</h5>
 													</div>
 												</div>
@@ -172,11 +172,11 @@ pageContext.setAttribute("BR", "<br/>");
 														<div class="view">
 															<del>
 																<c:out value="${recent.price}" />
-																KRW
+																원
 															</del>
 															<h5 style="color: WHITE">
 																<c:out value="${recent.sale_price}" />
-																KRW
+																원
 															</h5>
 														</div>
 													</div>
@@ -235,80 +235,29 @@ pageContext.setAttribute("BR", "<br/>");
 								<div class="section-title">
 									<h5>신규출시</h5>
 								</div>
+								<c:forEach items="${recent}" var="recent"  end="3">
 								<div class="product__sidebar__comment__item">
+									<c:set var="t" value="file_1" /> 
+									<c:if test="${not empty recent[t]}">
 									<div class="product__sidebar__comment__item__pic">
-										<img src="/resources/img/sidebar/comment-1.jpg" alt="">
+										<img src='detail?game_num=<c:out value="${recent.game_num}"/>' alt="">
 									</div>
+									</c:if>
 									<div class="product__sidebar__comment__item__text">
 										<ul>
-											<li>Active</li>
-											<li>Movie</li>
+											<li><c:out value="${recent.genre_name}" /></li>
+											<li><c:out value="${recent.size_name}" /></li>
 										</ul>
 										<h5>
-											<a href="#">The Seven Deadly Sins: Wrath of the Gods</a>
+											<a href="#">${recent.title }</a>
 										</h5>
 										<span><div class="view">
-												<del>85,000 KRW</del>
-												<h5 style="color: WHITE">55,000 KRW</h5>
+												<del>${recent.price } 원</del>
+												<h5 style="color: WHITE"><c:out value="${recent.sale_price}" /> 원</h5>
 											</div></span>
 									</div>
 								</div>
-								<div class="product__sidebar__comment__item">
-									<div class="product__sidebar__comment__item__pic">
-										<img src="/resources/img/sidebar/comment-2.jpg" alt="">
-									</div>
-									<div class="product__sidebar__comment__item__text">
-										<ul>
-											<li>Active</li>
-											<li>Movie</li>
-										</ul>
-										<h5>
-											<a href="#">Shirogane Tamashii hen Kouhan sen</a>
-										</h5>
-										<span><div class="view">
-												<del>85,000 KRW</del>
-												<h5 style="color: WHITE">55,000 KRW</h5>
-											</div></span>
-									</div>
-								</div>
-								<div class="product__sidebar__comment__item">
-									<div class="product__sidebar__comment__item__pic">
-										<img src="/resources/img/sidebar/comment-3.jpg" alt="">
-									</div>
-									<div class="product__sidebar__comment__item__text">
-										<ul>
-											<li>Active</li>
-											<li>Movie</li>
-										</ul>
-										<h5>
-											<a href="#">Kizumonogatari III: Reiket su-hen</a>
-										</h5>
-										<span><
-											<div class="view">
-												<del>85,000 KRW</del>
-												<h5 style="color: WHITE">55,000 KRW</h5>
-											</div>
-										</span>
-									</div>
-								</div>
-								<div class="product__sidebar__comment__item">
-									<div class="product__sidebar__comment__item__pic">
-										<img src="/resources/img/sidebar/comment-4.jpg" alt="">
-									</div>
-									<div class="product__sidebar__comment__item__text">
-										<ul>
-											<li>Active</li>
-											<li>Movie</li>
-										</ul>
-										<h5>
-											<a href="#">Monogatari Series: Second Season</a>
-										</h5>
-										<span><div class="view">
-												<del>85,000 KRW</del>
-												<h5 style="color: WHITE">55,000 KRW</h5>
-											</div></span>
-									</div>
-								</div>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
