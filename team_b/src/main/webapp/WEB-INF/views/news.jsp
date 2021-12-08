@@ -43,9 +43,9 @@
                                     	<fmt:formatDate pattern="yyyy-MM-dd" value="${news.news_date}"/>
                                     </p>
                                     <!-- 제목 -->
-                                    <h4>
+                                    <h5 style="color:white;">
                                     	${news.news_title }
-                                   </h4> 
+                                   </h5> 
                                 </div>
                             </div>
                             </c:if>
