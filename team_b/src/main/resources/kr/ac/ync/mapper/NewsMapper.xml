@@ -75,4 +75,20 @@
 		#{file_3, jdbcType=VARCHAR})
 	</insert>
 	
+	<update id="update">
+		UPDATE news SET 		news_title = #{news_title},
+								news_date = sysdate,
+								gubun = #{gubun},
+								userid = #{userid},
+								news_contents = #{news_contents},
+								file_1 = #{file_1, jdbcType=VARCHAR},
+								file_2 = #{file_2, jdbcType=VARCHAR},
+								file_3 = #{file_3, jdbcType=VARCHAR}
+		WHERE news_num = #{news_num}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM news WHERE news_num = #{news_num}
+	</delete>
+	
 </mapper>

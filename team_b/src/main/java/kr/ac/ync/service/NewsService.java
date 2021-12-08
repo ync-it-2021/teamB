@@ -2,6 +2,7 @@ package kr.ac.ync.service;
 
 import java.util.List;
 
+import kr.ac.ync.domain.GameInfoVO;
 import kr.ac.ync.domain.NewsVO;
 
 public interface NewsService {
@@ -11,4 +12,8 @@ public interface NewsService {
 
 		//등록
 	public void registerNews(NewsVO news);
+
+	public boolean modnews(NewsVO news);
+	
+	public boolean removenews(Long news_num);
 }

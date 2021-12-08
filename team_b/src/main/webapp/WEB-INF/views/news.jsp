@@ -40,7 +40,7 @@
                                     	<fmt:formatDate pattern="yyyy-MM-dd" value="${news.news_date}"/>
                                     </p>
                                     <!-- 제목 -->
-                                    <h4><a href="#">
+                                    <h4><a href="newsdetail?news_num=<c:out value="${news.news_num}"/>">
                                     	${news.news_title }
                                     </a></h4> 
                                 </div>

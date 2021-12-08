@@ -20,7 +20,7 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Game_Info Modify</h1>
+		<h1 class="page-header">뉴스 게시글 수정</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -34,8 +34,7 @@
 			<!-- /.panel-heading -->
 			<div class="panel-body">
 
-				<form action="/modify" method="post" enctype="multipart/form-data"
-					id="form">
+				<form role="form" action="/mod_news" method="post" enctype="multipart/form-data">
 					<!--
        	controller에서 파라미터 수집시 upload file은 uploadFile 이름으로 server로 넘어간다.(binary data로)
        	하지만 BoardVO에서는 file_1,file_2,file_3의 이름으로 setter를 해줘야 한다.
@@ -47,8 +46,8 @@
 					<c:forEach var="i" begin="1" end="3">
 						<c:set var="t" value="file_${i}" />
 						<c:choose>
-							<c:when test="${not empty games[t]}">
-								<input type="hidden" name="file_${i}" value="${games[t]}">
+							<c:when test="${not empty news[t]}">
+								<input type="hidden" name="file_${i}" value="${news[t]}">
 							</c:when>
 							<c:otherwise>
 								<input type="hidden" name="file_${i}" value="">
@@ -64,115 +63,48 @@
 						type='hidden' name='type' value='<c:out value="${cri.type }"/>'>
 					<input type='hidden' name='keyword'
 						value='<c:out value="${cri.keyword }"/>'> <input
-						type='hidden' name='game_num'
-						value='<c:out value="${games.game_num }"/>'>
+						type='hidden' name='news_num'
+						value='<c:out value="${news.news_num }"/>'>
 
 					<table>
 						<tr>
 							<td colspan="2">
 								<div class="form-group">
-									<input class="form-control" name='title'
-										value='<c:out value="${games.title }"/>'>
+									<input class="form-control" name='news_title'
+										value='<c:out value="${news.news_title }"/>'>
 								</div>
 							</td>
 							<td colspan="4"><sec:authentication property="principal"
 									var="pinfo" />
 								<div style="padding: 5px; float: right;">
 									<sec:authorize access="isAuthenticated()">
-<%-- 									<a href="/delete?game_num=${games.game_num }" role="button" 
-											data-oper="remove" class="btn-xs btn-danger">
-												<i class="fa fa-trash-o fa-fw"></i>
-											</a> 
-										<input type="submit" class="btn btn-success" value="등록" /> --%>
 										<button type="submit" data-oper='remove' class="btn btn-danger" id="button">삭제</button>
-										<button type="submit" data-oper='modify' class="btn btn-success" id="button">등록</button>
+										<button type="submit" data-oper='mod_news' class="btn btn-success" id="button">등록</button>
 									</sec:authorize>
 								</div></td>
 						</tr>
 						<tr>
 							<td><div class="form-group" style="padding: 5px;">
-									<label>개발사</label> <input class="form-control" name='dev'
-										placeholder='개발사' value='<c:out value="${games.dev}"/>'>
-								</div></td>
-							<td><div class="form-group" style="padding: 5px;">
-									<label>유통사</label> <input class="form-control" name='publisher'
-										placeholder='유통사' value='<c:out value="${games.publisher}"/>'>
-								</div></td>
-							<td><div class="form-group" style="padding: 5px;">
-									<label>한국어 지원</label> <input class="form-control" name='korean'
-										placeholder='한국어 지원/미지원'
-										value='<c:out value="${games.korean}"/>'>
+									<label>작성자</label> <input class="form-control" name='userid'
+										value='${news.userid }'
+										readonly="readonly">
 								</div></td>
 							<td>
 								<div class="form-group" style="padding: 5px;">
-									<label>플랫폼</label> <input class="form-control" name='platform'
-										placeholder='플랫폼' value='<c:out value="${games.platform}"/>'>
-								</div>
-							</td>
-
-							<td>
-								<div class="form-group" style="padding: 5px;">
-									<label>정상가</label> <input class="form-control" name='price'
-										placeholder='정상가' value='<c:out value="${games.price}"/>'>
-								</div>
-							</td>
-							<td>
-								<div class="form-group" style="padding: 5px;">
-									<label>할인가</label> <input class="form-control"
-										name='sale_price' placeholder='할인가'
-										value='<c:out value="${games.sale_price}"/>'>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<div class="form-group" style="padding: 5px;">
-									<label>할인 적용</label> <input class="form-control"
-										name='sale_enabled' placeholder='적용: 1, 미적용: 0'
-										value='<c:out value="${games.sale_enabled}"/>'>
-								</div>
-							</td>
-							<td>
-								<div class="form-group" style="padding: 5px;">
-									<label>출시 일자</label> <input class="form-control"
-										name='relase_date' placeholder='yy/MM/dd'
-										value='<c:out value="${games.relase_date}"/>'>
-								</div>
-							</td>
-							<td>
-								<div class="form-group" style="padding: 5px;">
-									<label>장르</label> 
-									<!-- <input class="form-control" name='genre_id'
-										placeholder='장르의 id 입력'
-										value='<c:out value="${games.genre_id}"/>'> -->
-										<select class="form-control" name='genre_id'>
-										<c:forEach items="${genre}" var="genre">
-											<option value="${genre.genre_id }"><c:out
-													value="${genre.genre_name}" /></option>
-										</c:forEach>
+									<label>구분</label>
+									<select class="form-control" name='gubun'>
+											<option value="공지사항">공지사항</option>
+											<option value="프로모션">프로모션</option>
+											<option value="PC">PC</option>
+											<option value="PS/XB">PC/XB</option>
 									</select>
 								</div>
-							</td>
+							</td>	
 							<td>
-								<div class="form-group" style="padding: 5px;">
-									<label>플레이 지원</label> 
-									<!--<input class="form-control"
-										name='size_id' placeholder='플레이 지원의 id 입력'
-										value='<c:out value="${games.size_id}"/>'> -->
-										
-										<select class="form-control" name='size_id'>
-										<c:forEach items="${size}" var="size">
-											<option value="${size.size_id }"><c:out
-													value="${size.size_name}" /></option>
-										</c:forEach>
-									</select>
-								</div>
-							</td>
-							<td>
-								<div class="form-group" style="padding: 5px;">
-									<label>요구사양</label> <input class="form-control" name='rec_id'
-										placeholder='추후 수정 예정, 1입력'
-										value='<c:out value="${games.rec_id}"/>'>
+								<div class="form-group"
+									style="display: inline-block; padding: 5px;">
+									<label>대표 이미지(정사각형)</label> <input type="file"
+										class="form-control" name='uploadFile'>
 								</div>
 							</td>
 						</tr>
@@ -180,11 +112,12 @@
 
 					<div class="form-group">
 						<label>상세 설명</label>
-						<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
-						<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+							<link href="/resources/vendor/plex/summernote-lite.css" rel="stylesheet" />
+							<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+							<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-ko-KR.js"></script>
 
-						<textarea class="form-control" id="summernote" name='info'><c:out
-								value="${games.info}" /></textarea>
+						<textarea class="form-control" id="summernote" name='news_contents'><c:out
+								value="${news.news_contents}" /></textarea>
 						<!-- <div id="summernote" name='info'></div> -->
 						<script>
 							$('#summernote')
@@ -242,12 +175,12 @@
 						<c:set var="t" value="file_${i}" />
 						<div class="form-group">
 							<label>이미지${i}</label>
-							<c:if test="${not empty games[t]}">
-								<a href="/resources/upload/${games[t]}" target="_blank"><img
-									src="/resources/upload/${games[t]}" id="thumb_${i}"></a>
+							<c:if test="${not empty news[t]}">
+								<a href="/resources/upload/${news[t]}" target="_blank"><img
+									src="/resources/upload/${news[t]}" id="thumb_${i}"></a>
 								<script>
 									document.getElementById('thumb_${i}').src = "/resources/upload/"
-											+ getThumbFileName('${games[t]}');
+											+ getThumbFileName('${news[t]}');
 								</script>
 							</c:if>
 							<input type="file" class="form-control" name='uploadFile'>
@@ -277,13 +210,11 @@ $(document).ready(function() {
 	    var operation = $(this).data("oper");
 	    
 	    console.log(operation);
-	    
 	    if(operation === 'remove'){
-	      formObj.attr("action", "/remove");
-	      
+	      formObj.attr("action", "/removenews");
 	    }else if(operation === 'list'){
 	      //move to list
-	      formObj.attr("action", "/list").attr("method","get");
+	      formObj.attr("action", "/newslist").attr("method","get");
 
 	      var pageNumTag = $("input[name='pageNum']").clone();
 	      var amountTag = $("input[name='amount']").clone();

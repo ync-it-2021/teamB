@@ -6,7 +6,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -27,6 +29,9 @@ public class NewsController {
 	
 	@Autowired
 	private BoardService service;
+
+//	@Autowired
+//	private GameInfoService gs;	
 	
 	@Autowired
 	private NewsService ns;
@@ -87,5 +92,65 @@ public class NewsController {
 			rttr.addFlashAttribute("result", news.getNews_num());
 
 			return "redirect:/newslist";
+		}
+		//상세 조회
+		@GetMapping("/newsdetail")
+		public void getNewsDetail(@RequestParam("news_num") Long news_num, Model model) {
+			log.info("/newsdetail");
+//			model.addAttribute("games", gs.getDetail(game_num));
+//			model.addAttribute("genre", gs.getGenre());
+//			model.addAttribute("size", gs.getSizeSpec());
+			//나중에 할인 프로모션같은 기사 올릴때 필요할까봐 남겨둠
+			model.addAttribute("news", ns.getNewsDetail(news_num));
+		}
+		
+		// @ModelAttribute 는 model.addAttribute("cri", cri) 해주는거와 동일하다.
+		@GetMapping({ "/mod_news" })
+		public void get(@RequestParam("news_num") Long news_num, @ModelAttribute("cri") Criteria cri, Model model) {
+
+			log.info("/mod_news");
+			model.addAttribute("news", ns.getNewsDetail(news_num));
+		}
+		
+		@PostMapping("/mod_news")
+		public String modnews(MultipartFile[] uploadFile, NewsVO news, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
+			
+			int index = 0;
+			for (MultipartFile multipartFile : uploadFile) {
+				// 실제로 upload된 file이 있을때만 upload 시킨다.
+				if (multipartFile.getSize() > 0) {
+					switch (index) {
+					case 0:
+						news.setFile_1(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+						break;
+					case 1:
+						news.setFile_2(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+						break;
+					default:
+						news.setFile_3(UploadUtils.uploadFormPost(multipartFile, uploadPath));
+						break;
+					}
+				}
+				index++;
+			}
+			
+			log.info("modnews:" + news);
+			
+			if (ns.modnews(news)) {
+				rttr.addFlashAttribute("result", "succeed");
+			}
+
+			return "redirect:/newslist" + cri.getListLink();
+		}
+		
+		@PostMapping("/removenews")
+		public String removenews(@RequestParam("news_num") Long news_num, Criteria cri, RedirectAttributes rttr) {
+
+			log.info("remove..." + news_num);
+			if (ns.removenews(news_num)) {
+				rttr.addFlashAttribute("result", "success");
+			}
+
+			return "redirect:/newslist" + cri.getListLink();
 		}
 }

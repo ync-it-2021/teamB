@@ -49,14 +49,14 @@ td {
 							<td><c:out value="${news.news_num}" /></td>
 							<%-- <td><a href='/board/get?bno=<c:out value="${board.bno}"/>'><c:out value="${board.title}"/></a></td> --%>
 							<td colspan="3">
-							<a href='news?news_num=<c:out value="${news.news_num}"/>'><c:out value="${news.news_title}" /></a></td>
+							<a href='newsdetail?news_num=<c:out value="${news.news_num}"/>'><c:out value="${news.news_title}" /></a></td>
 							<td><c:out value="${news.userid}" /></td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${news.news_date}"/></td>
 							<td><c:out value="${news.gubun}" /></td>
 							<td><sec:authentication property="principal" var="pinfo" /> 
 							<sec:authorize access="isAuthenticated()">
 							<div style="width:15px;">
-									<a href="/newsmodify?news_num=${news.news_num}" role="button"
+									<a href="/mod_news?news_num=${news.news_num}" role="button"
 										data-oper='modify' class="btn-sm btn-default"> <i
 										class="fa fa-gear fa-fw"></i>
 									</a>

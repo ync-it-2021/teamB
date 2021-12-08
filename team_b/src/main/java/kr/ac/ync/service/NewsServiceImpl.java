@@ -41,4 +41,17 @@ public class NewsServiceImpl implements NewsService {
 		mapper.insertSelectKey(news);
 	}
 
+	@Override
+	public boolean modnews(NewsVO news) {
+		return mapper.update(news) == 1;
+	}
+
+	@Override
+	public boolean removenews(Long news_num) {
+
+		log.info("delete news : " + news_num);
+
+		return mapper.delete(news_num) == 1;
+	}
+
 }

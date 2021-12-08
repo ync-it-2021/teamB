@@ -112,7 +112,7 @@ pageContext.setAttribute("BR", "<br/>");
 						<div class="section-title">
 							<h5>게임 정보</h5>
 						</div>
-						<p style="color: white;">${games.info}</p>
+						<p>${games.info}</p>
 					</div>
 					<div class="anime__details__widget">
 						<div class="section-title">

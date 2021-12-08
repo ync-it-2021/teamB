@@ -78,7 +78,7 @@ td {
 							<td>
 								<div class="form-group"
 									style="display: inline-block; padding: 5px;">
-									<label>대표 이미지 등록(정사각형)</label> <input type="file"
+									<label>대표 이미지(정사각형)</label> <input type="file"
 										class="form-control" name='uploadFile'>
 								</div>
 							</td>
@@ -155,12 +155,12 @@ td {
           </div> -->
 
 					<div class="form-group" style="display: inline-block">
-						<label>이미지 등록 2</label> <input type="file" class="form-control"
+						<label>사이드 배너 이미지(직사각형 3:1 비율)</label> <input type="file" class="form-control"
 							name='uploadFile'>
 					</div>
 
 					<div class="form-group" style="display: inline-block">
-						<label>이미지 등록 3</label> <input type="file" class="form-control"
+						<label>기타 이미지</label> <input type="file" class="form-control"
 							name='uploadFile'>
 					</div>
 				</form>
