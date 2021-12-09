@@ -187,7 +187,7 @@ td {
 		// 상세보기 클릭 이벤트
 		$(".move").on("click",function(e) {
 			e.preventDefault();
-			actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href")	+ "'>");
+			actionForm.append("<input type='hidden' name='news_num' value='" + $(this).attr("href")	+ "'>");
 			actionForm.attr("action", "/get");
 			actionForm.submit();
 		});

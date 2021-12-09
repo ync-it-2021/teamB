@@ -15,13 +15,14 @@
 
 	</select>
 
-		<insert id="insert">
-			INSERT INTO news (faq_num, faq_title, userid, faq_contents)
+		<insert id="insert">	
+			INSERT INTO faq (faq_num, faq_title, userid, faq_contents, faq_type)
 			VALUES
 			(seq_faq.nextval, 
 			#{faq_title},
 			#{userid},
-			#{faq_contents, jdbcType=VARCHAR})
+			#{faq_contents, jdbcType=VARCHAR},
+			#{faq_type})
 	</insert>
 
 	<insert id="insertSelectKey">
@@ -31,18 +32,20 @@
 			select seq_news.nextval from dual
 		</selectKey>
 
-		INSERT INTO news (faq_num, faq_title, userid, faq_contents)
+		INSERT INTO faq (faq_num, faq_title, userid, faq_contents, faq_type)
 		VALUES
 		(#{faq_num}, 
 		#{faq_title},
 		#{userid},
-		#{faq_contents, jdbcType=VARCHAR})
+		#{faq_contents, jdbcType=VARCHAR},
+		#{faq_type})
 	</insert>
 	
 	<update id="update">
-		UPDATE news SET 		faq_title = #{faq_title},
+		UPDATE faq SET 		faq_title = #{faq_title},
 								faq_contents = #{faq_contents},
-								userid = #{userid}
+								userid = #{userid},
+								faq_type = #{faq_type}
 		WHERE faq_num = #{faq_num}
 	</update>
 	

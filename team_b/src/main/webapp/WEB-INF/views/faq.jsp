@@ -46,47 +46,26 @@ a:active { color:black; text-decoration:none; }
                 <hr>
 					<div class="panel-group">
 						<!-- 그룹 태그로 role과 aria-multiselectable를 설정한다. -->
+						 <c:forEach items="${faq}" var="faq" varStatus="">
 						<div class="panel-group" id="accordion" role="tablist"
 							aria-multiselectable="true">
-							<!-- 하나의 item입니다. data-parent 설청과 href 설정만 제대로 하면 문제없이 작동합니다. -->
 							<div class="panel panel-default">
 								<div class="panel-heading" role="tab">
 								<h4 class="panel-title">
 									<a role="button" data-toggle="collapse"
-										data-parent="#accordion" href="#collapse1"
-										aria-expanded="false"> Item #1 </a>
+										data-parent="#accordion" href="#collapse${faq.faq_num }"
+										aria-expanded="false"> [${faq.faq_type}] ${faq.faq_title }</a>
 										</h4>
 								</div>
-								<div id="collapse1" class="panel-collapse collapse"
+								<div id="collapse${faq.faq_num }" class="panel-collapse collapse"
 									role="tabpanel">
-									<div class="panel-body">Hello world1</div>
-								</div>
-							</div>
-							<!-- -->
-							<!-- 하나의 item입니다. -->
-							<div class="panel panel-default">
-								<div class="panel-heading" role="tab">
-									<a role="button" data-toggle="collapse"
-										data-parent="#accordion" href="#collapse2"
-										aria-expanded="false"> Item #2 </a>
-								</div>
-								<div id="collapse2" class="panel-collapse collapse"
-									role="tabpanel">
-									<div class="panel-body">Hello world2</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading" role="tab">
-									<a role="button" data-toggle="collapse"
-										data-parent="#accordion" href="#collapse3"
-										aria-expanded="false"> Item #3 </a>
-								</div>
-								<div id="collapse3" class="panel-collapse collapse"
-									role="tabpanel">
-									<div class="panel-body">Hello world3</div>
+									<div class="panel-body">
+										<p>${faq.faq_contents }</p>
+									</div>
 								</div>
 							</div>
 						</div>
+						</c:forEach>
 					</div>
 
 				</div>

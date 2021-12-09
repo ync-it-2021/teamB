@@ -51,7 +51,7 @@ td {
 							<td><sec:authentication property="principal" var="pinfo" /> 
 							<sec:authorize access="isAuthenticated()">
 							<div style="width:15px;">
-									<a href="/modfaq?faq_num=${faq.faq_num}" role="button"
+									<a href="/mod_faq?faq_num=${faq.faq_num}" role="button"
 										data-oper='modify' class="btn-sm btn-default"> <i
 										class="fa fa-gear fa-fw"></i>
 									</a>
@@ -159,14 +159,14 @@ td {
 			}
 
 			if (parseInt(result) > 0) {
-				$(".modal-body").html("새로운 뉴스 " + parseInt(result)	+ " 등록되었습니다.");
+				$(".modal-body").html("새로운 문답 " + parseInt(result)	+ " 등록되었습니다.");
 			}
 
 			$("#myModal").modal("show");
 		}
 		
 		$("#regBtn").on("click", function() {
-			self.location = "/reg_news";
+			self.location = "/reg_faq";
 		});
 		
 		var actionForm = $("#actionForm");
@@ -182,7 +182,7 @@ td {
 		// 상세보기 클릭 이벤트
 		$(".move").on("click",function(e) {
 			e.preventDefault();
-			actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href")	+ "'>");
+			actionForm.append("<input type='hidden' name='faq_num' value='" + $(this).attr("href")	+ "'>");
 			actionForm.attr("action", "/get");
 			actionForm.submit();
 		});

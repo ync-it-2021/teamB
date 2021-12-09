@@ -13,7 +13,7 @@ td {
 </style>
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">새 뉴스 작성</h1>
+		<h1 class="page-header">새 FAQ 작성</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -23,11 +23,11 @@ td {
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 
-			<div class="panel-heading">뉴스 편집기</div>
+			<div class="panel-heading">FAQ 편집기</div>
 
 			<!-- /.panel-heading -->
 			<div class="panel-body">
-				<form role="form" action="/reg_news" method="post"
+				<form role="form" action="/reg_faq" method="post"
 					enctype="multipart/form-data">
 
 					<!--
@@ -41,14 +41,14 @@ td {
 						name="file_3" value=""> <input type="hidden"
 						name="${_csrf.parameterName}" value="${_csrf.token}" />
 
-					<table>
+					<table>	
 						<tr>
-							<td colspan="2">
-								<div class="form-group">
-									<input class="form-control" name='news_title' placeholder='뉴스 제목'>
+							<td>
+								<div class="form-group"> 
+									<input class="form-control" name='faq_title' placeholder='질문'>
 								</div>
 							</td>
-							<td colspan="4">
+							<td>
 								<div style="padding: 5px; float: right;">
 									<button type="reset" class="btn btn-warning"
 										style="padding: 5px;">재작성</button>
@@ -68,18 +68,10 @@ td {
 								<div class="form-group" style="padding: 5px;">
 									<label>구분</label>
 									<select class="form-control" name='faq_type'>
-											<option value="공지사항">공지사항</option>
-											<option value="프로모션">프로모션</option>
-											<option value="PC">PC</option>
-											<option value="PS/XB">PC/XB</option>
+											<option value="결제 및 프로모션">결제 및 프로모션</option>
+											<option value="웹 사이트 및 계정">웹 사이트 및 계정</option>
+
 									</select>
-								</div>
-							</td>
-							<td>
-								<div class="form-group"
-									style="display: inline-block; padding: 5px;">
-									<label>대표 이미지(정사각형)</label> <input type="file"
-										class="form-control" name='uploadFile'>
 								</div>
 							</td>
 						</tr>
@@ -91,7 +83,7 @@ td {
 							<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
 							<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-ko-KR.js"></script>
 						<label>상세 설명</label>
-						<textarea class="form-control" id="summernote" name='news_contents'></textarea>
+						<textarea class="form-control" id="summernote" name='faq_contents'></textarea>
 						<!-- <div id="summernote" name='info'></div> -->
 						<script>
 							$('#summernote')
@@ -139,29 +131,10 @@ td {
 														'18', '20', '22', '24',
 														'28', '30', '36', '50',
 														'72' ],
-												height : 450,
+												height : 250,
 												lang : "ko-KR"
 											});
 						</script>
-					</div>
-
-					<!--<div class="form-group">
-            <label>Writer</label> <input class="form-control" name='writer'>
-          </div> -->
-
-					<!--<div class="form-group">
-            <label>게시자</label> <input class="form-control" name='writer' 
-                value='<sec:authentication property="principal.username"/>' readonly="readonly">
-          </div> -->
-
-					<div class="form-group" style="display: inline-block">
-						<label>사이드 배너 이미지(직사각형 3:1 비율)</label> <input type="file" class="form-control"
-							name='uploadFile'>
-					</div>
-
-					<div class="form-group" style="display: inline-block">
-						<label>기타 이미지</label> <input type="file" class="form-control"
-							name='uploadFile'>
 					</div>
 				</form>
 

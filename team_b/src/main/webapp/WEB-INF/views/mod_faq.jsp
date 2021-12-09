@@ -6,14 +6,21 @@
 	prefix="sec"%>
 <%@include file="includes/header.jsp"%>
 <style>
-td {
-	width: 234px;
-}
 .note-editable { background-color: #0b0c2a !important; color: white !important; }
 </style>
+<script>
+	//썸네일 파일명을 가져오는 함수
+	function getThumbFileName(fullFilePath) {
+		var arrString = fullFilePath.split("/");
+		console.log(arrString);
+		arrString.splice(-1, 1, "s_" + arrString[arrString.length - 1]);
+		return arrString.join("/");
+	}
+</script>
+
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">새 뉴스 작성</h1>
+		<h1 class="page-header">뉴스 게시글 수정</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -23,75 +30,67 @@ td {
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 
-			<div class="panel-heading">뉴스 편집기</div>
-
+			<div class="panel-heading">수정</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
-				<form role="form" action="/reg_news" method="post"
-					enctype="multipart/form-data">
 
-					<!--
-        	controller에서 파라미터 수집시 upload file은 uploadFile 이름으로 server로 넘어간다.(binary data로)
-        	하지만 BoardVO에서는 file_1,file_2,file_3의 이름으로 setter를 해줘야 한다.
-        	따라서 file_1,file_2,file_3를 hidden으로 넘겨서 controller에서 file이 upload가 안됐을 경우에도
-        	파라미터 수집이 되도록(값은 null로 됨) 하기위해 hidden으로 값을 넘긴다.
-        	-->
-					<input type="hidden" name="file_1" value=""> <input
-						type="hidden" name="file_2" value=""> <input type="hidden"
-						name="file_3" value=""> <input type="hidden"
-						name="${_csrf.parameterName}" value="${_csrf.token}" />
+				<form role="form" action="/mod_faq" method="post">
+
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" /> <input type='hidden' name='pageNum'
+						value='<c:out value="${cri.pageNum }"/>'> <input
+						type='hidden' name='amount'
+						value='<c:out value="${cri.amount }"/>'> <input
+						type='hidden' name='type' value='<c:out value="${cri.type }"/>'>
+					<input type='hidden' name='keyword'
+						value='<c:out value="${cri.keyword }"/>'> <input
+						type='hidden' name='faq_num'
+						value='<c:out value="${faq.faq_num }"/>'>
 
 					<table>
 						<tr>
 							<td colspan="2">
 								<div class="form-group">
-									<input class="form-control" name='news_title' placeholder='뉴스 제목'>
+									<input class="form-control" name='faq_title'
+										value='<c:out value="${faq.faq_title }"/>'>
 								</div>
 							</td>
-							<td colspan="4">
+							<td colspan="4"><sec:authentication property="principal"
+									var="pinfo" />
 								<div style="padding: 5px; float: right;">
-									<button type="reset" class="btn btn-warning"
-										style="padding: 5px;">재작성</button>
-									<button type="submit" class="btn btn-success"
-										style="padding: 5px;">등록</button>
-								</div>
-							</td>
-
+									<sec:authorize access="isAuthenticated()">
+										<button type="submit" data-oper='remove' class="btn btn-danger" id="button">삭제</button>
+										<button type="submit" data-oper='mod_faq' class="btn btn-success" id="button">등록</button>
+									</sec:authorize>
+								</div></td>
 						</tr>
 						<tr>
 							<td><div class="form-group" style="padding: 5px;">
 									<label>작성자</label> <input class="form-control" name='userid'
-										value='<sec:authentication property="principal.username"/>'
+										value='${faq.userid }'
 										readonly="readonly">
 								</div></td>
 							<td>
 								<div class="form-group" style="padding: 5px;">
 									<label>구분</label>
 									<select class="form-control" name='faq_type'>
-											<option value="공지사항">공지사항</option>
-											<option value="프로모션">프로모션</option>
-											<option value="PC">PC</option>
-											<option value="PS/XB">PC/XB</option>
+											<option value="결제 및 프로모션">결제 및 프로모션</option>
+											<option value="웹 사이트 및 계정">웹 사이트 및 계정</option>
+
 									</select>
-								</div>
-							</td>
-							<td>
-								<div class="form-group"
-									style="display: inline-block; padding: 5px;">
-									<label>대표 이미지(정사각형)</label> <input type="file"
-										class="form-control" name='uploadFile'>
 								</div>
 							</td>
 						</tr>
 					</table>
 
 					<div class="form-group">
-					
+						<label>상세 설명</label>
 							<link href="/resources/vendor/plex/summernote-lite.css" rel="stylesheet" />
 							<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
 							<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-ko-KR.js"></script>
-						<label>상세 설명</label>
-						<textarea class="form-control" id="summernote" name='news_contents'></textarea>
+
+						<textarea class="form-control" id="summernote" name='faq_contents'><c:out
+								value="${faq.faq_contents}" /></textarea>
 						<!-- <div id="summernote" name='info'></div> -->
 						<script>
 							$('#summernote')
@@ -139,32 +138,12 @@ td {
 														'18', '20', '22', '24',
 														'28', '30', '36', '50',
 														'72' ],
-												height : 450,
+												height : 250,
 												lang : "ko-KR"
 											});
 						</script>
 					</div>
-
-					<!--<div class="form-group">
-            <label>Writer</label> <input class="form-control" name='writer'>
-          </div> -->
-
-					<!--<div class="form-group">
-            <label>게시자</label> <input class="form-control" name='writer' 
-                value='<sec:authentication property="principal.username"/>' readonly="readonly">
-          </div> -->
-
-					<div class="form-group" style="display: inline-block">
-						<label>사이드 배너 이미지(직사각형 3:1 비율)</label> <input type="file" class="form-control"
-							name='uploadFile'>
-					</div>
-
-					<div class="form-group" style="display: inline-block">
-						<label>기타 이미지</label> <input type="file" class="form-control"
-							name='uploadFile'>
-					</div>
 				</form>
-
 			</div>
 			<!--  end panel-body -->
 
@@ -174,4 +153,47 @@ td {
 	<!-- end panel -->
 </div>
 <!-- /.row -->
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+
+	  let formObj = $("form");
+
+	  $('#button').on("click", function(e){
+	    
+	    e.preventDefault(); 
+	    
+	    var operation = $(this).data("oper");
+	    
+	    console.log(operation);
+	    if(operation === 'remove'){
+	      formObj.attr("action", "/removefaq");
+	    }else if(operation === 'list'){
+	      //move to list
+	      formObj.attr("action", "/faqlist").attr("method","get");
+
+	      var pageNumTag = $("input[name='pageNum']").clone();
+	      var amountTag = $("input[name='amount']").clone();
+	      var keywordTag = $("input[name='keyword']").clone();
+	      var typeTag = $("input[name='type']").clone();      
+	      
+	      formObj.empty();
+	      
+	      formObj.append(pageNumTag);
+	      formObj.append(amountTag);
+	      formObj.append(keywordTag);
+	      formObj.append(typeTag);
+	    }
+	    
+	    formObj.submit();
+	  });
+
+});
+</script>
+
+
+
+
+
 <%@include file="includes/footer.jsp"%>
