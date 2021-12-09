@@ -238,6 +238,7 @@ public class BoardController {
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
 		model.addAttribute("news", ns.getNewsList());
+		model.addAttribute("recent", gs.getGamesListforNew());
 			return "/search/genre";
 	}
 	
@@ -248,6 +249,11 @@ public class BoardController {
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
 		model.addAttribute("news", ns.getNewsList());
+		model.addAttribute("recent", gs.getGamesListforNew());
 			return "/search/size";
 	}
+	@GetMapping("/project")
+    public String project(Model model){
+		return "/project";
+    }
 }
