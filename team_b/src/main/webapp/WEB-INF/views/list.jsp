@@ -43,7 +43,8 @@ td {
 							<th>플랫폼</th>
 							<th>정상가</th>
 							<th>할인가</th>
-							<th style="width:50px;">할인적용</th>
+							<th style="width:45px;">할인적용</th>
+							<th style="width:45px;">메인</th>
 							<th>출시일</th>
 							<th>장르</th>
 							<th>플레이 지원</th>
@@ -63,7 +64,16 @@ td {
 							<td><c:out value="${games.platform}" /></td>
 							<td><c:out value="${games.price}" /></td>
 							<td><c:out value="${games.sale_price}" /></td>
-							<td><c:out value="${games.sale_enabled}" /></td>
+							<td>
+								<c:if test="${games.sale_enabled eq '1'}">
+									<i class="fa fa-check fa-fw"></i>
+								</c:if>
+							</td>
+							<td>
+								<c:if test="${games.onthemain eq '1'}">
+									<i class="fa fa-check fa-fw"></i>
+								</c:if>
+							</td>
 							<td><c:out value="${games.relase_date}" /></td>
 							<td><c:out value="${games.genre_name}" /></td>
 							<td><c:out value="${games.size_name}" /></td>

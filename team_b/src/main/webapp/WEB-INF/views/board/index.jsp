@@ -40,50 +40,34 @@ pageContext.setAttribute("BR", "<br/>");
 	<section class="hero">
 		<div class="container">
 			<div class="hero__slider owl-carousel">
+			<c:forEach items="${sales}" var="sales">
+			
+			
+			<!-- 				   ↓   이부분 바꿔야함!!!!!!! -->
+			
+			
+			<c:set var="t" value="file_1" /> 
+			<c:if test="${not empty sales[t]}">
 				<div class="hero__items set-bg"
-					data-setbg="/resources/img/hero/hero-3.jpg">
+					data-setbg="/resources/upload/${sales[t]}">
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="hero__text">
-								<div class="label">액션</div>
+								<div class="label"><c:out value="${sales.genre_name}" /></div>
 								<h2>
-									Fate: <br>UBW
+									<c:out value="${sales.title}" />
 								</h2>
-								<a href="#"><span><del>45,000 원</del> 25,000 원</span> <i
-									class="fa fa-angle-right"></i></a>
+								<a href="#"><span>
+								<del>
+									<c:out value="${sales.price}" /> 원
+								</del> <c:out value="${sales.sale_price}" /> 원</span> 
+								<i class="fa fa-angle-right"></i></a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="hero__items set-bg"
-					data-setbg="/resources/img/hero/hero-2.jpg">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="hero__text">
-								<div class="label">시뮬레이션</div>
-								<h2>이브 온라인</h2>
-								<div class="view" style="color: WHITE">나이트 헤이븐 업데이트 !</div>
-								<a href="#"><span>무료로 플레이!</span> <i
-									class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="hero__items set-bg"
-					data-setbg="/resources/img/hero/hero-1.jpg">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="hero__text">
-								<div class="label">액션</div>
-								<h2>발로란트</h2>
-								<div class="view" style="color: WHITE">시즌 2 에피소드 2 업데이트 기념
-									할인 !</div>
-								<a href="#"><span><del>39,000 원</del> 17,000 원</span> <i
-									class="fa fa-angle-right"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
+				</c:if>
+				</c:forEach>
 			</div>
 		</div>
 	</section>

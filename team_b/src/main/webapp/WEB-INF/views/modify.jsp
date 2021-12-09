@@ -75,7 +75,11 @@
 										value='<c:out value="${games.title }"/>'>
 								</div>
 							</td>
-							<td colspan="4"><sec:authentication property="principal"
+							<td colspan="4">
+								<div style="padding-left: 5px;">
+									<input type="checkbox" name="onthemain" value="1"> 메인페이지 배너에도 올리기
+								</div>
+							<sec:authentication property="principal"
 									var="pinfo" />
 								<div style="padding: 5px; float: right;">
 									<sec:authorize access="isAuthenticated()">

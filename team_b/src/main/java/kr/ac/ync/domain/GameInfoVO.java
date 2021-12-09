@@ -16,6 +16,7 @@ public class GameInfoVO {
 	private int price;
 	private int sale_price;
 	private int sale_enabled;
+	private int onthemain;
 	
 	private String file_1;
 	private String file_2;

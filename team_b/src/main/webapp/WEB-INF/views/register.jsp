@@ -49,7 +49,11 @@ td {
 								</div>
 							</td>
 							<td colspan="4">
+								<div style="padding-left: 5px;">
+								<input type="checkbox" name="onthemain" value="1"> 메인페이지 배너에도 올리기
+								</div>
 								<div style="padding: 5px; float: right;">
+								
 									<button type="reset" class="btn btn-warning"
 										style="padding: 5px;">재작성</button>
 									<button type="submit" class="btn btn-success"
