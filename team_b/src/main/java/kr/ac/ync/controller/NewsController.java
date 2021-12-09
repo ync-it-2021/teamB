@@ -17,6 +17,7 @@ import kr.ac.ync.domain.GameInfoVO;
 import kr.ac.ync.domain.NewsVO;
 import kr.ac.ync.domain.PageDTO;
 import kr.ac.ync.service.BoardService;
+import kr.ac.ync.service.GameInfoService;
 import kr.ac.ync.service.NewsService;
 import kr.ac.ync.util.UploadUtils;
 import lombok.extern.log4j.Log4j;
@@ -30,8 +31,8 @@ public class NewsController {
 	@Autowired
 	private BoardService service;
 
-//	@Autowired
-//	private GameInfoService gs;	
+	@Autowired
+	private GameInfoService gs;	
 	
 	@Autowired
 	private NewsService ns;
@@ -53,6 +54,9 @@ public class NewsController {
     public String news(Model model){
 		log.info("index");
 		model.addAttribute("news", ns.getNewsList());
+		model.addAttribute("games", gs.getGamesList());
+		model.addAttribute("genre", gs.getGenre());
+		model.addAttribute("size", gs.getSizeSpec());
 		
 		return "/news";
     }
@@ -97,10 +101,9 @@ public class NewsController {
 		@GetMapping("/newsdetail")
 		public void getNewsDetail(@RequestParam("news_num") Long news_num, Model model) {
 			log.info("/newsdetail");
-//			model.addAttribute("games", gs.getDetail(game_num));
-//			model.addAttribute("genre", gs.getGenre());
-//			model.addAttribute("size", gs.getSizeSpec());
-			//나중에 할인 프로모션같은 기사 올릴때 필요할까봐 남겨둠
+			model.addAttribute("games", gs.getGamesList());
+			model.addAttribute("genre", gs.getGenre());
+			model.addAttribute("size", gs.getSizeSpec());
 			model.addAttribute("news", ns.getNewsDetail(news_num));
 		}
 		
