@@ -100,7 +100,7 @@
 									</ul></li>
 								<li><a href="#">고객센터<span class="arrow_carrot-down"></span></a>
 									<ul class="dropdown">
-										<li><a href="#">자주하는 질문</a></li>
+										<li><a href="/faq">자주하는 질문</a></li>
 										<li><a href="#">1대1 문의</a></li>
 									</ul></li>
 								<li><a href="/project">프로젝트 소개</a></li>

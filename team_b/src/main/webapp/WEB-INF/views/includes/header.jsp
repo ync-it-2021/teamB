@@ -110,10 +110,13 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="/list"><i class="fa fa-dashboard fa-fw"></i> 홈</a>
+                            <a href="/list"><i class="fa fa-gamepad fa-fw"></i> 게임 목록 관리</a>
                         </li>
                         <li>
-                            <a href="/newslist"><i class="fa fa-table fa-fw"></i> 뉴스</a>
+                            <a href="/newslist"><i class="fa fa-file-text fa-fw"></i> 뉴스</a>
+                        </li>
+                         <li>
+                            <a href="/faqlist"><i class="fa fa-smile-o fa-fw"></i> FAQ 관리</a>
                         </li>
                     </ul>
                 </div>

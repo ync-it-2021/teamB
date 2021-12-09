@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.ync.mapper.FAQMapper">
+
+	<select id="getFaqList" resultType="kr.ac.ync.domain.FAQVO">
+	<![CDATA[
+		SELECT * FROM faq WHERE faq_num > 0 
+		]]>
+	</select>
+	
+		<select id="getFaqDetail" resultType="kr.ac.ync.domain.FAQVO">
+		select *
+		from faq
+		where faq_num = #{faq_num}
+
+	</select>
+
+		<insert id="insert">
+			INSERT INTO news (faq_num, faq_title, userid, faq_contents)
+			VALUES
+			(seq_faq.nextval, 
+			#{faq_title},
+			#{userid},
+			#{faq_contents, jdbcType=VARCHAR})
+	</insert>
+
+	<insert id="insertSelectKey">
+
+		<selectKey keyProperty="faq_num" order="BEFORE"
+			resultType="long">
+			select seq_news.nextval from dual
+		</selectKey>
+
+		INSERT INTO news (faq_num, faq_title, userid, faq_contents)
+		VALUES
+		(#{faq_num}, 
+		#{faq_title},
+		#{userid},
+		#{faq_contents, jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="update">
+		UPDATE news SET 		faq_title = #{faq_title},
+								faq_contents = #{faq_contents},
+								userid = #{userid}
+		WHERE faq_num = #{faq_num}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM faq WHERE faq_num = #{faq_num}
+	</delete>
+	
+</mapper>
