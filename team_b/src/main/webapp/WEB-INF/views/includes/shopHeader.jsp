@@ -98,12 +98,10 @@
 											<li><a href="/size?keyword=${size.size_name}">${size.size_name}</a></li>
 										</c:forEach>
 									</ul></li>
-								<li><a href="./blog.jsp">고객센터<span
-										class="arrow_carrot-down"></span></a>
+								<li><a href="#">고객센터<span class="arrow_carrot-down"></span></a>
 									<ul class="dropdown">
-										<li><a href="./categories.jsp">자주하는 질문</a></li>
-										<li><a href="./anime-details.jsp">공지사항</a></li>
-										<li><a href="./anime-details.jsp">1대1 문의</a></li>
+										<li><a href="#">자주하는 질문</a></li>
+										<li><a href="#">1대1 문의</a></li>
 									</ul></li>
 								<li><a href="/project">프로젝트 소개</a></li>
 							</ul>
