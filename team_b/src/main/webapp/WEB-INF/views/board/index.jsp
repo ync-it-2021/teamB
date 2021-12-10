@@ -186,12 +186,6 @@ pageContext.setAttribute("BR", "<br/>");
 							<div class="section-title">
 								<h5>프로모션</h5>
 							</div>
-							<!-- <ul class="filter__controls">
-                                <li class="active" data-filter="*">Day</li>
-                                <li data-filter=".week">Week</li>
-                                <li data-filter=".month">Month</li>
-                                <li data-filter=".years">Years</li>
-                            </ul> -->
 							<div class="filter__gallery">
 								<c:forEach items="${news}" var="news">
 									<c:set var="t" value="file_1" />

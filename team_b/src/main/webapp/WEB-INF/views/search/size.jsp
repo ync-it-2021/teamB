@@ -111,25 +111,20 @@
 							<div class="section-title">
 								<h5>프로모션</h5>
 							</div>
-							<!-- <ul class="filter__controls">
-                                <li class="active" data-filter="*">Day</li>
-                                <li data-filter=".week">Week</li>
-                                <li data-filter=".month">Month</li>
-                                <li data-filter=".years">Years</li>
-                            </ul> -->
 							<div class="filter__gallery">
 								<c:forEach items="${news}" var="news">
 									<c:set var="t" value="file_1" />
 									<c:if test="${not empty news[t]}">
+									<a href='newsdetail?news_num=<c:out value="${news.news_num}"/>'>
 										<div class="product__sidebar__view__item set-bg mix day years"
 											data-setbg="/resources/upload/${news[t]}">
 											<div class="ep">${news.gubun }</div>
                                     		<br>
-											<h5>
-												<a href='newsdetail?news_num=<c:out value="${news.news_num}"/>'>
-												${news.news_title }</a>
+											<h5 style="color:white;">
+												${news.news_title }
 											</h5>
 										</div>
+										</a>
 									</c:if>
 								</c:forEach>
 							</div>
@@ -139,12 +134,14 @@
 								<div class="section-title">
 									<h5>신규출시</h5>
 								</div>
-								<c:forEach items="${recent}" var="recent"  end="3">
+																<c:forEach items="${recent}" var="recent"  end="3">
 								<div class="product__sidebar__comment__item">
 									<c:set var="t" value="file_1" /> 
 									<c:if test="${not empty recent[t]}">
 									<div class="product__sidebar__comment__item__pic">
+									<a href='detail?game_num=<c:out value="${recent.game_num}"/>'>
 										<img src="/resources/upload/${recent[t]}" alt="" width="90" height="130">
+										</a>
 									</div>
 									</c:if>
 									<div class="product__sidebar__comment__item__text">
@@ -153,7 +150,8 @@
 											<li><c:out value="${recent.size_name}" /></li>
 										</ul>
 										<h5>
-											<a href="detail?game_num=<c:out value="${recent.game_num}"/>">${recent.title }</a>
+											<a href='detail?game_num=<c:out value="${recent.game_num}"/>'>
+											${recent.title }</a>
 										</h5>
 										<span><div class="view">
 												<del>${recent.price } 원</del>
