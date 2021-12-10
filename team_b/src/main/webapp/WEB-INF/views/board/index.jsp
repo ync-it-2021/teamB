@@ -43,7 +43,6 @@ pageContext.setAttribute("BR", "<br/>");
 			<c:forEach items="${main}" var="main">
 			<c:set var="t" value="file_2" /> 
 			<c:if test="${not empty main[t]}">
-			<a href="detail?game_num=<c:out value="${main.game_num}"/>">
 				<div class="hero__items set-bg"
 					data-setbg="/resources/upload/${main[t]}">
 					<div class="row">
@@ -62,7 +61,6 @@ pageContext.setAttribute("BR", "<br/>");
 						</div>
 					</div>
 				</div>
-				</a>
 				</c:if>
 				</c:forEach>
 			</div>
