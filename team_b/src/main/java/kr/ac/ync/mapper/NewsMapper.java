@@ -8,6 +8,8 @@ import kr.ac.ync.domain.NewsVO;
 public interface NewsMapper {
 
 	List<NewsVO> getNewsList();
+	
+	List<NewsVO> ontheSide();
 
 	public NewsVO getNewsDetail(Long news_num);
 	

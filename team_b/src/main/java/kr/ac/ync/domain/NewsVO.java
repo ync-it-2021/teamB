@@ -11,6 +11,7 @@ public class NewsVO {
 	private String news_contents;
 	private String userid;
 	private Date news_date;
+	private int ontheside;
 	
 	private String file_1;
 	private String file_2;

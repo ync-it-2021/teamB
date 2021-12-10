@@ -26,6 +26,11 @@ public class NewsServiceImpl implements NewsService {
 			
 		 return mapper.getNewsList();
 	}
+	
+	@Override
+	public List<NewsVO> ontheSide() {
+		 return mapper.ontheSide();
+	}
 
 	@Override
 	public NewsVO getNewsDetail(Long news_num) {

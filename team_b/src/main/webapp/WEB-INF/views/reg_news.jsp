@@ -49,6 +49,9 @@ td {
 								</div>
 							</td>
 							<td colspan="4">
+								<div style="padding-left: 5px;">
+									<input type="checkbox" name="ontheside" value="1"> 사이드메뉴에도 업로드
+								</div>
 								<div style="padding: 5px; float: right;">
 									<button type="reset" class="btn btn-warning"
 										style="padding: 5px;">재작성</button>

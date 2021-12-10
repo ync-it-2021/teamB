@@ -53,7 +53,7 @@ public class BoardController {
 		model.addAttribute("recent", gs.getGamesListforNew());
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
-		model.addAttribute("news", ns.getNewsList());
+		model.addAttribute("news", ns.ontheSide());
 		
 		return "/board/index";
     }

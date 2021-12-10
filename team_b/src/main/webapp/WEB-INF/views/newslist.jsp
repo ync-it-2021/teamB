@@ -40,6 +40,7 @@ td {
 							<th>작성자</th>
 							<th>작성일자</th>
 							<th>구분</th>
+							<th style="width:45px;">메인</th>
 							<th style="width:50px;"></th>
 						</tr>
 					</thead>
@@ -53,6 +54,11 @@ td {
 							<td><c:out value="${news.userid}" /></td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd" value="${news.news_date}"/></td>
 							<td><c:out value="${news.gubun}" /></td>
+							<td>
+								<c:if test="${news.ontheside eq '1'}">
+									<i class="fa fa-check fa-fw"></i>
+								</c:if>
+							</td>
 							<td><sec:authentication property="principal" var="pinfo" /> 
 							<sec:authorize access="isAuthenticated()">
 							<div style="width:15px;">

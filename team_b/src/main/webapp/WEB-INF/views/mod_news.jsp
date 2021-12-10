@@ -74,7 +74,11 @@
 										value='<c:out value="${news.news_title }"/>'>
 								</div>
 							</td>
-							<td colspan="4"><sec:authentication property="principal"
+							<td colspan="4">
+								<div style="padding-left: 5px;">
+									<input type="checkbox" name="ontheside" value="1"> 사이드메뉴에도 업로드
+								</div>
+							<sec:authentication property="principal"
 									var="pinfo" />
 								<div style="padding: 5px; float: right;">
 									<sec:authorize access="isAuthenticated()">
