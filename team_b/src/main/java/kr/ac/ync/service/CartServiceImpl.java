@@ -44,5 +44,4 @@ public class CartServiceImpl implements CartService {
 		return cartMapper.deleteCart(cart_num);
 	}
 	
-	
 }
