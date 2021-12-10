@@ -63,7 +63,7 @@ public class BoardController {
 		model.addAttribute("sales", gs.getGamesListforSale());
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
-		model.addAttribute("news", ns.getNewsList());
+		model.addAttribute("news", ns.ontheSide());
 		return "/search/sales";
     }
 	
@@ -72,7 +72,7 @@ public class BoardController {
 		model.addAttribute("recent", gs.getGamesListforNew());
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
-		model.addAttribute("news", ns.getNewsList());
+		model.addAttribute("news", ns.ontheSide());
 		return "/search/recent";
     }
 	
@@ -84,7 +84,7 @@ public class BoardController {
 		model.addAttribute("games", gs.getDetail(game_num));
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
-		model.addAttribute("news", ns.getNewsList());
+		model.addAttribute("news", ns.ontheSide());
 	}
 
 	@GetMapping("/register")
@@ -196,7 +196,7 @@ public class BoardController {
 		model.addAttribute("games", gs.getGamesSearch(keyword));
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
-		model.addAttribute("news", ns.getNewsList());
+		model.addAttribute("news", ns.ontheSide());
 		model.addAttribute("sales", gs.getGamesListforSale());
 			return "/search/search";
 	}
@@ -207,7 +207,7 @@ public class BoardController {
 		model.addAttribute("games", gs.searchGenre(keyword));
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
-		model.addAttribute("news", ns.getNewsList());
+		model.addAttribute("news", ns.ontheSide());
 		model.addAttribute("recent", gs.getGamesListforNew());
 			return "/search/genre";
 	}
@@ -218,7 +218,7 @@ public class BoardController {
 		model.addAttribute("games", gs.searchSize(keyword));
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
-		model.addAttribute("news", ns.getNewsList());
+		model.addAttribute("news", ns.ontheSide());
 		model.addAttribute("recent", gs.getGamesListforNew());
 			return "/search/size";
 	}
