@@ -7,6 +7,7 @@
 
 <%@include file="includes/shopHeader.jsp"%>
 <body>
+	${cartInfo }
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -54,11 +55,19 @@
 							</tr>
 						</thead>
 						<!-- 아마 여기서부터 c:foreach 시작 -->
+						<c:forEach items="${cartInfo }" var = "ci">
+						<td class = "td_width_1 cart_info_td">
+						<input type ="hidden" class="individual_Price_input" value="${ci.price }">
+						<input type ="hidden" class="individual_salePrice_input" value="${ci.salePrice }">
+						<input type ="hidden" class="individual_QUANTITY_input" value="${ci.QUANTITY }">
+						<input type ="hidden" class="individual_totalPrice_input" value="${ci.totalPrice }">
+						</td>
+						
 						<tr>
 							<td>이미지</td>
-							<td colspan="2">상품이름</td>
+							<td colspan="2">${ci.title }</td>
 							<td>스팀</td>
-							<td><del>50,000</del>42,000</td>
+							<td><del>${ci.price }</del>${ci.sale_price }</td>
 							<td>
 									<a href="#" role="button" data-oper='remove' class="btn-sm btn-danger"> 
 										<i class="fa fa-trash fa-fw"></i>
@@ -70,8 +79,9 @@
 							<td colspan="4">합계</td>
 							<td colspan="2">42,000 원</td>
 						</tr>
+						</c:forEach>
 					</table>
-					<a href="#" role="button" data-oper='submit' class="btn site-btn" style="float:right;">
+					<a href="#" role="button" data-cart_num ="${ci.cart_num }"data-oper='submit' class="btn site-btn" style="float:right;">
 						주문하기 </a>
 				</div>
             </div>
@@ -101,6 +111,45 @@
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    
+    <script type="text/javascript">
+    //장바구니 삭제 버튼
+    $(".btn-sm").on("click",function(e){
+   	e.preventDefault();
+   	const cart_num = $(this).data("cart_num");
+   	$(".delete_cart_num").val(cart_num);
+   	$(".quantity_delete_form").submit();
+    });
+    
+ // 서버 데이터
+  ${".btn_cart"}.on("click",function(e){
+     		form.quanitity $(".quanitity_input").val();
+     		$ajax({
+    		userid : '${member.userid}',
+    		game_num : '${gameinfo_game_num}'
+    		quanitity : ''
+    		form.quanitity = $(".quanitity_input").val();
+    		$.ajax({
+    			url: '/cart/add',
+    			type : "POST",
+    			data : form,
+    			success: funtion(result){
+    				cartAlert(result;)
+    				}
+    			})
+    		});
+	function cartAlert(result) {
+		if(result == '0'){
+			alert("장바구니에 추가를 하지 못하였습니다");
+		}else if(result =='2'){
+			alert("장바구니에 이미 추가되어져 있습니다");
+		}
+		
+	}
+    		
+ 
+    
+    </script>
 
 </body>
 

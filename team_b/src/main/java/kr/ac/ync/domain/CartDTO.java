@@ -1,6 +1,8 @@
 package kr.ac.ync.domain;
 
-public class CartDTO {
+import java.util.List;
+
+public class CartDTO<AttachImageVO> {
 	   private int cart_num;
 	    
 	    private String USERID;
@@ -19,6 +21,8 @@ public class CartDTO {
 	    private int salePrice;
 	    
 	    private int totalPrice;
+	    
+	    private List<AttachImageVO> imageList;
 
 	    public void initSaleTotal() {
 			this.salePrice = (int) (this.price * (1-this.sale_price));
@@ -96,6 +100,15 @@ public class CartDTO {
 		public void setTotalPrice(int totalPrice) {
 			this.totalPrice = totalPrice;
 		}
+		
+
+		public List<AttachImageVO> getImageList() {
+			return imageList;
+		}
+
+		public void setImageList(List<AttachImageVO> imageList) {
+			this.imageList = imageList;
+		}
 
 		@Override
 		public String toString() {
@@ -103,6 +116,8 @@ public class CartDTO {
 					+ QUANTITY + ", title=" + title + ", price=" + price + ", sale_price=" + sale_price + ", salePrice="
 					+ salePrice + ", totalPrice=" + totalPrice + "]";
 		}
+
+		
 		
 
 	    
