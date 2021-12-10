@@ -54,4 +54,11 @@ public class CartController {
 		
 		return "redirect:/cart/"+cart.getUSERID();
 	}
+	
+	@GetMapping("/cart/{userid}")
+	public String cartPageGET(@PathVariable("userid") String userid, Model model ) {
+		
+		model.addAttribute("cartInfo",cartService.getCartList(userid));
+		return "/cart";
+	}
 }
