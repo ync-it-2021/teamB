@@ -49,6 +49,7 @@ public class BoardController {
     public String shop(Model model){
 		log.info("index");
 		model.addAttribute("sales", gs.getGamesListforSale());
+		model.addAttribute("main", gs.getMainGameList());
 		model.addAttribute("recent", gs.getGamesListforNew());
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
@@ -105,37 +106,6 @@ public class BoardController {
 		model.addAttribute("games", gs.getGamesList());
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
-	
-//	// 글 등록
-//	// file upload가 추가된 게시판 등록
-//	@PostMapping("/register")
-//	@PreAuthorize("isAuthenticated()")
-//	public String register(MultipartFile[] uploadFile, BoardVO board, RedirectAttributes rttr) {
-//		
-//		int index = 0;
-//		for (MultipartFile multipartFile : uploadFile) {
-//			if(multipartFile.getSize() > 0) {
-//				switch (index) {
-//				case 0:
-//					board.setFile_1(UploadUtils.uploadFormPost(multipartFile, uploadPath));
-//					break;
-//				case 1:
-//					board.setFile_2(UploadUtils.uploadFormPost(multipartFile, uploadPath));
-//					break;
-//				default:
-//					board.setFile_3(UploadUtils.uploadFormPost(multipartFile, uploadPath));
-//					break;
-//				}
-//			}
-//			index++;
-//		}
-//		
-//		log.info("register: " + board);
-//		service.register(board);
-//		rttr.addFlashAttribute("result", board.getBno());
-//
-//		return "redirect:/board/list";
-//	}
 	
 	// 글 등록
 	// file upload가 추가된 게시판 등록

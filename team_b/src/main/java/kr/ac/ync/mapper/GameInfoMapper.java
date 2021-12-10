@@ -12,6 +12,8 @@ public interface GameInfoMapper {
 	public List<GameInfoVO> getGamesListforSale();
 	//최근 출시 목록
 	public List<GameInfoVO> getGamesListforNew();
+	//메인페이지 배너에서 크게 올라갈 게임 목록
+	public List<GameInfoVO> getMainGameList();
 	
 //	public List<GameInfoVO> getGamesListforMost();
 	//디테일

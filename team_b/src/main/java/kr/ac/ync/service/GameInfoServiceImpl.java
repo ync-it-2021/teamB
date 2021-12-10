@@ -34,19 +34,18 @@ public class GameInfoServiceImpl implements GameInfoService {
 	
 	@Override
 	 public List<GameInfoVO> getGamesListforSale() {
-	
-		 log.info("getList for sale");
-		
 		 return mapper.getGamesListforSale();
 	 }
 	
 	@Override
 	 public List<GameInfoVO> getGamesListforNew() {
-	
-		 log.info("getList for new");
-		
 		 return mapper.getGamesListforNew();
 	 }
+	
+	@Override
+	public List<GameInfoVO> getMainGameList() {
+		 return mapper.getMainGameList();
+	}
 	
 //	@Override
 //	 public List<GameInfoVO> getGamesListforMost() {
@@ -119,4 +118,6 @@ public class GameInfoServiceImpl implements GameInfoService {
 
 		return mapper.delete(game_num) == 1;
 	}
+
+
 }

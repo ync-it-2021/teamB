@@ -40,27 +40,22 @@ pageContext.setAttribute("BR", "<br/>");
 	<section class="hero">
 		<div class="container">
 			<div class="hero__slider owl-carousel">
-			<c:forEach items="${sales}" var="sales">
-			
-			
-			<!-- 				   ↓   이부분 바꿔야함!!!!!!! -->
-			
-			
-			<c:set var="t" value="file_1" /> 
-			<c:if test="${not empty sales[t]}">
+			<c:forEach items="${main}" var="main">
+			<c:set var="t" value="file_2" /> 
+			<c:if test="${not empty main[t]}">
 				<div class="hero__items set-bg"
-					data-setbg="/resources/upload/${sales[t]}">
+					data-setbg="/resources/upload/${main[t]}">
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="hero__text">
-								<div class="label"><c:out value="${sales.genre_name}" /></div>
+								<div class="label"><c:out value="${main.genre_name}" /></div>
 								<h2>
-									<c:out value="${sales.title}" />
+									<c:out value="${main.title}" />
 								</h2>
-								<a href="#"><span>
+								<a href="detail?game_num=<c:out value="${main.game_num}"/>"><span>
 								<del>
-									<c:out value="${sales.price}" /> 원
-								</del> <c:out value="${sales.sale_price}" /> 원</span> 
+									<c:out value="${main.price}" /> 원
+								</del> <c:out value="${main.sale_price}" /> 원</span> 
 								<i class="fa fa-angle-right"></i></a>
 							</div>
 						</div>

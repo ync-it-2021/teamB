@@ -11,6 +11,8 @@ public interface GameInfoService {
 	public List<GameInfoVO> getGamesListforSale();
 	//최근출시 순
 	public List<GameInfoVO> getGamesListforNew();
+	//메인페이지 배너에서 크게 올라갈 게임 목록
+	public List<GameInfoVO> getMainGameList();
 	//최다판매 순 - 임시로 쓰기만 해놓음
 	//public List<GameInfoVO> getGamesListforMost();
 	
