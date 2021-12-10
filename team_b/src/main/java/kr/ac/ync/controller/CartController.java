@@ -61,5 +61,4 @@ public class CartController {
 		model.addAttribute("cartInfo",cartService.getCartList(userid));
 		return "/cart";
 	}
-	
 }

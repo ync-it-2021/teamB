@@ -14,5 +14,4 @@ public interface CartService {
 	
 	//장바구니 삭제
 	public int deleteCart(int cart_num);
-
 }
