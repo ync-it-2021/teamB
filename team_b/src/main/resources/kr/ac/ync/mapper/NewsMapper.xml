@@ -23,8 +23,9 @@
 
 	<select id="getNewsList" resultType="kr.ac.ync.domain.NewsVO">
 	<![CDATA[
-		SELECT * FROM news WHERE news_num > 0 
-		]]>
+		SELECT * FROM news WHERE news_num > 0
+		ORDER BY news_date DESC
+		]]> 
 	</select>
 	
 		<select id="getNewsDetail" resultType="kr.ac.ync.domain.NewsVO">

@@ -20,10 +20,11 @@
                       
                         <h6><span>${news.gubun } </span></h6>
                             
-                        <h2>${news.news_title }</h2>
-                        <h6>게시글 번호<span> ${news.news_num } </span>
+                        <h3 style="color:white;">${news.news_title }</h3>
+                        <hr>
+                        <h6>번호<span> ${news.news_num } </span>
                             <br>작성자<span> ${news.userid } </span>
-                            <br>작성일<span> ${news.news_date } </span></h6>
+                            <br>작성일<span> <fmt:formatDate pattern="yyyy-MM-dd" value="${news.news_date}"/> </span></h6>
                         <div class="blog__details__social">
                             <a href="#" class="facebook"><i class="fa fa-facebook-square"></i> 페이스북</a>
                             <a href="#" class="pinterest"><i class="fa fa-instagram"></i> 인스타그램</a>
