@@ -70,7 +70,7 @@ td {
 							<td>
 								<div class="form-group" style="padding: 5px;">
 									<label>구분</label>
-									<select class="form-control" name='faq_type'>
+									<select class="form-control" name='gubun'>
 											<option value="공지사항">공지사항</option>
 											<option value="프로모션">프로모션</option>
 											<option value="PC">PC</option>
