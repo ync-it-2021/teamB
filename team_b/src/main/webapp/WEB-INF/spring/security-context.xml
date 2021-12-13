@@ -12,6 +12,8 @@
 	<bean id="customLoginSuccess" class="kr.ac.ync.security.CustomLoginSuccessHandler"></bean>
 	
 	<security:http>
+		<security:form-login login-page="/login" authentication-success-handler-ref="customLoginSuccess" /> 
+		<!-- 이게 제일 위로와야 로그아웃할때 이쪽으로 리다이렉트함 -->
 		<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess" />
 		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800" />
 		<security:logout logout-url="/customLogout"	invalidate-session="true" delete-cookies="remember-me,JSESSION_ID" />

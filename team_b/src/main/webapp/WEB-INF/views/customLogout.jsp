@@ -84,7 +84,7 @@
 	// 페이지 호출하자마자 tmpConsole() 실행
 	$(document).ready(function(){
 		$("#logout").trigger('click');
-		// 또는 $("#tmpBtn").click();
+		alert("로그아웃하였습니다.");
 	});
   
 	function tmpConsole(){

@@ -121,7 +121,7 @@
 									</sec:authorize>
 
 									<sec:authorize access="isAnonymous()">
-										<li><a href="/customLogin"><i class="fa fa-sign-in fa-fw"></i> 로그인</a></li>
+										<li><a href="/login"><i class="fa fa-sign-in fa-fw"></i> 로그인</a></li>
 									</sec:authorize>
 								</ul> <!-- /.dropdown-user --></li>
 							<!-- /.dropdown -->
