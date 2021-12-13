@@ -36,10 +36,10 @@ td {
         	따라서 file_1,file_2,file_3를 hidden으로 넘겨서 controller에서 file이 upload가 안됐을 경우에도
         	파라미터 수집이 되도록(값은 null로 됨) 하기위해 hidden으로 값을 넘긴다.
         	-->
-					<input type="hidden" name="file_1" value=""> <input
-						type="hidden" name="file_2" value=""> <input type="hidden"
-						name="file_3" value=""> <input type="hidden"
-						name="${_csrf.parameterName}" value="${_csrf.token}" />
+					<input type="hidden" name="file_1" value=""> 
+					<input type="hidden" name="file_2" value=""> 
+					<input type="hidden" name="file_3" value=""> 
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
 					<table>
 						<tr>
