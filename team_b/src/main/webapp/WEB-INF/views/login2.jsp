@@ -35,7 +35,6 @@
         </div>
     </section>
     <!-- Normal Breadcrumb End -->
-
     <!-- Login Section Begin -->
     <section class="login spad">
         <div class="container">
@@ -43,16 +42,20 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>로그인</h3>
-                        <form method="post" action="loginAction.jsp">
+                        <h2><c:out value="${error }"/></h2>
+                        <form role="form" method='post' action="/login">
+                        <fieldset>
                             <div class="input__item">
-                                <input type="text" placeholder="account" name="userid">
+                                <input type="text" placeholder="userid" name="username">
                                 <span class="icon_mail"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="password" name="userpw">
+                                <input type="password" placeholder="password" name="password" value="">
                                 <span class="icon_lock"></span>
                             </div>
-                            <button type="submit" class="site-btn">로그인</button>
+                            <a href="/" class="site-btn">로그인</a>
+                            </fieldset>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                         </form>
                         <a href="#" class="forget_pass">로그인에 문제가 있습니까?</a>
                     </div>
@@ -96,7 +99,21 @@
     </div>
     <!-- Search model end -->
 
-
+  <script>
+  $(".site-btn").on("click", function(e){
+    
+    e.preventDefault();
+    $("form").submit();
+    
+  });
+  </script>
+  <c:if test="${param.logout != null}">
+      <script>
+      $(document).ready(function(){
+      	alert("로그아웃하였습니다.");
+      });
+      </script>
+</c:if>  
 
 
 </body>

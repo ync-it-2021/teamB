@@ -38,7 +38,7 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService service;
-	
+		
 	@Autowired
 	private GameInfoService gs;	
 	

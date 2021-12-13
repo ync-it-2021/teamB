@@ -107,7 +107,18 @@
               	<!-- 현재 할인중 탭 끝 프로모션 시작-->
 				<div class="col-lg-4 col-md-6 col-sm-8">
 					<div class="product__sidebar">
-						<div class="product__sidebar__view">
+						<div class="product__side	bar__view">
+							<div class="section-title">
+								<h5>상세검색(장르별)</h5>	
+							</div>
+							<div class="filter__gallery" >
+								<div class="product__sidebar__comment" style="color:white;">
+									<input type="checkbox" name="checks" value="FPS">FPS <br/>
+									<input type="checkbox" name="checks" value="RPG">RPG <br/>
+									<input type="checkbox" name="checks" value="액션">액션 <br/>
+								</div>
+							</div>
+							<br/>
 							<div class="section-title">
 								<h5>프로모션</h5>
 							</div>

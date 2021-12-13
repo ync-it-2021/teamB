@@ -5,6 +5,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="s" %>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -56,7 +57,7 @@
 	<!-- Header Section Begin -->
 	<header class="header">
 		<div class="container">
-			<form id='searchForm' action="/search" method='get'>	
+			<form id='searchForm' action="/search" method='get'>
 				<div class="input-group custom-search-form"
 					style="padding: 5px 0 5px 0; width: 50%; margin: 0 auto;">
 					<input type="text" class="form-control" placeholder="Search..."
@@ -104,23 +105,40 @@
 										<li><a href="#">1대1 문의</a></li>
 									</ul></li>
 								<li><a href="/project">프로젝트 소개</a></li>
+							<li><a href="#"> 
+							<i class="fa fa-user fa-fw"><span class="arrow_carrot-down"></span></i>
+							</a>
+								<ul class="dropdown">
+									<sec:authorize access="isAuthenticated()">
+										<li><a href="#"><i class="fa fa-user fa-fw"></i>
+												마이페이지</a></li>
+										<li><a href="/cart"><i class="icon_cart_alt"></i>
+												 장바구니</a></li>
+												<li class="divider"></li>
+										<li>
+											<a href="/customLogout"><i class="fa fa-sign-out fa-fw"></i> 로그아웃</a>
+										</li>
+									</sec:authorize>
+
+									<sec:authorize access="isAnonymous()">
+										<li><a href="/customLogin"><i class="fa fa-sign-in fa-fw"></i> 로그인</a></li>
+									</sec:authorize>
+								</ul> <!-- /.dropdown-user --></li>
+							<!-- /.dropdown -->
 							</ul>
 						</nav>
 					</div>
 				</div>
 				<div class="col-lg-2">
 					<div class="header__right">
-						<a href="/cart" class=""><span class="icon_cart_alt"></span></a>
-						<sec:authorize access="isAuthenticated()">
-
+						<!-- <a href="/cart" class=""><span class="icon_cart_alt"></span></a> -->
+						<!-- 로그인 -->
+<%-- 						<sec:authorize access="isAuthenticated()">
 							<a href="/logout"><span class="fa fa-sign-out"></span></a>
 						</sec:authorize>
-
 						<sec:authorize access="isAnonymous()">
-
 							<a href="/login"><span class="fa fa-sign-in"></span></a>
-						</sec:authorize>
-
+						</sec:authorize> --%>
 					</div>
 				</div>
 			</div>
