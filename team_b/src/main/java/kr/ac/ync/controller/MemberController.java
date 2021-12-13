@@ -36,11 +36,11 @@ public class MemberController {
 //		
 //	}
 	
-	@GetMapping("/signup")
-    public String signup(){
-		
-        return "signup";
-    }
+//	@GetMapping("/signup")
+//    public String signup(){
+//		
+//        return "signup";
+//    }
 	
 	/*
 	 * @GetMapping("/login") public void loginInput(String error, String logout,
