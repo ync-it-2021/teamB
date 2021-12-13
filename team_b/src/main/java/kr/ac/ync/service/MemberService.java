@@ -6,4 +6,6 @@ public interface MemberService {
 	
 	public void memberJoin(MemberVO member);
 
+	public int idChk(MemberVO mem);
+
 }

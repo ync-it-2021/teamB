@@ -36,9 +36,15 @@
 	WHERE	userid = #{userid} 
 	</select>
 	
+		<select id="idChk" resultMap="memberMap">
+	SELECT	count(*)
+	FROM	member
+	WHERE	userid = #{userid} 
+	</select>
+	
 	<insert id="memberJoin">
-	insert into member (userid, userpw, userName, userPhone, userMail) 
-				values(#{userid},#{userpw},#{userName},#{userPhone},#{userMail})
+	insert into member (userid, userpw, userName, userPhone, userMail, regdate) 
+				values(#{userid},#{userpw},#{userName},#{userPhone},#{userMail}, sysdate)
 	</insert>
 
 </mapper>
