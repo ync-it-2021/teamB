@@ -27,6 +27,7 @@ import kr.ac.ync.domain.GameInfoVO;
 import kr.ac.ync.domain.MemberVO;
 import kr.ac.ync.domain.PageDTO;
 import kr.ac.ync.service.BoardService;
+import kr.ac.ync.service.CartService;
 import kr.ac.ync.service.GameInfoService;
 import kr.ac.ync.service.MemberService;
 import kr.ac.ync.service.NewsService;
@@ -50,8 +51,8 @@ public class BoardController {
 	@Autowired
 	private NewsService ns;
 	
-//	@Autowired
-//	private MemberService ms;
+	@Autowired
+	private CartService cs;
 
 	
 	@GetMapping(value = "/*")
@@ -64,9 +65,9 @@ public class BoardController {
 		model.addAttribute("size", gs.getSizeSpec());
 		model.addAttribute("news", ns.ontheSide());
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	      String name = auth.getName(); //get logged in username
-			
-	      model.addAttribute("username", name);
+	    String name = auth.getName(); //get logged in username
+	    
+	    model.addAttribute("username", name);
 		
 		return "/board/index";
     }
@@ -98,6 +99,11 @@ public class BoardController {
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
 		model.addAttribute("news", ns.ontheSide());
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName(); //get logged in username
+	    
+	    model.addAttribute("username", name);
+		
 	}
 
 	@GetMapping("/register")

@@ -98,8 +98,11 @@ pageContext.setAttribute("BR", "<br/>");
 							</div>
 							<div class="anime__details__btn">
 								<a href="#" class="follow-btn"><i class="fa fa-heart-o"></i>
-									위시리스트 추가</a> <a href="#" class="watch-btn"><span><del>${games.sale_price}
-											KRW</del> ${games.price} KRW</span> <i class="fa fa-angle-right"></i></a>
+									위시리스트 추가</a>
+									<a href="/cart/add?game_num=${games.game_num}" class="watch-btn" onclick="addcart()">
+									<span><del>${games.sale_price} KRW</del>
+									 		   ${games.price} KRW</span>
+									 <i class="fa fa-angle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -222,6 +225,12 @@ pageContext.setAttribute("BR", "<br/>");
         <script src="js/jquery.slicknav.js"></script>
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/main.js"></script>
+        
+        <script>
+        function addcart() {
+        	  alert('장바구니에 추가되었습니다.');
+        	}
+        </script>
 
     </body>
 
