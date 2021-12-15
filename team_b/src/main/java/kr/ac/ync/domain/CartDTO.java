@@ -1,23 +1,15 @@
 package kr.ac.ync.domain;
 
 public class CartDTO {
-	   private int cart_num;
-	    
+		private int cart_num;
 	    private String USERID;
-	    
-	    private int game_num;
-	    
+	    private int game_num; 
 	    private int QUANTITY;
-	    
-	    
+
 	    private String title;
-	    
 	    private int price;
-	    
 	    private double sale_price;
-	    
 	    private int salePrice;
-	    
 	    private int totalPrice;
 
 	    public void initSaleTotal() {
