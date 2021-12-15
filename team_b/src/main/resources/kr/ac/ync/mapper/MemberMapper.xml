@@ -28,11 +28,13 @@
 	SELECT	userid,
 			userpw,
 			username,
+			userphone,
+			usermail,
 			enabled,
 			regdate,
-			updatedate,
-			auth
-	FROM	tbl_member
+			auth,
+			enabled
+	FROM	member
 	WHERE	userid = #{userid} 
 	</select>
 	
