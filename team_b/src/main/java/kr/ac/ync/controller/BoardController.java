@@ -1,11 +1,15 @@
 package kr.ac.ync.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +28,7 @@ import kr.ac.ync.domain.MemberVO;
 import kr.ac.ync.domain.PageDTO;
 import kr.ac.ync.service.BoardService;
 import kr.ac.ync.service.GameInfoService;
+import kr.ac.ync.service.MemberService;
 import kr.ac.ync.service.NewsService;
 import kr.ac.ync.util.UploadUtils;
 import lombok.extern.log4j.Log4j;
@@ -45,6 +50,10 @@ public class BoardController {
 	@Autowired
 	private NewsService ns;
 	
+//	@Autowired
+//	private MemberService ms;
+
+	
 	@GetMapping(value = "/*")
     public String shop(Model model){
 		log.info("index");
@@ -54,6 +63,10 @@ public class BoardController {
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
 		model.addAttribute("news", ns.ontheSide());
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	      String name = auth.getName(); //get logged in username
+			
+	      model.addAttribute("username", name);
 		
 		return "/board/index";
     }
