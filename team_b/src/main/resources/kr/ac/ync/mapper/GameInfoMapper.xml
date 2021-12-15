@@ -80,7 +80,7 @@
 	<insert id="insertSelectKey">
 
 		<selectKey keyProperty="game_num" order="BEFORE"
-			resultType="kr.ac.ync.domain.GameInfoVO">
+			resultType="long">
 			select seq_gamenum.nextval from dual
 		</selectKey>
 
