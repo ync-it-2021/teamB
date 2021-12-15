@@ -4,11 +4,12 @@ import org.slf4j.Logger;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,47 +19,37 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
+@RequestMapping("/*")
 public class MemberController {
-
-//	@Autowired
-//	private MemberService MemberService;
+	@Autowired
+	private MemberService MemberService;
+	
 	//회원가입
-//	@RequestMapping(value = "join", method =RequestMethod.POST)
-//	public String joinPOST(MemberVO member) {
-//		logger.info("join 진입");
-//		
-//		//회원가입 서비스 실행
-//		memberservice.memberJoin(member);
-//		
-//		logger.info("join Service 성공");
-//		
-//		return "redirect:/index";
-//		
-//	}
+	@GetMapping("/signup")
+    public String signup(){
+		
+        return "signup";
+    }
 	
-//	@GetMapping("/signup")
-//    public String signup(){
-//		
-//        return "signup";
-//    }
+	@PostMapping("/signup")
+	public String signup(MemberVO member) {
+		BCryptPasswordEncoder scpwd = new BCryptPasswordEncoder();
+		member.setUserpw(scpwd.encode(member.getUserpw()));
+//		log.warn(member.getUserName());
+//		log.warn(member.getUserid());
+//		log.warn(member.getUserpw());
+//		log.warn(member.getUserPhone());
+//		log.warn(member.getUserMail());
 	
-	/*
-	 * @GetMapping("/login") public void loginInput(String error, String logout,
-	 * Model model) {
-	 * 
-	 * log.info("error: " + error); log.info("logout: " + logout);
-	 * 
-	 * if (error != null) { model.addAttribute("error",
-	 * "Login Error Check Your Account"); }
-	 * 
-	 * if (logout != null) { model.addAttribute("logout", "Logout!!"); } }
-	 * 
-	 * @GetMapping("/logout") public void logoutGET() {
-	 * 
-	 * log.info("custom logout"); }
-	 * 
-	 * @PostMapping("/logout") public void logoutPost() {
-	 * 
-	 * log.info("post custom logout"); }
-	 */
+		
+		MemberService.memberJoin(member);
+		return "redirect:/";
+	}
+	
+	@GetMapping("/login")
+    public String login(){
+		
+        return "login";
+    }
+
 }

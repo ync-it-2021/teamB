@@ -33,28 +33,6 @@ public class CommonController {
 		model.addAttribute("msg", "Access Denied");
 	}
 	
-	@GetMapping("/signup")
-    public void signup(){
-		
-    }
-	
-	@PostMapping("/signup")
-	public String signup(MemberVO member) {
-				log.info("sign up");
-//				String inputPass = mem.getUserpw();
-//				String pass = pwen.encode(inputPass);
-//				mem.setUserpw(pass);
-				ms.memberJoin(member);
-
-		return "redirect:/login";
-	}
-	
-//	@ResponseBody
-//	@RequestMapping(value="/idChk", method = RequestMethod.POST)
-//	public int idChk(MemberVO mem) throws Exception {
-//		int result = ms.idChk(mem);
-//		return result;
-//	}
 
 	@GetMapping("/customLogin")
 	public void loginInput(String error, String logout, Model model) {
@@ -71,20 +49,20 @@ public class CommonController {
 		}
 	}
 	
-	@GetMapping("/login")
-	public void FrontLoginInput(String error, String logout, Model model) {
-
-		log.info("error: " + error);
-		log.info("logout: " + logout);
-
-		if (error != null) {
-			model.addAttribute("error", "Login Error Check Your Account");
-		}
-
-		if (logout != null) {
-			model.addAttribute("logout", "Logout!!");
-		}
-	}
+//	@GetMapping("/login")
+//	public void FrontLoginInput(String error, String logout, Model model) {
+//
+//		log.info("error: " + error);
+//		log.info("logout: " + logout);
+//
+//		if (error != null) {
+//			model.addAttribute("error", "Login Error Check Your Account");
+//		}
+//
+//		if (logout != null) {
+//			model.addAttribute("logout", "Logout!!");
+//		}
+//	}
 
 	@GetMapping("/customLogout")
 	public void logoutGET() {
