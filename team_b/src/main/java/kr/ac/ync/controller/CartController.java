@@ -72,5 +72,5 @@ public class CartController {
 		int total = cartService.getTotal(userid);
 		model.addAttribute("total", total);
 		return "/cart";
-	}
+	}//
 }
