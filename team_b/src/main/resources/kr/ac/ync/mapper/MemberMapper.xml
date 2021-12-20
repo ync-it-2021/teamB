@@ -28,13 +28,8 @@
 	SELECT	userid,
 			userpw,
 			username,
-			userphone,
 			usermail,
-			enabled,
-			regdate,
-			auth,
-			enabled
-			updatedate,
+			userphone,
 			auth
 	FROM	member
 	WHERE	userid = #{userid} 
@@ -53,7 +48,7 @@
 	
 	<select id="ReadMemeber" resultMap="memberMap">
 	<![CDATA[select  userid,
-			userpw.
+			userpw,
 			username,
 			usermail,
 			userphone,
