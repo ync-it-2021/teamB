@@ -110,7 +110,7 @@
 							</a>
 								<ul class="dropdown">
 									<sec:authorize access="isAuthenticated()">
-										<li><a href="#"><i class="fa fa-user fa-fw"></i> ${username}</a></li>
+										<li><a href="/user_detail/${username }"><i class="fa fa-user fa-fw"></i> ${username}</a></li>
 										<li><a href="/cart/${username}"><i class="fa fa-shopping-cart fa-fw"></i> 장바구니</a></li>
 												<li class="divider"></li>
 										<li>

@@ -16,6 +16,9 @@ a:link { color:black; text-decoration:none; }
 a:visited { color:black; text-decoration:none; }
 a:hover { color:black; text-decoration:none; }
 a:active { color:black; text-decoration:none; }
+table {font-size:12px;}
+th {width:60px;}
+td {width:200px;}
 </style>
 <body>
     <!-- Page Preloder -->
@@ -29,7 +32,7 @@ a:active { color:black; text-decoration:none; }
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="normal__breadcrumb__text">
-                        <h2>자주묻는 질문</h2>
+                        <h2>마이페이지</h2>
 					</div>
                 </div>
             </div>
@@ -42,37 +45,51 @@ a:active { color:black; text-decoration:none; }
         <div class="container">
             <div class="row-sm-6">
                 <div class="col-lg-14">
-                <h4 style="color:white;">문답</h4>
+                <h4 style="color:white;">정보</h4>
                 <hr>
 					<div class="panel-group">
 						<!-- 그룹 태그로 role과 aria-multiselectable를 설정한다. -->
 						<input type="hidden" name="${_csrf.parameterName}"
 								value="${_csrf.token}" />
-								<table>
-								<tbody>
+				<table class="table table-striped table-bordered table-dark"
+					style="table-layout:fixed;">
+							<thead class="thead-dark">
 								<tr>
-								<th>이름</th>
-								<th><c:out value=" ${member_info.userName }" /></th>
+									<th>이름</th>
+									<td><c:out value=" ${member_info.userName }" /></td>
 								</tr>
 								<tr>
-								<th>아이디</th>
-								<th><c:out value=" ${member_info.userid }" /></th>
+									<th>아이디</th>
+									<td><c:out value=" ${member_info.userid }" /></td>
 								</tr>
 								<tr>
-								<th>비밀번호</th>
-								<th><c:out value=" ${member_info.userpw }" /></th>
+									<th>이메일</th>
+									<td><c:out value=" ${member_info.userMail }" /></td>
 								</tr>
 								<tr>
-								<th>이메일</th>
-								<th><c:out value=" ${member_info.userMail }" /></th>
+									<th>연락처</th>
+									<td><c:out value=" ${member_info.userPhone }" /></td>
 								</tr>
 								<tr>
-								<th>가입날짜</th>
-								<th><c:out value=" ${member_info.regDate }" /></th>
+									<th>가입날짜</th>
+									<td><c:out value=" ${member_info.regDate }" /></td>
 								</tr>
-								</tbody>
-								</table>
-						 	
+								<tr>
+									<th>상태</th>
+									<td>
+										<c:choose>
+											<c:when test="${enabled eq 1 }">
+												유효
+											</c:when>
+											<c:when test="${enabled eq 1 }">
+												정지
+											</c:when>
+										</c:choose>
+									</td>
+								</tr>
+							</thead>
+						</table>
+
 						<!--  	<div id="collapse${faq.faq_num }" class="panel-collapse collapse"
 									role="tabpanel">-->	
 									<div class="panel-body">
