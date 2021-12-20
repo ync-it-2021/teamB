@@ -24,11 +24,14 @@
 
 	<select id="read" resultType="kr.ac.ync.domain.MemberVO">
 	<![CDATA[	
-			SELECT	userid,
+			SELECT	
+			userid,
 			userpw,
 			username,
 			enabled,
 			regdate,
+			userphone,
+			usermail,
 			updatedate,
 			auth
 	FROM	member

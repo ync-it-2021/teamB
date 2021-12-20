@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,10 +23,14 @@ import kr.ac.ync.domain.MemberVO;
 import kr.ac.ync.domain.PageDTO;
 import kr.ac.ync.security.domain.CustomUser;
 import kr.ac.ync.service.CartService;
+import kr.ac.ync.service.GameInfoService;
 import kr.ac.ync.service.MemberService;
 
 @Controller
 public class MypageController {
+	
+	@Autowired
+	private GameInfoService gs;
 	
 	@Autowired
 	private CartService cartservice;
@@ -33,15 +38,23 @@ public class MypageController {
 	@Autowired
 	private MemberService memberservice;
 	
-	@GetMapping("/user_detail")
-	public String member_detail(Model model) {
+	@RequestMapping(value = "user_detail/{userid}", method = RequestMethod.GET)
+	@PreAuthorize("isAuthenticated()")
+	public String member_detail(Model model, @PathVariable("userid") String userid) {
 		
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		CustomUser userid = (CustomUser) authentication.getPrincipal();
+	//	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	
+		model.addAttribute("sales",gs.getGamesListforSale());
+		model.addAttribute("genre",gs.getGenre());
+		model.addAttribute("size",gs.getSizeSpec());
 		
-		model.addAttribute("memeber_info",memberservice.ReadMember(userid.getUsername()));
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String name = auth.getName();
 		
-		return "";
+		model.addAttribute("username",name);
+		model.addAttribute("member_info",memberservice.ReadMember(userid));
+		
+		return "/user_detail";
 	}
 	
 	@GetMapping("/user_modify")
