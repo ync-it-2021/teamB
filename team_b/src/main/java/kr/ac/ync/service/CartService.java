@@ -13,7 +13,7 @@ public interface CartService {
 	public List<CartDTO> getCartList(String USERID);
 	
 	//장바구니 삭제
-	public int deleteCart(int cart_num);
+	public boolean deleteCart(Long cart_num);
 	
 	public int getTotal(String userid);
 }

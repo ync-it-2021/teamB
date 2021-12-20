@@ -7,7 +7,6 @@
 
 <%@include file="includes/shopHeader.jsp"%>
 <body>
-	${cartInfo }
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -64,14 +63,19 @@
 						
 						<tr>
 							<td>${ci.cart_num }</td>
-							<td colspan="2">${ci.title }</td>
+							<td colspan="2"><a href="detail?game_num=${ci.game_num }">${ci.title }</a></td>
 							<td>${ci.platform }</td>
 							<td><del><fmt:formatNumber value="${ci.price }" pattern="#,###"/></del> 원</td>
 							<td><fmt:formatNumber value="${ci.sale_price }" pattern="#,###"/> 원</td>
 							<td>
-									<a href="#" role="button" data-oper='remove' class="btn-sm btn-danger"> 
+									<form method="post" action="/cart/delete">
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+										<input type="hidden" value="${ci.cart_num}" name="cart_num">
+										<input type='hidden' name="USERID" value='<c:out value="${username }"/>'>
+									<button type="submit" data-oper='remove' class="btn-sm btn-danger" id="delBtn">
 										<i class="fa fa-trash fa-fw"></i>
-									</a>
+									</button>
+							</form>
 							</td>
 						</tr>
 						<!-- end -->
@@ -115,10 +119,10 @@
     <script type="text/javascript">
     //장바구니 삭제 버튼
     $(".btn-sm").on("click",function(e){
-   	e.preventDefault();
-   	const cart_num = $(this).data("cart_num");
-   	$(".delete_cart_num").val(cart_num);
-   	$(".quantity_delete_form").submit();
+   		e.preventDefault();
+   		const cart_num = $(this).data("cart_num");
+   		$(".delete_cart_num").val(cart_num);
+  	 	$("#quantity_delete_form").submit();
     });
     
  // 서버 데이터
@@ -138,13 +142,13 @@
     				}
     			})
     		});
-	function cartAlert(result) {
+/* 	function cartAlert(result) {
 		if(result == '0'){
 			alert("장바구니에 추가를 하지 못하였습니다");
 		}else if(result =='2'){
 			alert("장바구니에 이미 추가되어져 있습니다");
 		}
-	}
+	} */
     		
 
     </script>

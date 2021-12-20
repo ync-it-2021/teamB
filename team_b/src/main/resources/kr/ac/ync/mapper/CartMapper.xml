@@ -3,8 +3,10 @@
 <mapper namespace="kr.ac.ync.mapper.CartMapper">
 	<!-- 카트 추가 -->
 	<insert id="addCart">
-		INSERT INTO CART(cart_num,USERID, game_num, QUANTITY)
-		VALUES(#{cart_num},#{USERID},#{game_num},#{QUANTITY})
+		INSERT INTO CART
+			(cart_num,USERID, game_num, QUANTITY)
+		VALUES
+			(seq_cart.nextval, #{USERID},#{game_num}, 1)
 	</insert>
 
 

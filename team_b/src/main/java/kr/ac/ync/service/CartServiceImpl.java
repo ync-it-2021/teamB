@@ -40,7 +40,7 @@ public class CartServiceImpl implements CartService {
 	}
 	
 	@Override
-	public int deleteCart(int cart_num) {
+	public boolean deleteCart(Long cart_num) {
 		return cartMapper.deleteCart(cart_num);
 	}
 

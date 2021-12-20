@@ -8,7 +8,7 @@ public interface CartMapper {
 
 	public int addCart(CartDTO cart);
 	
-	public int deleteCart(int cart_num);
+	public boolean deleteCart(Long cart_num); //삭제
 	
 	public List<CartDTO> getCart(String USERID);
 	

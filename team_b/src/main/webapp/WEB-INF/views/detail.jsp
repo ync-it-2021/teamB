@@ -99,10 +99,15 @@ pageContext.setAttribute("BR", "<br/>");
 							<div class="anime__details__btn">
 								<a href="#" class="follow-btn"><i class="fa fa-heart-o"></i>
 									위시리스트 추가</a>
-									<a href="/cart/add?game_num=${games.game_num}" class="watch-btn" onclick="addcart()">
+									<form method="post" action="/detail" id="form">
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+										<input type='hidden' name='game_num' value='<c:out value="${games.game_num }"/>'>
+										<input type='hidden' name="USERID" value='<c:out value="${username }"/>'>
+									<a href="#" class="watch-btn" onclick="addcart()">
 									<span><del>${games.sale_price} KRW</del>
 									 		   ${games.price} KRW</span>
 									 <i class="fa fa-angle-right"></i></a>
+									 </form>
 							</div>
 						</div>
 					</div>
@@ -228,8 +233,9 @@ pageContext.setAttribute("BR", "<br/>");
         
         <script>
         function addcart() {
-        	  alert('장바구니에 추가되었습니다.');
-        	}
+      	  alert("장바구니에 추가되었습니다.");
+      	  document.getElementById('form').submit();
+      	}
         </script>
 
     </body>

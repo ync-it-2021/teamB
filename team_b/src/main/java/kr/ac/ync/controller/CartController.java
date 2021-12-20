@@ -4,11 +4,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ac.ync.domain.CartDTO;
@@ -25,52 +29,33 @@ public class CartController {
 	@Autowired
 	private GameInfoService gs;	
 	
-	@PostMapping("/cart/add")
-	@ResponseBody
-	public String addCartPOST(CartDTO cart, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		MemberVO mvo = (MemberVO)session.getAttribute("member");
-		if(mvo == null) {
-			return "";
-		}
+	@PostMapping("/detail")
+	@PreAuthorize("isAuthenticated()")
+	public String addCartPOST(CartDTO cart, HttpServletRequest request,Model model) {
 		
-		int result =  cartService.addCart(cart);
-		
-		return result + "";
+		cartService.addCart(cart);
+		return "redirect:/cart/" + cart.getUSERID();
 	}
 	
-//	@GetMapping("/cart/{USERID}")
-//	public String cartPageGET (@PathVariable("USERID") String userId, Model model) {
-//		model.addAttribute("cartInfo",cartService.getCartList(userId));
-//		
-//		return "/cart";
-//	}
-	
-//	@GetMapping("/cart")
-//    public String cart(Model model){
-//		model.addAttribute("sales", gs.getGamesListforSale());
-//		model.addAttribute("genre", gs.getGenre());
-//		model.addAttribute("size", gs.getSizeSpec());
-//		
-//        return "cart";
-//    }
-//	
 	@PostMapping("/cart/delete")
-	public String deleteCart (CartDTO cart) {
-		cartService.deleteCart(cart.getCart_num());
-		
+	public String deleteCart (CartDTO cart, @RequestParam("cart_num") Long cart_num) {
+		cartService.deleteCart(cart_num);
+
 		return "redirect:/cart/"+cart.getUSERID();
 	}
 	
 	@GetMapping("/cart/{userid}")
+	@PreAuthorize("isAuthenticated()")
 	public String cartPageGET(@PathVariable("userid") String userid, Model model ) {
 		model.addAttribute("sales", gs.getGamesListforSale());
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String name = auth.getName(); //get logged in username
+	    
+	    model.addAttribute("username", name);
 		
-		model.addAttribute("cartInfo", cartService.getCartList(userid));
-		int total = cartService.getTotal(userid);
-		model.addAttribute("total", total);
+		model.addAttribute("cartInfo",cartService.getCartList(userid));
 		return "/cart";
-	}//
+	}
 }

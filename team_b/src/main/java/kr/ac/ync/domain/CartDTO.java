@@ -1,9 +1,9 @@
 package kr.ac.ync.domain;
 
 public class CartDTO {
-		private int cart_num;
+		private Long cart_num;
 	    private String USERID;
-	    private int game_num; 
+	    private Long game_num; 
 	    private int QUANTITY;
 
 	    private String title;
@@ -18,11 +18,11 @@ public class CartDTO {
 			this.totalPrice = this.salePrice*this.QUANTITY;
 		}
 
-		public int getCart_num() {
+		public Long getCart_num() {
 			return cart_num;
 		}
 
-		public void setCart_num(int cart_num) {
+		public void setCart_num(Long cart_num) {
 			this.cart_num = cart_num;
 		}
 
@@ -34,11 +34,11 @@ public class CartDTO {
 			USERID = uSERID;
 		}
 
-		public int getGame_num() {
+		public Long getGame_num() {
 			return game_num;
 		}
 
-		public void setGame_num(int game_num) {
+		public void setGame_num(Long game_num) {
 			this.game_num = game_num;
 		}
 
