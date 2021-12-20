@@ -54,6 +54,8 @@ public class CartServiceImpl implements CartService {
 	
 	@Override
 	public int getTotalCount(Criteria cri) {
-		return cartMapper.getTotalCount(cri);
-}
+		int count = 0;
+		count = cartMapper.getTotalCount(cri);
+		return count;
+	}
 }

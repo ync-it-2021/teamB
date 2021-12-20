@@ -73,15 +73,14 @@ public class MypageController {
 		return "redirect:/user_detail";
 	}
 	
-	@GetMapping("/user_cart")
-	public String UserCart(@ModelAttribute("cri") Criteria cri, Model model) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		CustomUser user = (CustomUser) authentication.getPrincipal();
-		
-		model.addAttribute("cart",cartservice.getCartList(user.getUsername()));
-		int total = cartservice.getTotalCount(cri);
-		model.addAttribute("pagemaker",new PageDTO(cri,total));
-		return "user_cart";
-	
-	}
+//	@GetMapping("/user_cart")
+//	public String UserCart(@ModelAttribute("cri") Criteria cri, Model model) {
+//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//		CustomUser user = (CustomUser) authentication.getPrincipal();
+//		
+//		model.addAttribute("cart",cartservice.getCartList(user.getUsername()));
+//		int total = cartservice.getTotalCount(cri);
+//		model.addAttribute("pagemaker",new PageDTO(cri,total));
+//		return "user_cart";
+//	}
 }
