@@ -144,5 +144,10 @@
 		</div>
 	</header>
 	<!-- Header End -->
+	<script>
+	  $(".fa-sign-out").on("click", function(e){
+			alert("로그아웃 하였습니다.");
+		  });
+	</script>
 </body>
 </html>

@@ -70,20 +70,20 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
 <ul class="dropdown-menu dropdown-user">
-    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+    <li><a href="#"><i class="fa fa-user fa-fw"></i> 어드민 </a>
     </li>
     
     <li class="divider"></li>
 		<sec:authorize access="isAuthenticated()">
 		 
 		<li><a href="/customLogout"><i class="fa fa-sign-out fa-fw"></i>
-		    Logout</a></li>
+		    로그아웃</a></li>
 		</sec:authorize>
 		
 		<sec:authorize access="isAnonymous()">
 		
 		<li><a href="/customLogin"><i class="fa fa-sign-out fa-fw"></i>
-		    Login</a></li>
+		    로그인</a></li>
 		</sec:authorize>
 </ul>
                     <!-- /.dropdown-user -->
@@ -122,6 +122,11 @@
             <!-- /.navbar-static-side -->
         </nav>
         <div id="page-wrapper">
+     <script>
+	  $(".fa-sign-out").on("click", function(e){
+			alert("로그아웃 하였습니다.");
+		  });
+	</script>
         
        <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
