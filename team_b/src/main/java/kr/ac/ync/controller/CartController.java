@@ -60,7 +60,7 @@ public class CartController {
 		cartService.deleteCart(cart.getCart_num());
 		
 		return "redirect:/cart/"+cart.getUSERID();
-	}
+	}//
 	
 	@GetMapping("/cart/{userid}")
 	public String cartPageGET(@PathVariable("userid") String userid, Model model ) {
