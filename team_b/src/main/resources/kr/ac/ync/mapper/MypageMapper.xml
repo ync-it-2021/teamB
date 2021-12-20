@@ -22,7 +22,7 @@
 		</trim>
 	</sql>
 
-	<select id="read" resultMap="memberMap">
+	<select id="read" resultType="kr.ac.ync.domain.MemberVO">
 	<![CDATA[	
 			SELECT	userid,
 			userpw,
@@ -45,9 +45,5 @@
 		b.game_num
 		where userid = #{userid}
 	]]>
-	</select>
-	
-	<select id="getBoardCount" resultMap="kr.ac.ync.domain.BoardVO">
-		select count(*) from tbl_board where userid = #{userid}
 	</select>
 </mapper>
