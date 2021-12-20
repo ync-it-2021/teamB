@@ -78,7 +78,7 @@
 						</c:forEach>
 						<tr>
 							<td colspan="4">합계</td>
-							<td colspan="2">${total	 } 원</td>
+							<td colspan="2"><fmt:formatNumber value="${total }" pattern="#,###"/>  원</td>
 						</tr>
 					</table>
 					<a href="#" role="button" data-cart_num ="${ci.cart_num }"data-oper='submit' class="btn site-btn" style="float:right;">
