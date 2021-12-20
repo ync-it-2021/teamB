@@ -44,5 +44,10 @@
 		where USERID = #{USERID} and game_num = #{game_num}
 
 	</select>
+	
+	<select id="getTotalCount" resultType="int">
+	 SELECT count(*) FROM cart
+	 WHERE cart_num > 0
+	</select>
 
 </mapper>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.ac.ync.domain.CartDTO;
+import kr.ac.ync.domain.Criteria;
 import kr.ac.ync.mapper.CartMapper;
 
 @Service
@@ -50,4 +51,9 @@ public class CartServiceImpl implements CartService {
 		total = cartMapper.getTotal(USERID);
 		return total;
 	}
+	
+	@Override
+	public int getTotalCount(Criteria cri) {
+		return cartMapper.getTotalCount(cri);
+}
 }

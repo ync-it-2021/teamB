@@ -3,6 +3,7 @@ package kr.ac.ync.service;
 import java.util.List;
 
 import kr.ac.ync.domain.CartDTO;
+import kr.ac.ync.domain.Criteria;
 
 public interface CartService {
 	
@@ -16,4 +17,6 @@ public interface CartService {
 	public boolean deleteCart(Long cart_num);
 	
 	public int getTotal(String userid);
+	
+	public int getTotalCount(Criteria cri);
 }

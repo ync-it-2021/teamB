@@ -3,6 +3,7 @@ package kr.ac.ync.mapper;
 import java.util.List;
 
 import kr.ac.ync.domain.CartDTO;
+import kr.ac.ync.domain.Criteria;
 
 public interface CartMapper {
 
@@ -16,5 +17,6 @@ public interface CartMapper {
 	
 	public int getTotal(String USERID);
 	
+	public int getTotalCount(Criteria cri);
 	
 }
