@@ -47,27 +47,27 @@
 					style="table-layout:fixed;">
 						<thead class="thead-dark">
 							<tr>
-								<th>이미지</th>
+								<th>주문번호</th>
 								<th colspan="2">상품명</th>								
 								<th>플랫폼</th>
-								<th>가격</th>
+								<th>정상가</th>
+								<th>할인가</th>
 								<th width="55px"></th>
 							</tr>
 						</thead>
 						<!-- 아마 여기서부터 c:foreach 시작 -->
 						<c:forEach items="${cartInfo }" var = "ci">
-						<td class = "td_width_1 cart_info_td">
 						<input type ="hidden" class="individual_Price_input" value="${ci.price }">
 						<input type ="hidden" class="individual_salePrice_input" value="${ci.salePrice }">
 						<input type ="hidden" class="individual_QUANTITY_input" value="${ci.QUANTITY }">
 						<input type ="hidden" class="individual_totalPrice_input" value="${ci.totalPrice }">
-						</td>
 						
 						<tr>
-							<td>이미지</td>
+							<td>${ci.cart_num }</td>
 							<td colspan="2">${ci.title }</td>
-							<td>스팀</td>
-							<td><del>${ci.price }</del>${ci.sale_price }</td>
+							<td>${ci.platform }</td>
+							<td><del><fmt:formatNumber value="${ci.price }" pattern="#,###"/></del> 원</td>
+							<td><fmt:formatNumber value="${ci.sale_price }" pattern="#,###"/> 원</td>
 							<td>
 									<a href="#" role="button" data-oper='remove' class="btn-sm btn-danger"> 
 										<i class="fa fa-trash fa-fw"></i>
@@ -75,11 +75,11 @@
 							</td>
 						</tr>
 						<!-- end -->
+						</c:forEach>
 						<tr>
 							<td colspan="4">합계</td>
-							<td colspan="2">42,000 원</td>
+							<td colspan="2">${total	 } 원</td>
 						</tr>
-						</c:forEach>
 					</table>
 					<a href="#" role="button" data-cart_num ="${ci.cart_num }"data-oper='submit' class="btn site-btn" style="float:right;">
 						주문하기 </a>

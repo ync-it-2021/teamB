@@ -14,5 +14,7 @@ public interface CartMapper {
 	
 	public CartDTO checkCart(CartDTO cart);
 	
+	public int getTotal(String USERID);
+	
 	
 }

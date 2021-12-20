@@ -7,6 +7,7 @@ public class CartDTO {
 	    private int QUANTITY;
 
 	    private String title;
+	    private String platform;
 	    private int price;
 	    private double sale_price;
 	    private int salePrice;
@@ -91,9 +92,26 @@ public class CartDTO {
 
 		@Override
 		public String toString() {
-			return "CartDTO [cart_num=" + cart_num + ", USERID=" + USERID + ", game_num=" + game_num + ", QUANTITY="
-					+ QUANTITY + ", title=" + title + ", price=" + price + ", sale_price=" + sale_price + ", salePrice="
-					+ salePrice + ", totalPrice=" + totalPrice + "]";
+			return "CartDTO ["
+					+ "cart_num=" + cart_num + 
+					", USERID=" + USERID + 
+					", game_num=" + game_num + 
+					", QUANTITY=" + QUANTITY +
+					", title=" + title + 
+					", price=" + price + 
+					", platform=" + platform + 
+					", sale_price=" + sale_price + 
+					", salePrice=" + salePrice + 
+					", totalPrice=" + totalPrice 
+					+ "]";
+		}
+
+		public String getPlatform() {
+			return platform;
+		}
+
+		public void setPlatform(String platform) {
+			this.platform = platform;
 		}
 		
 

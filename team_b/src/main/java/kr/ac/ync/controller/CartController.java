@@ -68,7 +68,9 @@ public class CartController {
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
 		
-		model.addAttribute("cartInfo",cartService.getCartList(userid));
+		model.addAttribute("cartInfo", cartService.getCartList(userid));
+		int total = cartService.getTotal(userid);
+		model.addAttribute("total", total);
 		return "/cart";
 	}
 }
