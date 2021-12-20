@@ -32,7 +32,7 @@
 			regdate,
 			updatedate,
 			auth
-	FROM	tbl_member
+	FROM	member
 	WHERE	userid = #{userid} 
 	</select>
 	
@@ -46,5 +46,26 @@
 	insert into member (userid, userpw, userName, userPhone, userMail, regdate) 
 				values(#{userid},#{userpw},#{userName},#{userPhone},#{userMail}, sysdate)
 	</insert>
+	
+	<select id="ReadMemeber" resultMap="memberMap">
+	<![CDATA[select  userid,
+			userpw.
+			username,
+			usermail,
+			userphone,
+			auth
+	from	memeber
+	where	userid = #{userid}	
+	]]>
+	</select>
+	
+	<update id="member_modify">
+	<![CDATA[ 
+		update member
+		set	   userphone = #{userphone},
+			   usermail = #{usermail}
+	    where  userid = #{userid}
+	]]>
+	</update>
 
 </mapper>

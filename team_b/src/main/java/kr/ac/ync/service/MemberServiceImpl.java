@@ -22,5 +22,15 @@ public class MemberServiceImpl implements MemberService{
 	public int idChk(MemberVO member) {
 		return mapper.idChk(member);
 	}
+	
+	@Override
+	public MemberVO ReadMember(String USERID) {
+		return mapper.read(USERID);
+	}
 
+	
+	@Override
+	public void modify(MemberVO member) {
+		
+	}
 }
