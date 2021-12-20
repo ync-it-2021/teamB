@@ -64,10 +64,10 @@ public class BoardController {
 		model.addAttribute("genre", gs.getGenre());
 		model.addAttribute("size", gs.getSizeSpec());
 		model.addAttribute("news", ns.ontheSide());
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
-	    
-	    model.addAttribute("username", name);
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		    String name = auth.getName(); //get logged in username
+		    
+		    model.addAttribute("username", name);
 		
 		return "/board/index";
     }

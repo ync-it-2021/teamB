@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.ac.ync.mapper.MypageMapper">
+
+<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							title LIKE '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							content LIKE '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'W'.toString()">
+							writer LIKE '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<select id="read" resultMap="memberMap">
+	<![CDATA[	
+			SELECT	userid,
+			userpw,
+			username,
+			enabled,
+			regdate,
+			updatedate,
+			auth
+	FROM	member
+	WHERE	userid = #{userid} 
+	]]>
+	</select>
+
+	<select id="getCart" resultType="kr.ac.ync.domain.CartDTO">
+
+	<![CDATA[	
+		select a.cart_num, a.userid, a.game_num, a.QUANTITY, b.title, b.price,
+		b.sale_price
+		from CART a left outer join GAME_INFO b on a.game_num =
+		b.game_num
+		where userid = #{userid}
+	]]>
+	</select>
+	
+	<select id="getBoardCount" resultMap="kr.ac.ync.domain.BoardVO">
+		select count(*) from tbl_board where userid = #{userid}
+	</select>
+</mapper>
